@@ -13,7 +13,6 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
 <DialogPane prefHeight="366.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
    <header>
       <Label style="-fx-border-width: 0 0 2 0; -fx-border-color: #ECF0F1;" text="Announce Rankings">
@@ -31,7 +30,7 @@
                   <Insets left="8.0" right="8.0" top="8.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" minHeight="14.0" mnemonicParsing="false" onAction="#cancel" prefHeight="44.0" prefWidth="61.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font-size: 14;" text="Cancel" textFill="#7c7c7c">
+                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" minHeight="14.0" mnemonicParsing="false" onAction="#cancel" prefHeight="44.0" prefWidth="61.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font-size: 14;" text="Cancel" textFill="WHITE">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -39,7 +38,7 @@
                         <Insets right="12.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="14.0" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="148.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Rankings">
+                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="14.0" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="148.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Rankings" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>

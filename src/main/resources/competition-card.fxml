@@ -79,7 +79,7 @@
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="status" style="-fx-text-fill: #49FF00;" text="Open">
+                  <Label fx:id="status" style="-fx-text-fill: #49FF00;" text="Open" textFill="#49ff00">
                      <padding>
                         <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                      </padding>

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<DialogPane fx:controller="cards.TeamDialog" prefHeight="114.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane prefHeight="114.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamDialog">
    <header>
       <Label fx:id="headerText" prefHeight="58.0" prefWidth="478.0" style="-fx-border-color: #f5f5f5; -fx-border-width: 0 0 3 0; -fx-text-fill: #3DB2FF;" text="(Create/Edit) a Team">
          <padding>
@@ -22,7 +21,7 @@
    <content>
       <VBox fx:id="studentsContainer" alignment="BOTTOM_RIGHT" minHeight="200.0" prefWidth="488.0">
          <children>
-            <Button fx:id="confirm" alignment="CENTER" mnemonicParsing="false" onAction="#mutateTeams" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #3DB2FF; -fx-padding: 10; -fx-background-radius: 4;" text="Confirm">
+            <Button fx:id="confirm" alignment="CENTER" mnemonicParsing="false" onAction="#mutateTeams" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #3DB2FF; -fx-padding: 10; -fx-background-radius: 4;" text="Confirm" textFill="WHITE">
                <VBox.margin>
                   <Insets right="16.0" />
                </VBox.margin>

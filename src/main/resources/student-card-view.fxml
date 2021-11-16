@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox alignment="CENTER" prefHeight="106.0" prefWidth="371.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
    <children>
       <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -19,7 +18,7 @@
             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
          </HBox.margin>
       </ImageView>
-      <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="374.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 2;">
+      <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="374.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 1;">
          <children>
             <Label fx:id="name" prefHeight="37.0" prefWidth="370.0" text="Student Name">
                <padding>
@@ -43,7 +42,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dept" prefHeight="46.0" prefWidth="358.0" style="-fx-text-fill: #6e6e6e;" text="Department">
+                  <Label fx:id="dept" prefHeight="46.0" prefWidth="358.0" style="-fx-text-fill: #6e6e6e;" text="Department" textFill="#6e6e6e">
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>

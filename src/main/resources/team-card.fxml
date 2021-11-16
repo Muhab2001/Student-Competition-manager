@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="241.0" minWidth="-Infinity" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamCard">
+   <children>
+      <AnchorPane prefHeight="37.0" prefWidth="380.0" style="-fx-border-color: #dfdfdf;">
+         <children>
+            <Label graphicTextGap="8.0" layoutX="6.0" layoutY="-1.0" prefHeight="58.0" prefWidth="80.0" text="Rank">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe UI Semibold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/trophy.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="rankLabel" alignment="CENTER" layoutX="94.0" layoutY="11.0" prefHeight="34.0" style="-fx-background-color: #ECF0F1; -fx-background-radius: 8;" text="TBA">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <padding>
+                  <Insets left="4.0" right="4.0" />
+               </padding>
+            </Label>
+            <Button fx:id="editTeamBtn" graphicTextGap="8.0" layoutX="312.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#editTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 12;">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="4.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <VBox fx:id="studentsContainer" minWidth="-Infinity" prefHeight="200.0" prefWidth="380.0" style="-fx-background-color: #ECF0F1;">
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </VBox>
+   </children>
+</VBox>

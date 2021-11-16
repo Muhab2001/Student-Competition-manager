@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER" prefHeight="116.0" prefWidth="445.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
+    <children>
+        <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/person.png" />
+            </image>
+            <HBox.margin>
+                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+            </HBox.margin>
+        </ImageView>
+        <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="374.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 2;">
+            <children>
+            <TextField fx:id="nameInput" promptText="Student name">
+               <padding>
+                  <Insets top="16.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </VBox.margin>
+            </TextField>
+                <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="372.0">
+                    <padding>
+                        <Insets left="16.0" />
+                    </padding>
+               <children>
+                  <TextField fx:id="idInput" prefHeight="26.0" prefWidth="147.0" promptText="Student ID">
+                     <HBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="deptInput" prefHeight="26.0" prefWidth="140.0" promptText="Department">
+                     <HBox.margin>
+                        <Insets bottom="8.0" left="14.0" right="8.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</HBox>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CompetitionController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutX="481.0" layoutY="163.0" prefHeight="407.0" prefWidth="402.0" style="-fx-background-color: #f5f5f5; -fx-border-color: none; -fx-background-radius: 8;" vbarPolicy="NEVER" />
+      <GridPane alignment="CENTER" layoutX="24.0" layoutY="163.0" prefHeight="398.0" prefWidth="437.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.20001220703125" minWidth="10.0" percentWidth="50.0" prefWidth="124.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.20000000000002" minWidth="10.0" percentWidth="50.0" prefWidth="131.20000000000002" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="visitWebsite" graphicTextGap="8.0" mnemonicParsing="false" onAction="#visitWebsite" prefHeight="38.0" prefWidth="135.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Visit website" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/link.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="25.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="editDetailsBtn" graphicTextGap="8.0" layoutX="43.0" layoutY="354.0" mnemonicParsing="false" onAction="#editDetails" prefHeight="38.0" prefWidth="125.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Edit Details" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets bottom="15.0" right="25.0" />
+               </GridPane.margin>
+            </Button>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2147483647">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="405.0" style="-fx-text-fill: #737373;" text="Name" textFill="#737373">
+                     <padding>
+                        <Insets left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="competitionName" prefHeight="40.0" prefWidth="417.0" text="Competition Name" textAlignment="RIGHT">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="12.0" right="12.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="405.0" style="-fx-text-fill: #737373;" text="Status" textAlignment="CENTER" textFill="#737373">
+                     <padding>
+                        <Insets left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statusLabel" alignment="CENTER" prefHeight="18.0" prefWidth="406.0" style="-fx-text-fill: #49FF00;" text="Open" textAlignment="CENTER">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="405.0" style="-fx-text-fill: #737373;" text="Team Size" textAlignment="CENTER" textFill="#737373">
+                     <padding>
+                        <Insets left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="sizeLabel" alignment="CENTER" prefHeight="18.0" prefWidth="406.0" text="3" textAlignment="CENTER">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/people-grey.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="405.0" style="-fx-text-fill: #737373;" text="Due Date" textAlignment="CENTER" textFill="#737373">
+                     <padding>
+                        <Insets left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateLabel" alignment="CENTER" prefHeight="18.0" prefWidth="406.0" text="2-Oct-21" textAlignment="CENTER">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="95.0" layoutY="210.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="405.0" style="-fx-text-fill: #737373;" text="Teams" textAlignment="CENTER" textFill="#737373">
+                     <padding>
+                        <Insets left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="teamNumLAbel" alignment="CENTER" prefHeight="18.0" prefWidth="406.0" text="15" textAlignment="CENTER">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.75" green="0.75" blue="0.75" />
+               </color>
+            </DropShadow>
+         </effect>
+      </GridPane>
+      <Label graphicTextGap="11.0" layoutX="32.0" layoutY="119.0" prefHeight="26.0" prefWidth="146.0" text="Details">
+         <font>
+            <Font name="Segoe UI" size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/details.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label graphicTextGap="11.0" layoutX="481.0" layoutY="119.0" prefHeight="28.0" prefWidth="402.0" text="Teams list">
+         <font>
+            <Font name="Segoe UI" size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/people.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label accessibleText="KFUPM Medalist" graphicTextGap="20.0" prefHeight="71.0" prefWidth="900.0" style="-fx-background-color: white;" text="KFUPM Medalist">
+         <padding>
+            <Insets left="24.0" />
+         </padding>
+         <font>
+            <Font name="Segoe UI Bold" size="25.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/medalist.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Button fx:id="returnBtn" layoutX="807.0" layoutY="18.0" maxHeight="35.0" maxWidth="68.0" minHeight="35.0" minWidth="39.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #3DB2FF; -fx-background-radius: 18;">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="addTeamBtn" graphicTextGap="8.0" layoutX="739.0" layoutY="114.0" mnemonicParsing="false" onAction="#trackCompetition" prefHeight="38.0" prefWidth="135.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Add a Team">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

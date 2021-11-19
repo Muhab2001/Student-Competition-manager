@@ -8,6 +8,12 @@ import javafx.scene.layout.VBox;
 
 public class TeamDialog {
 
+    // used to fetch data when the element is displayed
+    @FXML
+    public void initialize(){
+
+    }
+
     @FXML
     private Button confirm;
 

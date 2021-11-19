@@ -10,9 +10,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="220.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
+<VBox fx:id="competiitionId" prefHeight="220.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
    <children>
-      <Label prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 4 0; -fx-border-color: #f7f7f7f7;" text="Competition Name">
+      <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 4 0; -fx-border-color: #f7f7f7f7;" text="Competition Name">
          <padding>
             <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
          </padding>

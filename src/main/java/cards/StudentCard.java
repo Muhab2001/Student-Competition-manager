@@ -6,6 +6,12 @@ import javafx.scene.control.TextField;
 
 public class StudentCard {
 
+    // used to fetch data when the element is displayed
+    @FXML
+    public void initialize(){
+
+    }
+
     @FXML
     private Label dept;
 

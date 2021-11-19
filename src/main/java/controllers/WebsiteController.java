@@ -8,6 +8,12 @@ import javafx.scene.web.WebView;
 
 public class WebsiteController {
 
+    // used to fetch data when the element is displayed
+    @FXML
+    public void initialize(){
+
+    }
+
     @FXML
     private Button returnBtn;
 

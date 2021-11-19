@@ -9,6 +9,12 @@ import javafx.scene.layout.VBox;
 
 public class RankingDialog {
 
+    // used to fetch data when the element is displayed
+    @FXML
+    public void initialize(){
+
+    }
+
     @FXML
     private Button cancelRankings;
 

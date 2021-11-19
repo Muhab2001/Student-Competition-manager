@@ -5,8 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import models.Student;
+
+import java.util.ArrayList;
 
 public class TeamCard {
+
+
+    // used to fetch data when the element is displayed
+    @FXML
+    public void initialize(){
+
+    }
 
     @FXML
     private Button editTeamBtn;
@@ -21,6 +31,12 @@ public class TeamCard {
     void editTeam(ActionEvent event) {
 
     }
+    // passing the information for the card
+    public void setContent(String name, ArrayList<Student> students, String rank){
+        // set content to labels
+    }
+
+
 
 
 

@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="106.0" prefWidth="371.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
+<HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="51.0" prefWidth="372.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
    <children>
-      <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/person.png" />
          </image>
@@ -18,33 +18,33 @@
             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
          </HBox.margin>
       </ImageView>
-      <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="374.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 1;">
+      <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="302.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 1;">
          <children>
             <Label fx:id="name" prefHeight="37.0" prefWidth="370.0" text="Student Name">
                <padding>
-                  <Insets left="16.0" />
+                  <Insets left="16.0" top="4.0" />
                </padding>
                <font>
-                  <Font name="Segoe UI Black" size="18.0" />
+                  <Font name="Segoe UI Semibold" size="16.0" />
                </font>
             </Label>
             <HBox prefHeight="46.0" prefWidth="370.0">
                <children>
-                  <Label fx:id="idNum" prefHeight="46.0" prefWidth="356.0" style="-fx-text-fill: #6e6e6e;" text="s201945570" textFill="#6e6e6e">
+                  <Label fx:id="idNum" prefHeight="46.0" prefWidth="356.0" style="-fx-text-fill: #6e6e6e;" text="201945570" textFill="#6e6e6e">
                      <graphic>
-                        <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/idCard.png" />
                            </image>
                         </ImageView>
                      </graphic>
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dept" prefHeight="46.0" prefWidth="358.0" style="-fx-text-fill: #6e6e6e;" text="Department" textFill="#6e6e6e">
+                  <Label fx:id="major" prefHeight="46.0" prefWidth="358.0" style="-fx-text-fill: #6e6e6e;" text="Major" textFill="#6e6e6e">
                      <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/book.png" />
                            </image>
@@ -53,6 +53,9 @@
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
+                     <padding>
+                        <Insets left="12.0" />
+                     </padding>
                   </Label>
                </children>
                <padding>

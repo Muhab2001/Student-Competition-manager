@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER" prefHeight="116.0" prefWidth="445.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
+<HBox alignment="CENTER" prefHeight="103.0" prefWidth="446.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
     <children>
-        <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/person.png" />
             </image>
@@ -17,17 +17,14 @@
                 <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
             </HBox.margin>
         </ImageView>
-        <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="374.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 2;">
+        <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="384.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 2;">
             <children>
-            <TextField fx:id="nameInput" promptText="Student name">
-               <padding>
-                  <Insets top="16.0" />
-               </padding>
+            <TextField fx:id="nameInput" prefHeight="26.0" promptText="Student name" VBox.vgrow="SOMETIMES">
                <VBox.margin>
-                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                  <Insets left="22.0" right="22.0" top="8.0" />
                </VBox.margin>
             </TextField>
-                <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="372.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="372.0">
                     <padding>
                         <Insets left="16.0" />
                     </padding>
@@ -37,7 +34,7 @@
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="deptInput" prefHeight="26.0" prefWidth="140.0" promptText="Department">
+                  <TextField fx:id="majorInput" prefHeight="26.0" prefWidth="140.0" promptText="Major">
                      <HBox.margin>
                         <Insets bottom="8.0" left="14.0" right="8.0" top="8.0" />
                      </HBox.margin>

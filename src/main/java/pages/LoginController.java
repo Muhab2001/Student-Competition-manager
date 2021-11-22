@@ -1,4 +1,4 @@
-package controllers;
+package pages;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +14,6 @@ import java.io.IOException;
 
 public class LoginController {
 
-    private Stage stage;
-
-
 
     @FXML
     private Button loginBtn;
@@ -31,14 +28,16 @@ public class LoginController {
     void login(ActionEvent event) throws IOException {
         // authenticating the credentials
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../main.fxml")); // get the fxml file
-        stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         MainController controller = fxmlLoader.getController();
         controller.fillContent("realName", "s201945570@kfpupm.edu.sa");
-        stage.setTitle("KFUPM Medalist");
-        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void authenticate(String username, String password){
+        // we will use a txt file to store credentials for our users
     }
 
 }

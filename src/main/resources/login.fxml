@@ -10,95 +10,100 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.LoginController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="200.0" layoutY="101.0" prefHeight="434.0" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 12px;">
+      <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="191.0" layoutY="92.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" graphicTextGap="22.0" prefHeight="98.0" prefWidth="500.0" style="-fx-background-color: #f5f5f5;" text="KFUPM Medalist">
-               <padding>
-                  <Insets left="22.0" />
-               </padding>
-               <font>
-                  <Font name="Segoe UI Bold" size="31.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="55.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/medalist.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets top="16.0" />
-               </VBox.margin>
-            </Label>
-            <Label prefHeight="38.0" prefWidth="506.0" style="-fx-alignment: center;" text="Enter Your username and password to launch the service">
-               <padding>
-                  <Insets left="18.0" top="18.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <VBox prefHeight="90.0" prefWidth="494.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="434.0" prefWidth="500.0" snapToPixel="false" style="-fx-background-color: white; -fx-background-radius: 12px;">
                <children>
-                  <Label alignment="TOP_LEFT" prefHeight="43.0" prefWidth="106.0" style="-fx-alignment: center;" text="Username">
+                  <Label alignment="CENTER" graphicTextGap="22.0" prefHeight="98.0" prefWidth="500.0" style="-fx-background-color: #f5f5f5;" text="KFUPM Medalist">
                      <padding>
-                        <Insets left="30.0" top="18.0" />
+                        <Insets left="22.0" />
                      </padding>
                      <font>
-                        <Font name="Segoe UI Semibold" size="16.0" />
+                        <Font name="Segoe UI Bold" size="31.0" />
                      </font>
-                  </Label>
-                  <TextField fx:id="usernameInput" prefHeight="26.0" prefWidth="270.0" promptText="Enter your username">
+                     <graphic>
+                        <ImageView fitHeight="55.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/medalist.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <VBox.margin>
-                        <Insets bottom="18.0" left="30.0" right="30.0" top="8.0" />
+                        <Insets />
                      </VBox.margin>
-                  </TextField>
-               </children>
-            </VBox>
-            <VBox>
-               <VBox.margin>
-                  <Insets bottom="40.0" left="30.0" right="30.0" />
-               </VBox.margin>
-               <children>
-                  <Label alignment="TOP_LEFT" prefHeight="43.0" prefWidth="70.0" style="-fx-alignment: center;" text="Password">
+                  </Label>
+                  <Label prefHeight="38.0" prefWidth="506.0" style="-fx-alignment: center;" text="Enter Your username and password to launch the service">
                      <padding>
-                        <Insets top="18.0" />
+                        <Insets left="18.0" top="18.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                      <font>
-                        <Font name="Segoe UI Semibold" size="16.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="passwordInput" promptText="Enter your Password" />
+                  <VBox prefHeight="90.0" prefWidth="494.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <Label alignment="TOP_LEFT" prefHeight="43.0" prefWidth="106.0" style="-fx-alignment: center;" text="Username">
+                           <padding>
+                              <Insets left="30.0" top="18.0" />
+                           </padding>
+                           <font>
+                              <Font name="Segoe UI Black Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="usernameInput" prefHeight="26.0" prefWidth="270.0" promptText="Enter your username">
+                           <VBox.margin>
+                              <Insets bottom="18.0" left="30.0" right="30.0" top="8.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <VBox.margin>
+                        <Insets bottom="40.0" left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label alignment="TOP_LEFT" prefHeight="43.0" prefWidth="70.0" style="-fx-alignment: center;" text="Password">
+                           <padding>
+                              <Insets top="18.0" />
+                           </padding>
+                           <font>
+                              <Font name="Segoe UI Black" size="14.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="passwordInput" promptText="Enter your Password" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: #3DB2FF; -fx-background-radius: 4; -fx-font-size: 14;" text="Login" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.7157894968986511" green="0.7157894968986511" blue="0.7157894968986511" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </VBox>
-            <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: #3DB2FF; -fx-background-radius: 4; -fx-font-size: 14;" text="Login" textFill="WHITE">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
          </children>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.7157894968986511" green="0.7157894968986511" blue="0.7157894968986511" />
-               </color>
-            </DropShadow>
-         </effect>
-      </VBox>
+      </FlowPane>
    </children>
 </AnchorPane>

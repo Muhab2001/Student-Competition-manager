@@ -19,4 +19,8 @@ public class Competition {
         this.websiteLink = websiteLink;
         this.name = name;
     }
+
+    public Team getTeam(int index){
+        return null;
+    }
 }

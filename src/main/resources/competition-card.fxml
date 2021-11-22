@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="competiitionId" prefHeight="220.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
+<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="158.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
    <children>
       <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 4 0; -fx-border-color: #f7f7f7f7;" text="Competition Name">
          <padding>
@@ -23,13 +24,13 @@
             <Insets />
          </VBox.margin>
       </Label>
-      <HBox prefHeight="157.0" prefWidth="420.0">
+      <HBox prefHeight="115.0" prefWidth="420.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="140.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="140.0">
                <children>
                   <Label text="Teams">
                      <font>
-                        <Font name="Segoe UI Semibold" size="20.0" />
+                        <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
                   <Label fx:id="teamNum" text="14">
@@ -45,11 +46,11 @@
                   <Insets bottom="16.0" left="16.0" right="16.0" top="18.0" />
                </padding>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="140.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="140.0">
                <children>
-                  <Label text="Team Size">
+                  <Label prefWidth="89.0" text="Team Size">
                      <font>
-                        <Font name="Segoe UI Semibold" size="20.0" />
+                        <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
                   <Label fx:id="teamSize" text="3">
@@ -72,11 +73,11 @@
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </padding>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="140.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="140.0">
                <children>
                   <Label text="Status">
                      <font>
-                        <Font name="Segoe UI Semibold" size="20.0" />
+                        <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
                   <Label fx:id="status" style="-fx-text-fill: #49FF00;" text="Open" textFill="#49ff00">
@@ -102,4 +103,7 @@
          </color>
       </DropShadow>
    </effect>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </VBox>

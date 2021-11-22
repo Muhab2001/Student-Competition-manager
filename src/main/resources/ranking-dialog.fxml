@@ -24,13 +24,13 @@
    <content>
       <VBox minHeight="300.0" prefHeight="378.0" prefWidth="377.0">
          <children>
-            <ScrollPane fx:id="ranksContainer" minViewportHeight="200.0" minViewportWidth="280.0" pannable="true" prefHeight="265.0" prefWidth="401.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" />
+            <ScrollPane fx:id="ranksContainer" hbarPolicy="NEVER" minViewportHeight="200.0" minViewportWidth="280.0" pannable="true" prefWidth="401.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" VBox.vgrow="SOMETIMES" />
             <HBox alignment="TOP_RIGHT" prefHeight="59.0" prefWidth="385.0">
                <VBox.margin>
                   <Insets left="8.0" right="8.0" top="8.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" minHeight="14.0" mnemonicParsing="false" onAction="#cancel" prefHeight="44.0" prefWidth="61.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font-size: 14;" text="Cancel" textFill="WHITE">
+                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="62.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font-size: 14;" text="Cancel" textFill="WHITE">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -38,7 +38,7 @@
                         <Insets right="12.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="14.0" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="148.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Rankings" textFill="WHITE">
+                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="148.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Rankings" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -62,4 +62,7 @@
          </color>
       </DropShadow>
    </effect>
+   <opaqueInsets>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </opaqueInsets>
 </DialogPane>

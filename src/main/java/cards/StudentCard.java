@@ -12,8 +12,9 @@ public class StudentCard {
 
     }
 
+    // VIEW
     @FXML
-    private Label dept;
+    private Label major;
 
     @FXML
     private Label idNum;
@@ -21,14 +22,19 @@ public class StudentCard {
     @FXML
     private Label name;
 
-    @FXML
-    private TextField deptInput;
+    // EDIT & ADD
 
+    @FXML
+    private TextField majorInput;
     @FXML
     private TextField idInput;
 
     @FXML
     private TextField nameInput;
+
+    public void fillContent(){
+
+    }
 
 }
 

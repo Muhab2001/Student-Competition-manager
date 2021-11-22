@@ -13,11 +13,11 @@ public class EmailComposer {
         sendMail("mohababubakir2001@gmail.com");
     }
 
-    public static void sendBatch(Student[] students){
+    public static void sendMail(Student[] students){
         // loop over the collection of students
     }
 
-    public static void sendMail(String recepient) throws Exception {
+    private static void sendMail(String recepient) throws Exception {
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
 
@@ -26,6 +26,7 @@ public class EmailComposer {
         //Set TLS encryption enabled
         properties.put("mail.smtp.starttls.enable", "true");
         //Set SMTP host
+        //TODO: change the email SMTP to a one compatible with KFUPM mails
         properties.put("mail.smtp.host", "smtp.gmail.com");
         //Set smtp port
         properties.put("mail.smtp.port", "587");

@@ -6,15 +6,22 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
 public class ExcelStorage {
+
+    BufferedInputStream inStream;
+    BufferedOutputStream outStream; // TODO: you should flush after writing immediately !!
+
+
+    public ExcelStorage() throws FileNotFoundException {
+        inStream = new BufferedInputStream(new FileInputStream("storage.xlsx"));
+        outStream = new BufferedOutputStream(new FileOutputStream("storage.xlsx"));
+    }
 
     // can be used to both edit teams and competition value itself
     public static void edit(int CompetitionID, Competition newState){}
@@ -96,6 +103,7 @@ public class ExcelStorage {
             XSSFWorkbook workbook = new XSSFWorkbook(file);
 
             //Get first/desired sheet from the workbook
+            // TODO: different sheets are accessed by index and not name
             XSSFSheet sheet = workbook.getSheetAt(0);
 
             //Iterate through each rows one by one

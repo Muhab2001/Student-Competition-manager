@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="241.0" minWidth="-Infinity" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamCard">
+<VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamCard">
    <children>
-      <AnchorPane prefHeight="37.0" prefWidth="380.0" style="-fx-border-color: #dfdfdf;">
+      <AnchorPane prefHeight="37.0" prefWidth="380.0" style="-fx-border-color: #dfdfdf; -fx-background-color: white; -fx-background-radius: 4 4 0 0;">
          <children>
             <Label graphicTextGap="8.0" layoutX="6.0" layoutY="-1.0" prefHeight="58.0" prefWidth="80.0" text="Rank">
                <padding>
@@ -51,10 +51,31 @@
                <font>
                   <Font size="4.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="editTeamBtn1" graphicTextGap="8.0" layoutX="250.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#editTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-background-color: red; -fx-font-size: 12;" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-trash-30.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="4.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
-      <VBox fx:id="studentsContainer" minWidth="-Infinity" prefHeight="200.0" prefWidth="380.0" style="-fx-background-color: #ECF0F1;">
+      <VBox fx:id="studentsContainer" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="380.0" spacing="7.0" style="-fx-background-color: #ECF0F1;" VBox.vgrow="ALWAYS">
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>

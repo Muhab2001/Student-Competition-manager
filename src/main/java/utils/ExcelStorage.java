@@ -1,3 +1,5 @@
+package utils;
+
 import models.Competition;
 import models.Student;
 import models.Team;
@@ -24,7 +26,7 @@ public class ExcelStorage {
     }
 
     // can be used to both edit teams and competition value itself
-    public static void edit(int CompetitionID, Competition newState){}
+    public static void editCompetition(int CompetitionID, Competition newState){}
 
     public static void addCompetition(Competition competition){}
 
@@ -32,10 +34,7 @@ public class ExcelStorage {
     public static void deleteCompetition(int CompetitionID){}
 
 
-//    public static Team getTeam(int CompetitionID, int TeamId){
-//        return new Team(); // temporary setup to prevent errors
-//
-//    }
+
 
 //    public static Competition getCompetition(int CompetitionId){
 //        return new Competition(); // temporary setup to avoid errors
@@ -45,7 +44,7 @@ public class ExcelStorage {
         return new Competition[]{}; // temporary setup to avoid errors
     }
 
-    public static void authenticate(int username, String password){}
+
 
     // test run for apache poi functions
     public static void run(){

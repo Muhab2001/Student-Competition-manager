@@ -18,7 +18,10 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.CompetitionController">
    <children>
-      <ScrollPane fx:id="teamsContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="481.0" layoutY="163.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="402.0" style="-fx-background-color: #f5f5f5; -fx-border-color: none; -fx-background-radius: 8;" vbarPolicy="NEVER" />
+      <ScrollPane fx:id="teamsContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="481.0" layoutY="163.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="402.0" style="-fx-background-color: #f5f5f5; -fx-border-color: none; -fx-background-radius: 8;">
+         <padding>
+            <Insets right="8.0" />
+         </padding></ScrollPane>
       <GridPane alignment="CENTER" layoutX="24.0" layoutY="163.0" prefHeight="398.0" prefWidth="437.0" style="-fx-background-color: white; -fx-background-radius: 8;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.20001220703125" minWidth="10.0" percentWidth="50.0" prefWidth="124.0" />

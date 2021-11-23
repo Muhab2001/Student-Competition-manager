@@ -15,7 +15,7 @@
 
 <DialogPane prefHeight="366.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
    <header>
-      <Label style="-fx-border-width: 0 0 2 0; -fx-border-color: #ECF0F1;" text="Announce Rankings">
+      <Label style="-fx-border-width: 0 0 2 0; -fx-border-color: #95A5A6;" text="Announce Rankings">
          <padding>
             <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
          </padding>

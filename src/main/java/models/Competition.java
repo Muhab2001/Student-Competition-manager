@@ -1,5 +1,7 @@
 package models;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,7 +15,9 @@ public class Competition {
     public ArrayList<Team> teams;
 
     public Competition(Date dueDate, String name, int teamSize, String websiteLink, ArrayList<Team> teams) {
-        this.dueDate = dueDate;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy");
+        LocalDate date = LocalDate.parse(dueDate.toString(), formatter);
+        this.isOpen = LocalDate.now().compareTo(date) > 0;this.dueDate = dueDate;
         this.teamSize  =teamSize;
         this.teams = teams;
         this.websiteLink = websiteLink;

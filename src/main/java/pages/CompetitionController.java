@@ -20,6 +20,8 @@ import java.io.IOException;
 
 public class CompetitionController {
 
+    private Competition currentCompetition;
+
     @FXML
     private Button addTeamBtn;
 
@@ -124,7 +126,9 @@ public class CompetitionController {
         stage.setScene(scene);
         stage.show();
     }
-
+    // We should pass a Competition id index to fetch its data from the excel storage
+    // and create a Competition Object from the fetched data
+    // also display the due date notificaiton according to the status provided
     public void fillContent() throws IOException {
     // TODO: replace with dynamic population
 

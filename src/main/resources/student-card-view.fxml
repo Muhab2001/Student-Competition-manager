@@ -30,9 +30,9 @@
             </Label>
             <HBox prefHeight="46.0" prefWidth="370.0">
                <children>
-                  <Label fx:id="idNum" prefHeight="46.0" prefWidth="356.0" style="-fx-text-fill: #6e6e6e;" text="201945570" textFill="#6e6e6e">
+                  <Label fx:id="idNum" prefHeight="46.0" prefWidth="300.0" style="-fx-text-fill: #6e6e6e;" text="201945570" textFill="#6e6e6e">
                      <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/idCard.png" />
                            </image>
@@ -44,7 +44,7 @@
                   </Label>
                   <Label fx:id="major" prefHeight="46.0" prefWidth="358.0" style="-fx-text-fill: #6e6e6e;" text="Major" textFill="#6e6e6e">
                      <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/book.png" />
                            </image>

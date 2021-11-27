@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -24,18 +25,19 @@ public class MainController {
     @FXML
     public void initialize() throws IOException {
     // TODO: remove this snippet after testing menu population
-        HBox hbox1 = new HBox(16);
-        HBox hbox = new HBox(16);
-        hbox.setPadding(new Insets(16));
-        hbox1.setPadding(new Insets(16));
+        VBox vBox = new VBox(16);
+        VBox vBox1 = new VBox(16);
+        vBox1.setPadding(new Insets(14));
+        vBox.setPadding(new Insets(14));
         for(int i = 0; i < 10; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            hbox.getChildren().add((Node) fxmlLoader.load());
+            vBox1.getChildren().add((Node) fxmlLoader.load());
              fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            hbox1.getChildren().add((Node) fxmlLoader.load());
+            vBox.getChildren().add((Node) fxmlLoader.load());
         }
-        VBox vbox = new VBox(8);
-        vbox.getChildren().addAll(hbox, hbox1);
+        HBox vbox = new HBox(0);
+        vbox.getChildren().addAll(vBox1, vBox);
+        vbox.setAlignment(Pos.CENTER);
         CompetitionsContainer.setContent(vbox);
     }
 

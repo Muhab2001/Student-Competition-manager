@@ -17,8 +17,28 @@ import models.Competition;
 import models.Team;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CompetitionController {
+
+    @FXML
+    public void initialize() throws IOException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy");
+        LocalDate date = LocalDate.parse("11/27/2021", formatter);
+        if(LocalDate.now().compareTo(date) == 0){
+            System.out.println("Tracking!");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../due-dialog.fxml"));
+            DialogPane dialogPane = fxmlLoader.load();
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("This competition is due!");
+            dialog.setDialogPane(dialogPane); // fxml as a dialog
+            dialog.initStyle(StageStyle.TRANSPARENT); // TODO: custom bar
+            dialog.show();
+        }
+    }
+
+    private Competition currentCompetition;
 
     @FXML
     private Button addTeamBtn;
@@ -124,7 +144,9 @@ public class CompetitionController {
         stage.setScene(scene);
         stage.show();
     }
-
+    // We should pass a Competition id index to fetch its data from the excel storage
+    // and create a Competition Object from the fetched data
+    // also display the due date notificaiton according to the status provided
     public void fillContent() throws IOException {
     // TODO: replace with dynamic population
 

@@ -10,11 +10,11 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("KFUPM Medalist");
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.setScene(scene);
-        stage.setMaximized(true);
         stage.show();
-//        ExcelStorage.read(); // testing thr excel package
+        utils.ExcelStorage.run();
+        utils.ExcelStorage.read(); // testing thr excel package
     }
 
 

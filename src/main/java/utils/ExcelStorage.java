@@ -9,29 +9,18 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class ExcelStorage {
 
     BufferedInputStream inStream;
     BufferedOutputStream outStream; // TODO: you should flush after writing immediately !!
+    public ExcelStorage INSTANCE = new ExcelStorage();
 
-
-    public ExcelStorage() throws FileNotFoundException {
+    private ExcelStorage() throws FileNotFoundException {
         inStream = new BufferedInputStream(new FileInputStream("storage.xlsx"));
         outStream = new BufferedOutputStream(new FileOutputStream("storage.xlsx"));
     }
-
-    // can be used to both edit teams and competition value itself
-    public static void editCompetition(int CompetitionID, Competition newState){}
-
-    public static void addCompetition(Competition competition){}
-
-
-    public static void deleteCompetition(int CompetitionID){}
 
 
 
@@ -39,12 +28,15 @@ public class ExcelStorage {
 //    public static Competition getCompetition(int CompetitionId){
 //        return new Competition(); // temporary setup to avoid errors
 //    }
-
-    public static Competition[] getAllCompetitions(){
-        return new Competition[]{}; // temporary setup to avoid errors
+    // at the end
+    public static ArrayList<Competition> getAllCompetitions(){
+        return new ArrayList<Competition>(); // temporary setup to avoid errors
     }
 
+    // at the end
+    public static void saveChanges(Competition[] competitions){
 
+    }
 
     // test run for apache poi functions
     public static void run(){
@@ -52,15 +44,15 @@ public class ExcelStorage {
         XSSFWorkbook workbook = new XSSFWorkbook();
 
         //Create a blank sheet
-        XSSFSheet sheet = workbook.createSheet("Employee Data");
+        XSSFSheet sheet = workbook.createSheet("Employee Data2");
 
         //This data needs to be written (Object[])
         Map<String, Object[]> data = new TreeMap<String, Object[]>();
-        data.put("1", new Object[] {"ID", "NAME", "LASTNAME"});
-        data.put("2", new Object[] {1, "Amit", "Shukla"});
-        data.put("3", new Object[] {2, "Lokesh", "Gupta"});
-        data.put("4", new Object[] {3, "John", "Adwards"});
-        data.put("5", new Object[] {4, "Brian", "Schultz"});
+        data.put("3", new Object[] {"Student ID", "NAME", "LASTNAME"});
+        data.put("4", new Object[] {1, "Amit", "Shukla"});
+        data.put("5", new Object[] {2, "Lokesh", "Gupta"});
+        data.put("6", new Object[] {3, "John", "Adwards"});
+        data.put("7", new Object[] {4, "Brian", "Schultz"});
 
         //Iterate over data and write to sheet
         Set<String> keyset = data.keySet();
@@ -69,7 +61,7 @@ public class ExcelStorage {
         {
             Row row = sheet.createRow(rownum++);
             Object [] objArr = data.get(key);
-            int cellnum = 1;
+            int cellnum = 4;
             for (Object obj : objArr)
             {
                 Cell cell = row.createCell(cellnum++);

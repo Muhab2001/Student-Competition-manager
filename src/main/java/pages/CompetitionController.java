@@ -8,13 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Competition;
-import models.Team;
+import utils.Navigator;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -78,77 +76,51 @@ public class CompetitionController {
 
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../ranking-dialog.fxml"));
-        DialogPane dialogPane = fxmlLoader.load();
-        RankingDialog controller = fxmlLoader.getController();
+        RankingDialog controller =
+                Navigator.<RankingDialog>nextDialog(new FXMLLoader(getClass().getResource("../ranking-dialog.fxml")), "Add a New Team");
         controller.fillContent();
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Add a new Team");
-        dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
-        dialog.show();
     }
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-dialog.fxml"));
-        DialogPane dialogPane = fxmlLoader.load();
-        CompetitionDialog dialogController = fxmlLoader.getController();
+        CompetitionDialog dialogController =
+                Navigator.<CompetitionDialog>nextDialog(new FXMLLoader(getClass().getResource("../competition-dialog.fxml")), "Edit a Competition");
         dialogController.fillContent();
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Edit a competition");
-        dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
-        dialog.show();
+
     }
 
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../main.fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        stage.setScene(scene);
-        stage.show();
+        Navigator.<MainController>next(new FXMLLoader(getClass().getResource("../main.fxml")), event);
     }
 
     @FXML
     void addTeam(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-dialog.fxml"));
-        DialogPane dialogPane = fxmlLoader.load();
-        TeamDialog controller = fxmlLoader.getController();
+        TeamDialog controller =
+                Navigator.<TeamDialog>nextDialog(new FXMLLoader(getClass().getResource("../team-dialog.fxml")), "Add a Team");
         controller.setHeader("Add a Team");
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Add a new Team");
-        dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
-        dialog.show();
+
     }
 
+    // TODO: Perform a proper dynamic routing using fetched websites, this is just a test
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../website.fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        WebsiteController controller = fxmlLoader.getController();
+        WebsiteController controller =
+                Navigator.<WebsiteController>next(new FXMLLoader(getClass().getResource("../website.fxml")), event);
         controller.showWebsite("https://www.google.com");
-        stage.setScene(scene);
-        stage.show();
     }
 
-        // TODO: Perform a proper deletion in the excel storage, this is just a test
+    // TODO: Perform a proper deletion , this is just a test
     @FXML
     void delete(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../main.fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        stage.setScene(scene);
-        stage.show();
+        // implement the deletion process before navigating
+        Navigator.<MainController>next(new FXMLLoader(getClass().getResource("../main.fxml")), event);
+
     }
-    // We should pass a Competition id index to fetch its data from the excel storage
-    // and create a Competition Object from the fetched data
-    // also display the due date notificaiton according to the status provided
-    public void fillContent() throws IOException {
+
     // TODO: replace with dynamic population
+    public void fillContent() throws IOException {
+
 
         VBox vbox = new VBox(8);
         for(int i = 0; i < 10; i++){

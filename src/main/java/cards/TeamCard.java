@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
 import models.Student;
+import utils.Navigator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,15 +33,9 @@ public class TeamCard {
 
     @FXML
     void editTeam(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-dialog.fxml"));
-        DialogPane dialogPane = fxmlLoader.load();
-        TeamDialog controller = fxmlLoader.getController();
-        controller.setHeader("Edit a Team");
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Edit Team");
-        dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
-        dialog.show();
+        TeamDialog controller =
+                Navigator.<TeamDialog>nextDialog(new FXMLLoader(getClass().getResource("../team-dialog.fxml")), "Edit a Team");
+        controller.fillContent();
     }
     // passing the information for the card
     public void setContent() throws IOException {

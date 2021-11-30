@@ -3,13 +3,10 @@ package pages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
+import utils.Navigator;
 import java.io.IOException;
 
 public class LoginController {
@@ -27,13 +24,10 @@ public class LoginController {
     @FXML
     void login(ActionEvent event) throws IOException {
         //TODO: authenticating the credentials
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../main.fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        MainController controller = fxmlLoader.getController();
+
+        MainController controller = Navigator.<MainController>next(new FXMLLoader(getClass().getResource("../main.fxml")), event);
         controller.fillContent("realName", "s201945570@kfpupm.edu.sa");
-        stage.setScene(scene);
-        stage.show();
+
     }
 
     private void authenticate(String username, String password){

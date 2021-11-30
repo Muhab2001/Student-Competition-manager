@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.StageStyle;
+import utils.Navigator;
 
 import java.io.IOException;
 
@@ -55,16 +55,9 @@ public class MainController {
 
     @FXML
     void trackCompetition(ActionEvent event) throws IOException {
-        System.out.println("Tracking!");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-dialog.fxml"));
-        DialogPane dialogPane = fxmlLoader.load();
-        CompetitionDialog dialogController = fxmlLoader.getController();
-//        dialogController.fillContent(); should not be pre-populated on new creation
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Track a new competition");
-        dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
-        dialog.show();
+        CompetitionDialog dialogController =
+                Navigator.<CompetitionDialog>nextDialog(new FXMLLoader(getClass().getResource("../competition-dialog.fxml")), "Track a New Competition");
+
     }
 
     //TODO : remove after testing

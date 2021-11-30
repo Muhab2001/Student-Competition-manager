@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import utils.Navigator;
 
 import java.io.IOException;
 
@@ -27,13 +28,10 @@ public class LoginController {
     @FXML
     void login(ActionEvent event) throws IOException {
         //TODO: authenticating the credentials
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../main.fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        MainController controller = fxmlLoader.getController();
-        controller.fillContent("realName", "s201945570@kfpupm.edu.sa");
-        stage.setScene(scene);
-        stage.show();
+
+        // This is generic method, it must be specified with the returned type between <>
+        Navigator.<MainController>next("main",event)
+                .fillContent("realName", "s201945570@kfpupm.edu.sa");
     }
 
     private void authenticate(String username, String password){

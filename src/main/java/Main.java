@@ -13,8 +13,8 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-        utils.ExcelStorage.run();
-        utils.ExcelStorage.read(); // testing thr excel package
+//        utils.ExcelStorage.run();
+//        utils.ExcelStorage.read(); // testing thr excel package
     }
 
 

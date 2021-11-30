@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Competition;
 import models.Team;
+import utils.Navigator;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -91,15 +92,8 @@ public class CompetitionController {
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-dialog.fxml"));
-        DialogPane dialogPane = fxmlLoader.load();
-        CompetitionDialog dialogController = fxmlLoader.getController();
-        dialogController.fillContent();
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Edit a competition");
-        dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
-        dialog.show();
+        // This is generic method, it must be specified with the returned type between <>
+        Navigator.<CompetitionDialog>nextDialog("competition", "Edit Competition").fillContent();
     }
 
     @FXML
@@ -113,26 +107,14 @@ public class CompetitionController {
 
     @FXML
     void addTeam(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-dialog.fxml"));
-        DialogPane dialogPane = fxmlLoader.load();
-        TeamDialog controller = fxmlLoader.getController();
-        controller.setHeader("Add a Team");
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Add a new Team");
-        dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
-        dialog.show();
+        // This is generic method, it must be specified with the returned type between <>
+        Navigator.<TeamDialog>nextDialog("team","Add a new Team").setHeader("Add a Team");
     }
 
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../website.fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        WebsiteController controller = fxmlLoader.getController();
-        controller.showWebsite("https://www.google.com");
-        stage.setScene(scene);
-        stage.show();
+        // This is generic method, it must be specified with the returned type between <>
+        Navigator.<WebsiteController>next("website",event).showWebsite("https://www.google.com/");
     }
 
         // TODO: Perform a proper deletion in the excel storage, this is just a test

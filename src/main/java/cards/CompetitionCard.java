@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import utils.Navigator;
 
 import java.io.IOException;
 
@@ -32,13 +33,7 @@ public class CompetitionCard {
 
     @FXML
     void openDetails(MouseEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition.fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); // get the current stage
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        CompetitionController controller = fxmlLoader.getController();
-        controller.fillContent();
-        stage.setScene(scene);
-        stage.show();
+        Navigator.<CompetitionController>next("competition",event).fillContent();
     }
 
     public void fillContent(String name, String status, int teamNum, int teamSize ){

@@ -3,13 +3,21 @@ package models;
 import java.util.ArrayList;
 
 public class Team implements Comparable<Team>{
-    int index;
-    ArrayList<Student> students;
-    int teamSize;
+    public int index;
+    public ArrayList<Student> students;
+    public int teamSize;
+    public int rank = -1;
+
     public Team(int id, ArrayList<Student> students, int teamSize){
         this.index = id;
         this.students = students;
         this.teamSize = teamSize;
+    }
+
+    public Team(int id, int teamSize){
+        this.index = id;
+        this.teamSize = teamSize;
+        this.students = new ArrayList<>(teamSize);
     }
 
     // this method will be used to compare teams before and after a competition edit
@@ -25,5 +33,14 @@ public class Team implements Comparable<Team>{
         }
 
         return 0; // equal information
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "index=" + index +
+                ", students=" + students.toString() +
+                ", teamSize=" + teamSize +
+                '}' + "-------------------------------------------\n";
     }
 }

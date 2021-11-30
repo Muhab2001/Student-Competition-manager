@@ -29,4 +29,10 @@ public class CompetitionsMemory {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "CompetitionsMemory{" +
+                "competitions=" + (competitions).toString() +
+                '}';
+    }
 }

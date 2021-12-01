@@ -56,7 +56,7 @@ public class MainController {
     @FXML
     void trackCompetition(ActionEvent event) throws IOException {
         CompetitionDialog dialogController =
-                Navigator.<CompetitionDialog>nextDialog(new FXMLLoader(getClass().getResource("../competition-dialog.fxml")), "Track a New Competition");
+                Navigator.<CompetitionDialog>nextDialog("competition", "Track a New Competition");
 
     }
 

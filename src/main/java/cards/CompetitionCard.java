@@ -29,7 +29,7 @@ public class CompetitionCard {
 
     @FXML
     void openDetails(MouseEvent event) throws IOException {
-        CompetitionController controller = Navigator.<CompetitionController>next(new FXMLLoader(getClass().getResource("../competition.fxml")), event);
+        CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
         controller.fillContent();
     }
 

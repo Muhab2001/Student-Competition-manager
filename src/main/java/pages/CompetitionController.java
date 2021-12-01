@@ -1,9 +1,6 @@
 package pages;
 
-import cards.CompetitionDialog;
-import cards.RankingDialog;
-import cards.TeamCard;
-import cards.TeamDialog;
+import cards.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,17 +19,11 @@ public class CompetitionController {
 
     @FXML
     public void initialize() throws IOException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy");
-        LocalDate date = LocalDate.parse("11/27/2021", formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        LocalDate date = LocalDate.parse("12/1/2021", formatter);
         if(LocalDate.now().compareTo(date) == 0){
-            System.out.println("Tracking!");
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../due-dialog.fxml"));
-            DialogPane dialogPane = fxmlLoader.load();
-            Dialog<ButtonType> dialog = new Dialog<>();
-            dialog.setTitle("This competition is due!");
-            dialog.setDialogPane(dialogPane); // fxml as a dialog
-            dialog.initStyle(StageStyle.TRANSPARENT); // TODO: custom bar
-            dialog.show();
+            Navigator.<DueDialog>nextDialog("due", "This competition is due!");
+
         }
     }
 
@@ -77,27 +68,27 @@ public class CompetitionController {
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
         RankingDialog controller =
-                Navigator.<RankingDialog>nextDialog(new FXMLLoader(getClass().getResource("../ranking-dialog.fxml")), "Add a New Team");
+                Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
         controller.fillContent();
     }
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
         CompetitionDialog dialogController =
-                Navigator.<CompetitionDialog>nextDialog(new FXMLLoader(getClass().getResource("../competition-dialog.fxml")), "Edit a Competition");
+                Navigator.<CompetitionDialog>nextDialog("competition", "Edit a Competition");
         dialogController.fillContent();
 
     }
 
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
-        Navigator.<MainController>next(new FXMLLoader(getClass().getResource("../main.fxml")), event);
+        Navigator.<MainController>next("main", event);
     }
 
     @FXML
     void addTeam(ActionEvent event) throws IOException {
         TeamDialog controller =
-                Navigator.<TeamDialog>nextDialog(new FXMLLoader(getClass().getResource("../team-dialog.fxml")), "Add a Team");
+                Navigator.<TeamDialog>nextDialog("team", "Add a Team");
         controller.setHeader("Add a Team");
 
     }
@@ -106,7 +97,7 @@ public class CompetitionController {
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
         WebsiteController controller =
-                Navigator.<WebsiteController>next(new FXMLLoader(getClass().getResource("../website.fxml")), event);
+                Navigator.<WebsiteController>next("website", event);
         controller.showWebsite("https://www.google.com");
     }
 
@@ -114,7 +105,7 @@ public class CompetitionController {
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
-        Navigator.<MainController>next(new FXMLLoader(getClass().getResource("../main.fxml")), event);
+        Navigator.<MainController>next("../main", event);
 
     }
 

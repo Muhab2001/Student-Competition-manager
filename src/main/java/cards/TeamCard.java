@@ -34,7 +34,7 @@ public class TeamCard {
     @FXML
     void editTeam(ActionEvent event) throws IOException {
         TeamDialog controller =
-                Navigator.<TeamDialog>nextDialog(new FXMLLoader(getClass().getResource("../team-dialog.fxml")), "Edit a Team");
+                Navigator.<TeamDialog>nextDialog("team", "Edit a Team");
         controller.fillContent();
     }
     // passing the information for the card

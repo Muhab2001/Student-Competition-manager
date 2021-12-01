@@ -25,7 +25,7 @@ public class WebsiteController {
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
         CompetitionController controller =
-                Navigator.<CompetitionController>next(new FXMLLoader(getClass().getResource("../competition.fxml")), event);
+                Navigator.<CompetitionController>next("competition", event);
         controller.fillContent();
 
     }

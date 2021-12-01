@@ -20,16 +20,7 @@ public class TeamDialog {
     @FXML
     public void initialize() throws IOException {
 
-        VBox vbox = new VBox(12);
-        vbox.setPadding(new Insets(12));
-        // TODO: replace with a dynamic population according to team number
-        for(int i = 0; i < 10; i++){
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../student-card-edit.fxml"));
-            vbox.getChildren().add((Node) fxmlLoader.load());
 
-        }
-
-        studentsContainer.setContent(vbox);
     }
 
     @FXML
@@ -50,6 +41,19 @@ public class TeamDialog {
 
     public void setHeader(String header){
         headerText.setText(header);
+    }
+
+    public void fillContent() throws IOException {
+        VBox vbox = new VBox(12);
+        vbox.setPadding(new Insets(12));
+        // TODO: replace with a dynamic population according to team number
+        for(int i = 0; i < 10; i++){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../student-card-edit.fxml"));
+            vbox.getChildren().add((Node) fxmlLoader.load());
+
+        }
+
+        studentsContainer.setContent(vbox);
     }
 
 }

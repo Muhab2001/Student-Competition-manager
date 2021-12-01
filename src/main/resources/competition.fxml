@@ -16,9 +16,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.CompetitionController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" stylesheets="@styles/competitions.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.CompetitionController">
    <children>
-      <ScrollPane fx:id="teamsContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="481.0" layoutY="163.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="402.0" style="-fx-background-color: #f5f5f5; -fx-border-color: none; -fx-background-radius: 8;">
+      <ScrollPane fx:id="teamsContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="481.0" layoutY="163.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="402.0" style="-fx-background-color: #f5f5f5; -fx-border-color: none; -fx-background-radius: 8;" stylesheets="@styles/competitions.css">
          <padding>
             <Insets right="8.0" />
          </padding></ScrollPane>
@@ -240,7 +240,7 @@
             </ImageView>
          </graphic>
       </Label>
-      <Button fx:id="returnBtn" alignment="CENTER" layoutX="807.0" layoutY="18.0" maxHeight="35.0" maxWidth="68.0" minHeight="35.0" minWidth="39.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #3DB2FF; -fx-background-radius: 18;">
+      <Button fx:id="returnBtn" alignment="CENTER" layoutX="834.0" layoutY="16.0" maxHeight="35.0" maxWidth="68.0" minHeight="35.0" minWidth="39.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #3DB2FF; -fx-background-radius: 18;" styleClass="small-btn">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -279,9 +279,9 @@
             <Font name="Segoe UI Semibold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="deleteBtn" alignment="CENTER" graphicTextGap="8.0" layoutX="274.0" layoutY="114.0" minWidth="43.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-background-color: red; -fx-font-size: 14;" textFill="WHITE">
+      <Button fx:id="deleteBtn" alignment="CENTER" graphicTextGap="8.0" layoutX="287.0" layoutY="113.0" minWidth="43.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-background-color: red; -fx-font-size: 14;" styleClass="small-btn" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/icons8-trash-30.png" />
                </image>

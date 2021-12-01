@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.paint.Color?>
+
+<Label fx:id="msgText" alignment="CENTER" graphicTextGap="12.0" prefHeight="18.0" prefWidth="529.0" style="-fx-background-color: white;" text="Wrong Credentials! Please Enter Valid Credentials to continue" textAlignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.ErrorMessage">
+   <padding>
+      <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+   </padding>
+   <graphic>
+      <ImageView fitHeight="19.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8-error-50.png" />
+         </image>
+      </ImageView>
+   </graphic>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.800000011920929" green="0.800000011920929" blue="0.800000011920929" />
+         </color>
+      </DropShadow>
+   </effect>
+</Label>

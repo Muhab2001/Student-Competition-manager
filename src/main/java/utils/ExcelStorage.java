@@ -94,7 +94,6 @@ public class ExcelStorage {
 
                     for (int j = 0; j < 5; j++) {
                         Cell cell = cellIterator.next();
-                        System.out.println(teamIndex + " " + studentCounter + " " + j);
                         switch (j) {
                             case 0: // using the first column as the presence indicator
                                 if (cell.getCellType() != CellType.NUMERIC){

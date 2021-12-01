@@ -3,13 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="158.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #b1b1b1; -fx-border-radius: 3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
+<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="158.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 6; -fx-border-color: #b1b1b1; -fx-border-radius: 6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
    <children>
       <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 2 0; -fx-border-color: #95A5A6;" text="Competition Name">
          <padding>
@@ -97,4 +99,11 @@
    <cursor>
       <Cursor fx:constant="HAND" />
    </cursor>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.8421052694320679" green="0.8421052694320679" blue="0.8421052694320679" />
+         </color>
+      </DropShadow>
+   </effect>
 </VBox>

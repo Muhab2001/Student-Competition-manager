@@ -7,7 +7,6 @@ import models.Competition;
 import utils.CompetitionsMemory;
 import utils.ExcelStorage;
 
-
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
@@ -26,5 +25,4 @@ public class Main extends Application {
         super.stop();
         ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
     }
-}
 

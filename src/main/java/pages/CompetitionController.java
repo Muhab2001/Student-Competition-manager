@@ -13,8 +13,8 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.StageStyle;
 import models.Competition;
+import models.Team;
 import utils.Navigator;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,8 +25,10 @@ public class CompetitionController {
     public void initialize() throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse("12/1/2021", formatter);
+
         dateLabel.setText("12/1/2021");
         if(LocalDate.now().compareTo(date) > 0){
+
             Navigator.<DueDialog>nextDialog("due", "This competition is due!");
             statusIndicator.setFill(Color.RED);
             statusLabel.setText("Closed");
@@ -79,15 +81,14 @@ public class CompetitionController {
 
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
-        RankingDialog controller =
-                Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
+        RankingDialog controller = Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
         controller.fillContent();
     }
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
-        CompetitionDialog dialogController =
-                Navigator.<CompetitionDialog>nextDialog("competition", "Edit a Competition");
+        CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition",
+                "Edit a Competition");
         dialogController.fillContent();
 
     }
@@ -99,17 +100,16 @@ public class CompetitionController {
 
     @FXML
     void addTeam(ActionEvent event) throws IOException {
-        TeamDialog controller =
-                Navigator.<TeamDialog>nextDialog("team", "Add a Team");
+        TeamDialog controller = Navigator.<TeamDialog>nextDialog("team", "Add a Team");
         controller.setHeader("Add a Team");
 
     }
 
-    // TODO: Perform a proper dynamic routing using fetched websites, this is just a test
+    // TODO: Perform a proper dynamic routing using fetched websites, this is just a
+    // test
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
-        WebsiteController controller =
-                Navigator.<WebsiteController>next("website", event);
+        WebsiteController controller = Navigator.<WebsiteController>next("website", event);
         controller.showWebsite("https://www.google.com");
     }
 
@@ -124,9 +124,8 @@ public class CompetitionController {
     // TODO: replace with dynamic population
     public void fillContent() throws IOException {
 
-
         VBox vbox = new VBox(8);
-        for(int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
             vbox.getChildren().add((Node) fxmlLoader.load());
             TeamCard controller = fxmlLoader.getController();
@@ -136,7 +135,5 @@ public class CompetitionController {
         teamsContainer.setContent(vbox);
 
     }
-
-
 
 }

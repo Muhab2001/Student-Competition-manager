@@ -4,9 +4,13 @@ import cards.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.stage.StageStyle;
 import models.Competition;
 import models.Team;
@@ -21,13 +25,23 @@ public class CompetitionController {
     public void initialize() throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse("12/1/2021", formatter);
-        if (LocalDate.now().compareTo(date) == 0) {
-            Navigator.<DueDialog>nextDialog("due", "This competition is due!");
 
+        dateLabel.setText("12/1/2021");
+        if(LocalDate.now().compareTo(date) > 0){
+
+            Navigator.<DueDialog>nextDialog("due", "This competition is due!");
+            statusIndicator.setFill(Color.RED);
+            statusLabel.setText("Closed");
+        }else {
+            statusIndicator.setFill(Color.GREENYELLOW);
+            statusLabel.setText("Open");
         }
     }
 
     private Competition currentCompetition;
+
+    @FXML
+    private Circle statusIndicator;
 
     @FXML
     private Button addTeamBtn;

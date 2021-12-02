@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="380.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #b1b1b1; -fx-border-radius: 3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamCard">
+<VBox fx:id="cardContainer" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="430.0" style="-fx-background-color: white; -fx-background-radius: 3;" styleClass="card-container" stylesheets="@styles/team-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamCard">
    <children>
       <AnchorPane prefHeight="37.0" prefWidth="380.0" style="-fx-border-color: #b1b1b1; -fx-background-color: white; -fx-background-radius: 2; -fx-border-width: 0;">
          <children>
@@ -37,11 +37,11 @@
                   <Insets left="4.0" right="4.0" />
                </padding>
             </Label>
-            <Button fx:id="editTeamBtn" graphicTextGap="8.0" layoutX="312.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#editTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 12;" textFill="WHITE">
+            <Button fx:id="editTeamBtn" graphicTextGap="8.0" layoutX="368.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#editTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-font-size: 12;" styleClass="btn" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/edit.png" />
+                        <Image url="@img/icons8-edit-24%20(1).png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -55,11 +55,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="editTeamBtn1" graphicTextGap="8.0" layoutX="250.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#editTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-background-color: red; -fx-font-size: 12;" textFill="WHITE">
+            <Button fx:id="deleteBtn" graphicTextGap="8.0" layoutX="316.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#deleteTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-font-size: 12;" styleClass="btn" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-trash-30.png" />
+                        <Image url="@img/icons8-trash-30%20(1).png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -75,7 +75,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <VBox fx:id="studentsContainer" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="380.0" spacing="7.0" style="-fx-background-color: #ECF0F1; -fx-border-color: #b1b1b1;" VBox.vgrow="ALWAYS">
+      <VBox fx:id="studentsContainer" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="428.0" spacing="7.0" style="-fx-background-color: #ECF0F1; -fx-background-radius: 4;" VBox.vgrow="ALWAYS">
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>

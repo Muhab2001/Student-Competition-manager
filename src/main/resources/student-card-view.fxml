@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="51.0" prefWidth="372.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
+<HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="51.0" prefWidth="430.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
    <children>
       <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -32,9 +32,9 @@
                <children>
                   <Label fx:id="idNum" prefHeight="46.0" prefWidth="300.0" style="-fx-text-fill: #6e6e6e;" text="201945570" textFill="#6e6e6e">
                      <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="23.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/idCard.png" />
+                              <Image url="@img/icons8-identification-documents-30.png" />
                            </image>
                         </ImageView>
                      </graphic>

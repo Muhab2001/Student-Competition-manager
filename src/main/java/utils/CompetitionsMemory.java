@@ -6,13 +6,13 @@ import org.apache.bcel.generic.RETURN;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-class CompetitionsMemory {
+public class CompetitionsMemory {
 
     public static CompetitionsMemory INSTANCE = new CompetitionsMemory();
 
     private CompetitionsMemory(){}
 
-    private final ArrayList<Competition> competitions = new ArrayList<>();
+    public ArrayList<Competition> competitions = new ArrayList<>();
 
     public ArrayList<Competition> getCompetitions() {
         return this.competitions;

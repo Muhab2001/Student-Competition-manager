@@ -11,11 +11,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="158.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 6; -fx-border-color: #b1b1b1; -fx-border-radius: 6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
+<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
    <children>
-      <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 2 0; -fx-border-color: #95A5A6;" text="Competition Name">
+      <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;" text="Competition Name">
          <padding>
-            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+            <Insets bottom="14.0" left="22.0" right="14.0" top="14.0" />
          </padding>
          <font>
             <Font name="Segoe UI Semibold" size="18.0" />
@@ -24,7 +24,7 @@
             <Insets />
          </VBox.margin>
       </Label>
-      <HBox prefHeight="115.0" prefWidth="420.0">
+      <HBox prefHeight="73.0" prefWidth="410.0">
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="140.0">
                <children>
@@ -33,13 +33,20 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="teamNum" text="14">
+                  <Label fx:id="teamNum" style="-fx-font: 14px 'Segoe UI bold';" text="14">
                      <padding>
                         <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                      </padding>
                      <font>
                         <Font name="Segoe UI Black" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-queue-30%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Label>
                </children>
                <padding>
@@ -53,17 +60,17 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="teamSize" text="3">
+                  <Label fx:id="teamSize" style="-fx-font: 14px 'Segoe UI bold';" text="3">
                      <padding>
                         <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                      </padding>
                      <font>
-                        <Font name="Segoe UI Black" size="18.0" />
+                        <Font name="Segoe UI Bold" size="18.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/people-grey.png" />
+                              <Image url="@img/person.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -80,7 +87,7 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="status" style="-fx-text-fill: #49FF00;" text="Open" textFill="#49ff00">
+                  <Label fx:id="status" style="-fx-font: 14px 'Segoe UI bold';" text="Open" textFill="#49ff00">
                      <padding>
                         <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                      </padding>
@@ -102,7 +109,7 @@
    <effect>
       <DropShadow>
          <color>
-            <Color red="0.8421052694320679" green="0.8421052694320679" blue="0.8421052694320679" />
+            <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
          </color>
       </DropShadow>
    </effect>

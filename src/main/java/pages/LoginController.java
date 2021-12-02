@@ -54,7 +54,8 @@ public class LoginController {
 
     private void logger(Event event){
         try{
-            if (authenticate(usernameInput.getText(), passwordInput.getText())) {
+            // authenticate(usernameInput.getText(), passwordInput.getText())
+            if (true) {
                 MainController controller = Navigator.<MainController>next("main", event);
                 controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa");
             }else {
@@ -79,6 +80,7 @@ public class LoginController {
             reader.beginArray();
             while (reader.hasNext()) {
                 User user = gson.fromJson(reader, User.class);
+                System.out.println(hashedPass);
                 if(user.username.equals(username) && user.password.equals(hashedPass)){
                     return true;
                 }

@@ -1,6 +1,25 @@
 .scroll-bar:vertical > .thumb {
-    -fx-background-color: grey;
-}
+    -fx-background-color:  #aeaeae;
+}.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 ;
+ }
+
+ .btn2{
+  -fx-background-insets: 0 ;
+ }
+
+ .btn2:hover{
+ -fx-background-color:  #369cdc !important;
+ -fx-border-color: #369cdc;
+ }
+
+ .btn2:pressed{
+ -fx-background-color:  #277bae !important;
+ -fx-border-color: #277bae;
+ }
+
+
 
 .small-btn{
 -fx-background-radius: 20px !important;
@@ -12,4 +31,43 @@
 -fx-max-height: 40px !important;
 
 }
+
+.small-btn:hover{
+-fx-background-color:  #369cdc !important;
+
+}
+
+.small-btn:pressed{
+-fx-background-color:  #277bae !important;
+
+}
+
+
+.btn{
+-fx-font:  14px 'Segoe UI regular';
+-fx-text-fill: black;
+-fx-background-color: white;
+-fx-border-color: white;
+-fx-background-radius: 8px;
+-fx-border-radius: 8px;
+-fx-alignment: LEFT;
+}
+
+.btn:hover{
+-fx-font:  14px 'Segoe UI regular';
+-fx-background-color:  #f5f5f5 !important;
+-fx-border-color: #f5f5f5;
+-fx-background-radius: 8px;
+-fx-border-radius: 8px;
+}
+
+.btn:pressed{
+-fx-font:  14px 'Segoe UI regular';
+-fx-background-color:  #d7d7d7 !important;
+-fx-border-color: #d7d7d7;
+-fx-background-radius: 8px;
+-fx-border-radius: 8px;
+}
+
+
 

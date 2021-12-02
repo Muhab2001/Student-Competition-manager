@@ -135,6 +135,8 @@ public class ExcelStorage {
 
                 competitions.add(competition);
             }
+
+            CompetitionsMemory.INSTANCE.competitions = competitions;
             System.out.println(CompetitionsMemory.INSTANCE); // TODO: delete the testing log
             file.close();
         } catch (IOException e) {

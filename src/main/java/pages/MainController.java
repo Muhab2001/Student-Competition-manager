@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -29,16 +30,19 @@ public class MainController {
         VBox vBox1 = new VBox(16);
         vBox1.setPadding(new Insets(14));
         vBox.setPadding(new Insets(14));
+        vBox.setAlignment(Pos.CENTER);
+        vBox1.setAlignment(Pos.CENTER);
         for(int i = 0; i < 10; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
             vBox1.getChildren().add((Node) fxmlLoader.load());
              fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
             vBox.getChildren().add((Node) fxmlLoader.load());
         }
-        HBox vbox = new HBox(0);
-        vbox.getChildren().addAll(vBox1, vBox);
-        vbox.setAlignment(Pos.CENTER);
-        CompetitionsContainer.setContent(vbox);
+        HBox hBox = new HBox(0);
+        hBox.getChildren().addAll(vBox1, vBox);
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setPrefWidth(900);
+        CompetitionsContainer.setContent(hBox);
     }
 
     @FXML

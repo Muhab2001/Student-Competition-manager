@@ -7,7 +7,8 @@ import java.util.Date;
 
 public class Competition implements Comparable<Competition> {
 
-    public Date dueDate;
+
+    public String dueDate;
     public boolean isOpen = true;
     public String name;
     public int teamSize;
@@ -15,12 +16,23 @@ public class Competition implements Comparable<Competition> {
     public ArrayList<Team> teams;
     public int index;
 
-    public Competition(Date dueDate, String name, int teamSize, String websiteLink, ArrayList<Team> teams, int index) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy");
+    public Competition(String dueDate, String name, int teamSize, String websiteLink, ArrayList<Team> teams, int index) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse(dueDate.toString(), formatter);
         this.isOpen = LocalDate.now().compareTo(date) > 0;this.dueDate = dueDate;
         this.teamSize  =teamSize;
         this.teams = teams;
+        this.websiteLink = websiteLink;
+        this.name = name;
+        this.index = index;
+    }
+
+    public Competition(String dueDate, String name, int teamSize, String websiteLink, int index) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        LocalDate date = LocalDate.parse(dueDate.toString().strip(), formatter);
+        this.isOpen = LocalDate.now().compareTo(date) > 0;this.dueDate = dueDate;
+        this.teamSize  =teamSize;
+        this.teams = new ArrayList<>();
         this.websiteLink = websiteLink;
         this.name = name;
         this.index = index;
@@ -34,5 +46,18 @@ public class Competition implements Comparable<Competition> {
     @Override
     public int compareTo(Competition o) {
         return name.compareTo(o.name);
+    }
+
+    @Override
+    public String toString() {
+        return "Competition{" +
+                "dueDate=" + dueDate +
+                "\n, isOpen=" + isOpen +
+                "\n, name='" + name + '\'' +
+                "\n, teamSize=" + teamSize +
+                "\n, websiteLink='" + websiteLink + '\'' +
+                "\n, teams=" + teams.toString() +
+                "\n, index=" + index +
+                '}';
     }
 }

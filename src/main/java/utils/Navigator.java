@@ -10,15 +10,19 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 
-public class Navigator{
+public class Navigator {
+
+    public Navigator INSTANCE = new Navigator();
+
+    private Navigator() {
+    }
 
     // method for navigating to a page
     public static <T> T next(String dist, Event context) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Navigator.class.getClassLoader().getResource(dist+".fxml")); // get the fxml file
-        Stage stage = (Stage)((Node) context.getSource()).getScene().getWindow(); // get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(Navigator.class.getClassLoader().getResource(dist + ".fxml"));
+        Stage stage = (Stage) ((Node) context.getSource()).getScene().getWindow(); // get the current stage
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setScene(scene);
         stage.show();
@@ -26,7 +30,7 @@ public class Navigator{
     }
 
     // method for showing dialog
-    public static <T> T nextDialog(String dist, String dialogTitle) throws IOException{
+    public static <T> T nextDialog(String dist, String dialogTitle) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Navigator.class.getClassLoader().getResource(dist + "-dialog.fxml"));
         DialogPane dialogPane = fxmlLoader.load();
         Dialog<ButtonType> dialog = new Dialog<>();
@@ -36,6 +40,12 @@ public class Navigator{
         dialog.show();
         return fxmlLoader.getController();
 
+    }
+
+    public static <T> T error(String dist) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Navigator.class.getClassLoader().getResource(dist + ".fxml"));
+        fxmlLoader.load();
+        return fxmlLoader.getController();
     }
 
 }

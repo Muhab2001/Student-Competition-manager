@@ -1,15 +1,11 @@
 package cards;
 
 import pages.CompetitionController;
-import pages.MainController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import utils.Navigator;
 
 import java.io.IOException;
@@ -33,10 +29,11 @@ public class CompetitionCard {
 
     @FXML
     void openDetails(MouseEvent event) throws IOException {
-        Navigator.<CompetitionController>next("competition",event).fillContent();
+        CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
+        controller.fillContent();
     }
 
-    public void fillContent(String name, String status, int teamNum, int teamSize ){
+    public void fillContent(String name, String status, int teamNum, int teamSize) {
         // populating the card with the content
         this.name.setText(name);
         this.status.setText(status);

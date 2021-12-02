@@ -3,7 +3,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
@@ -13,10 +12,7 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-//        utils.ExcelStorage.run();
-//        utils.ExcelStorage.read(); // testing thr excel package
+        utils.ExcelStorage.getAllCompetitions(); // testing thr excel package
     }
 
-
 }
-

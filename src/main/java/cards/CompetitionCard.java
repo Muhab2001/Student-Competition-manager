@@ -33,7 +33,7 @@ public class CompetitionCard {
         controller.fillContent();
     }
 
-    public void fillContent(String name, String status, int teamNum, int teamSize) {
+    public void fillContent(String name, String status, int teamNum, int teamSize ){
         // populating the card with the content
         this.name.setText(name);
         this.status.setText(status);

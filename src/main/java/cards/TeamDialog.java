@@ -34,7 +34,7 @@ public class TeamDialog {
 
     @FXML
     void mutateTeams(ActionEvent event) {
-        // TODO: implementing a dynamic team mutation process
+        // TODO: get team object index in the competitionMemory an replace it with a new team object from the input
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
@@ -46,7 +46,7 @@ public class TeamDialog {
     public void fillContent() throws IOException {
         VBox vbox = new VBox(12);
         vbox.setPadding(new Insets(12));
-        // TODO: replace with a dynamic population according to team number
+        // TODO: use a team ArrayList parameter to populate the view
         for(int i = 0; i < 10; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../student-card-edit.fxml"));
             vbox.getChildren().add((Node) fxmlLoader.load());

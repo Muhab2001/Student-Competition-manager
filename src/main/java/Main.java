@@ -7,6 +7,7 @@ import models.Competition;
 import utils.CompetitionsMemory;
 import utils.ExcelStorage;
 
+
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
@@ -14,7 +15,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("KFUPM Medalist");
         stage.setResizable(false);
-        stage.getIcons().add(new Image("img/32.png"));
+        stage.getIcons().add(new Image("img/48.png"));
         stage.setScene(scene);
         stage.show();
         utils.ExcelStorage.getAllCompetitions(); // testing thr excel package
@@ -25,4 +26,5 @@ public class Main extends Application {
         super.stop();
         ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
     }
+}
 

@@ -15,7 +15,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("KFUPM Medalist");
         stage.setResizable(false);
-        stage.getIcons().add(new Image("img/32.png"));
+        stage.getIcons().add(new Image("img/48.png"));
         stage.setScene(scene);
         stage.show();
         utils.ExcelStorage.getAllCompetitions(); // testing thr excel package

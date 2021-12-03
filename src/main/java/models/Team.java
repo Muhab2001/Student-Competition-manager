@@ -41,6 +41,7 @@ public class Team implements Comparable<Team>{
                 "index=" + index +
                 ", students=" + students.toString() +
                 ", teamSize=" + teamSize +
+                "rank="+ rank +
                 '}' + "-------------------------------------------\n";
     }
 }

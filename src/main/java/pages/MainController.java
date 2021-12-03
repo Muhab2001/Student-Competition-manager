@@ -25,7 +25,7 @@ public class MainController {
     // used to fetch data when the element is displayed
     @FXML
     public void initialize() throws IOException {
-    // TODO: remove this snippet after testing menu population
+    // TODO: get content from the competitions ArrayList from CompetitionsMemory
         VBox vBox = new VBox(16);
         VBox vBox1 = new VBox(16);
         vBox1.setPadding(new Insets(14));

@@ -45,7 +45,7 @@ public class Navigator{
 
     }
 
-    public static <T> T error(String dist) throws IOException{
+    public static <T> T card(String dist) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Navigator.class.getClassLoader().getResource(dist+".fxml"));
         fxmlLoader.load();
         return fxmlLoader.getController();

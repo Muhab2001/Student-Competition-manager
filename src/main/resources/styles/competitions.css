@@ -23,6 +23,7 @@
 
 .small-btn{
 -fx-background-radius: 20px !important;
+-fx-border-radius: 20px !important;
 -fx-pref-width: 40px !important;
 -fx-min-width: 40px !important;
 -fx-max-width: 40px !important;

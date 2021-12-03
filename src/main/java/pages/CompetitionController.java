@@ -21,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 public class CompetitionController {
 
+    // TODO: This logic should be moved to the content filler method to avoid Exceptions
     @FXML
     public void initialize() throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
@@ -105,7 +106,7 @@ public class CompetitionController {
 
     }
 
-    // TODO: Perform a proper dynamic routing using fetched websites, this is just a test
+    // TODO: use the competition object website link instead of the dummy value
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
         WebsiteController controller =
@@ -113,7 +114,7 @@ public class CompetitionController {
         controller.showWebsite("https://www.google.com");
     }
 
-    // TODO: Perform a proper deletion , this is just a test
+    // TODO: remove the competition object from CompetitionMemory
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
@@ -121,7 +122,7 @@ public class CompetitionController {
 
     }
 
-    // TODO: replace with dynamic population
+    // TODO: get content from a Competition object parameter
     public void fillContent() throws IOException {
 
 

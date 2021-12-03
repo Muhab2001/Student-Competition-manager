@@ -1,3 +1,7 @@
+.scroll-bar {
+    -fx-font-size: 10px;
+}
+
 .btn{
     -fx-background-color:  #3DB2FF;
  -fx-background-radius: 8px;

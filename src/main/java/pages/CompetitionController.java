@@ -73,7 +73,7 @@ public class CompetitionController {
     private Button deleteBtn;
 
     @FXML
-    private ScrollPane teamsContainer;
+    private VBox teamsContainer;
 
     @FXML
     private Button announceRanking;
@@ -125,16 +125,14 @@ public class CompetitionController {
     // TODO: get content from a Competition object parameter
     public void fillContent() throws IOException {
 
-
-        VBox vbox = new VBox(8);
         for(int i = 0; i < 10; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
-            vbox.getChildren().add((Node) fxmlLoader.load());
+            teamsContainer.getChildren().add((Node) fxmlLoader.load());
             TeamCard controller = fxmlLoader.getController();
             controller.setContent();
         }
 
-        teamsContainer.setContent(vbox);
+
 
     }
 

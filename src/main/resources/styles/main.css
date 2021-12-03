@@ -1,24 +1,21 @@
 .btn{
     -fx-background-color:  #3DB2FF;
- -fx-background-radius: 8px;
- -fx-border-radius: 8px;
+ -fx-background-radius: 4px;
+ -fx-border-radius: 4px;
+ -fx-skin: 'utils.skins.PrimaryButtonSkin';
 }
 
-.btn:hover{
--fx-background-color:  #369cdc !important;
--fx-border-color: #369cdc;
--fx-background-radius: 8px;
--fx-border-radius: 8px;
- -fx-background-insets: 0 ;
-}
+
 
 .btn:pressed{
 -fx-background-color:  #277bae !important;
 -fx-border-color: #277bae;
--fx-background-radius: 8px;
+-fx-background-radius: 4px;
  -fx-background-insets: 0 ;
--fx-border-radius: 8px;
+-fx-border-radius: 4px;
 }
+
+
 .scroll-bar:vertical > .thumb {
     -fx-background-color:  #aeaeae;
 }.scroll-pane > .viewport {

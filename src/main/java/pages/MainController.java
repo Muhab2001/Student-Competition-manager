@@ -9,15 +9,23 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import utils.Navigator;
+import utils.TopBarPane;
+import utils.TopBarable;
 
 import java.io.IOException;
 
-public class MainController {
+public class MainController implements TopBarable {
 
+    @FXML
+    private VBox root;
     public MainController(){
 
     }
@@ -78,5 +86,10 @@ public class MainController {
     }
 
 
+    @Override
+    public void addTopBar(Stage stage) {
+        TopBarPane topBar = new TopBarPane(stage,"Competitions");
+        root.getChildren().add(0,topBar);
+    }
 }
 

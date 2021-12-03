@@ -11,15 +11,19 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Competition;
 import models.Team;
 import utils.Navigator;
+import utils.TopBarPane;
+import utils.TopBarable;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class CompetitionController {
+public class CompetitionController implements TopBarable {
 
     @FXML
     public void initialize() throws IOException {
@@ -39,6 +43,9 @@ public class CompetitionController {
     }
 
     private Competition currentCompetition;
+
+    @FXML
+    private VBox root;
 
     @FXML
     private Circle statusIndicator;
@@ -136,4 +143,9 @@ public class CompetitionController {
 
     }
 
+    @Override
+    public void addTopBar(Stage stage) {
+        TopBarPane topBar = new TopBarPane(stage,competitionName.getText());
+        root.getChildren().add(0,topBar);
+    }
 }

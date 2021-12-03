@@ -18,7 +18,6 @@ public class CompetitionsMemory {
         return this.competitions;
     }
 
-    // TODO: Null- handling if needed
     public Competition getCompetition(int competitionId) {
         return competitions.get(competitionId);
 

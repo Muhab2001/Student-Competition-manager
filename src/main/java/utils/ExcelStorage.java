@@ -219,7 +219,7 @@ public class ExcelStorage {
             for (Team team : competition.teams) {
                 for (Student student : team.students) {
                     if (student.index == 0) {
-                        if (team.rank != -1) // TODO: solve problem in indexing
+                        if (team.rank != -1)
                             teamsData.put(currentKey++, new Object[]{studentIndex++, student.id, student.name, student.major, team.rank});
                         else
                             teamsData.put(currentKey++, new Object[]{studentIndex++, student.id, student.name, student.major, "-"});

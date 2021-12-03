@@ -18,10 +18,13 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" stylesheets="@styles/competitions.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.CompetitionController">
    <children>
-      <ScrollPane fx:id="teamsContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="429.0" layoutY="163.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="454.0" style="-fx-background-color: #f5f5f5; -fx-border-color: none; -fx-background-radius: 8;" stylesheets="@styles/competitions.css">
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="429.0" layoutY="163.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="454.0" style="-fx-background-color: #f5f5f5; -fx-border-color: none; -fx-background-radius: 8;" stylesheets="@styles/competitions.css">
          <padding>
-            <Insets right="8.0" />
-         </padding></ScrollPane>
+            <Insets right="2.0" />
+         </padding>
+         <content>
+            <VBox fx:id="teamsContainer" prefHeight="407.0" prefWidth="470.0" spacing="8.0" />
+         </content></ScrollPane>
       <AnchorPane layoutX="-1.0" layoutY="71.0" prefHeight="530.0" prefWidth="406.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
             <VBox layoutX="11.0" layoutY="7.0" prefWidth="402.0" style="-fx-background-color: #f5f5f5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -245,7 +248,7 @@
             </DropShadow>
          </effect>
       </Label>
-      <Button fx:id="returnBtn" alignment="CENTER" layoutX="834.0" layoutY="16.0" maxHeight="35.0" maxWidth="68.0" minHeight="35.0" minWidth="39.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #3DB2FF; -fx-background-radius: 18;" styleClass="small-btn">
+      <Button fx:id="returnBtn" alignment="CENTER" layoutX="834.0" layoutY="16.0" maxHeight="35.0" maxWidth="68.0" minHeight="35.0" minWidth="39.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #3DB2FF; -fx-background-radius: 18;" styleClass="small-btn" AnchorPane.rightAnchor="26.0">
          <graphic>
             <ImageView fitHeight="16.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                <image>

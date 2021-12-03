@@ -4,6 +4,10 @@
     -fx-background-color: transparent;
     -fx-background-insets: 0 ;
  }
+ .scroll-bar {
+     -fx-font-size: 10px;
+ }
+
 
  .btn2{
   -fx-background-insets: 0 ;

@@ -18,32 +18,27 @@ import java.io.IOException;
 
 public class MainController {
 
-    public MainController(){
 
-    }
 
     // used to fetch data when the element is displayed
     @FXML
     public void initialize() throws IOException {
     // TODO: get content from the competitions ArrayList from CompetitionsMemory
-        VBox vBox = new VBox(16);
-        VBox vBox1 = new VBox(16);
-        vBox1.setPadding(new Insets(14));
-        vBox.setPadding(new Insets(14));
-        vBox.setAlignment(Pos.CENTER);
-        vBox1.setAlignment(Pos.CENTER);
+
         for(int i = 0; i < 10; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            vBox1.getChildren().add((Node) fxmlLoader.load());
+            vbox1.getChildren().add((Node) fxmlLoader.load());
              fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            vBox.getChildren().add((Node) fxmlLoader.load());
+            vbox2.getChildren().add((Node) fxmlLoader.load());
         }
-        HBox hBox = new HBox(0);
-        hBox.getChildren().addAll(vBox1, vBox);
-        hBox.setAlignment(Pos.CENTER);
-        hBox.setPrefWidth(900);
-        CompetitionsContainer.setContent(hBox);
+
     }
+
+    @FXML
+    private VBox vbox1;
+
+    @FXML
+    private VBox vbox2;
 
     @FXML
     private ScrollPane CompetitionsContainer;

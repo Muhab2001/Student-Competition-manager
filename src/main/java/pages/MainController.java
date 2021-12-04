@@ -1,5 +1,6 @@
 package pages;
 
+import cards.CompetitionCard;
 import cards.CompetitionDialog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import models.Competition;
+import utils.CompetitionsMemory;
 import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
@@ -37,13 +40,24 @@ public class MainController implements TopBarable {
 
         vBox1.setPadding(new Insets(14));
         vBox2.setPadding(new Insets(14));
-        vBox2.setAlignment(Pos.CENTER);
-        vBox1.setAlignment(Pos.CENTER);
-        for(int i = 0; i < 10; i++){
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            vBox1.getChildren().add((Node) fxmlLoader.load());
-             fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            vBox2.getChildren().add((Node) fxmlLoader.load());
+        for(int i = 0; i < CompetitionsMemory.INSTANCE.competitions.size(); i++){
+
+            Competition competition = CompetitionsMemory.INSTANCE.getCompetition(i);
+            String status = competition.isOpen ? "open" : "closed";
+            if(i % 2 == 0){
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
+                vBox1.getChildren().add((Node) fxmlLoader.load());
+                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition.name, status, competition.index, competition.teamSize);
+            }
+            else{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
+                vBox2.getChildren().add((Node) fxmlLoader.load());
+                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition.name, status, competition.index, competition.teamSize);
+
+
+            }
+
+
         }
 
     }

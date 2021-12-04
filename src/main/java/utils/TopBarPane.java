@@ -97,7 +97,7 @@ public class TopBarPane extends BorderPane{
             stage.setY(e.getScreenY() - yOff);
         });
 
-        buttons.getChildren().addAll(minimize,maximize,X);
+        buttons.getChildren().addAll(minimize,X);
 
 
     }

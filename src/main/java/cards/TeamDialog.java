@@ -30,7 +30,7 @@ public class TeamDialog {
     private Label headerText;
 
     @FXML
-    private ScrollPane studentsContainer;
+    private VBox studentsContainer;
 
     @FXML
     void mutateTeams(ActionEvent event) {
@@ -44,16 +44,15 @@ public class TeamDialog {
     }
 
     public void fillContent() throws IOException {
-        VBox vbox = new VBox(12);
-        vbox.setPadding(new Insets(12));
+
+
         // TODO: use a team ArrayList parameter to populate the view
         for(int i = 0; i < 10; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../student-card-edit.fxml"));
-            vbox.getChildren().add((Node) fxmlLoader.load());
+            studentsContainer.getChildren().add((Node) fxmlLoader.load());
 
         }
-
-        studentsContainer.setContent(vbox);
+        
     }
 
 }

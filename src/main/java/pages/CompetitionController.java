@@ -11,23 +11,28 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Competition;
+import models.Team;
 import utils.Navigator;
+import utils.TopBarPane;
+import utils.TopBarable;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class CompetitionController {
+public class CompetitionController implements TopBarable {
 
-    // TODO: This logic should be moved to the content filler method to avoid Exceptions
     @FXML
     public void initialize() throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse("12/1/2021", formatter);
+
         dateLabel.setText("12/1/2021");
         if(LocalDate.now().compareTo(date) > 0){
+
             Navigator.<DueDialog>nextDialog("due", "This competition is due!");
             statusIndicator.setFill(Color.RED);
             statusLabel.setText("Closed");
@@ -38,6 +43,9 @@ public class CompetitionController {
     }
 
     private Competition currentCompetition;
+
+    @FXML
+    private VBox root;
 
     @FXML
     private Circle statusIndicator;
@@ -80,52 +88,54 @@ public class CompetitionController {
 
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
-        RankingDialog controller =
-                Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
+        RankingDialog controller = Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
         controller.fillContent();
     }
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
-        CompetitionDialog dialogController =
-                Navigator.<CompetitionDialog>nextDialog("competition", "Edit a Competition");
+        CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition",
+                "Edit a Competition");
         dialogController.fillContent();
 
     }
 
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
-        Navigator.<MainController>next("main", event);
+       MainController controller = Navigator.<MainController>next("main", event);
+        controller.addTopBar((Stage)((Node) event.getSource()).getScene().getWindow());
     }
 
     @FXML
     void addTeam(ActionEvent event) throws IOException {
-        TeamDialog controller =
-                Navigator.<TeamDialog>nextDialog("team", "Add a Team");
+        TeamDialog controller = Navigator.<TeamDialog>nextDialog("team", "Add a Team");
         controller.setHeader("Add a Team");
-
+        controller.fillContent();
     }
 
-    // TODO: use the competition object website link instead of the dummy value
+    // TODO: Perform a proper dynamic routing using fetched websites, this is just a
+    // test
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
-        WebsiteController controller =
-                Navigator.<WebsiteController>next("website", event);
+
+        WebsiteController controller = Navigator.<WebsiteController>next("website", event);
         controller.showWebsite("https://www.google.com");
+
     }
 
-    // TODO: remove the competition object from CompetitionMemory
+    // TODO: Perform a proper deletion , this is just a test
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
-        Navigator.<MainController>next("../main", event);
+       MainController controller = Navigator.<MainController>next("../main", event);
 
     }
 
-    // TODO: get content from a Competition object parameter
+    // TODO: replace with dynamic population
     public void fillContent() throws IOException {
 
-        for(int i = 0; i < 10; i++){
+
+        for (int i = 0; i < 10; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
             teamsContainer.getChildren().add((Node) fxmlLoader.load());
             TeamCard controller = fxmlLoader.getController();
@@ -133,9 +143,11 @@ public class CompetitionController {
         }
 
 
-
     }
 
-
-
+    @Override
+    public void addTopBar(Stage stage) {
+        TopBarPane topBar = new TopBarPane(stage,competitionName.getText());
+        root.getChildren().add(0,topBar);
+    }
 }

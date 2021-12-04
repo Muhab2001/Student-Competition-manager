@@ -1,5 +1,7 @@
 package cards;
 
+import javafx.scene.Node;
+import javafx.stage.Stage;
 import pages.CompetitionController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,8 +31,10 @@ public class CompetitionCard {
 
     @FXML
     void openDetails(MouseEvent event) throws IOException {
+
         CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
         controller.fillContent();
+
     }
 
     public void fillContent(String name, String status, int teamNum, int teamSize ){

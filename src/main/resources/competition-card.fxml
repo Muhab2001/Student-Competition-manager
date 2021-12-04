@@ -11,9 +11,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
+<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: #e2ece9; -fx-background-radius: 12;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
    <children>
-      <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;" text="Competition Name">
+      <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 0 0; -fx-border-color: #95A5A6;" text="Competition Name">
          <padding>
             <Insets bottom="14.0" left="22.0" right="14.0" top="14.0" />
          </padding>
@@ -23,8 +23,11 @@
          <VBox.margin>
             <Insets />
          </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Label>
-      <HBox prefHeight="73.0" prefWidth="410.0">
+      <HBox prefHeight="73.0" prefWidth="410.0" style="-fx-background-color: white; -fx-background-radius: 16 16 12 12;">
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="140.0">
                <children>
@@ -101,16 +104,26 @@
                </padding>
             </VBox>
          </children>
+         <effect>
+            <DropShadow height="50.0" offsetY="-8.0" radius="12.0" width="0.0">
+               <color>
+                  <Color red="0.24120000004768372" green="0.29861998558044434" blue="0.36000001430511475" opacity="0.10000000149011612" />
+               </color>
+            </DropShadow>
+         </effect>
       </HBox>
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />
    </cursor>
    <effect>
-      <DropShadow>
+      <DropShadow blurType="GAUSSIAN" height="30.0" offsetY="10.0" radius="14.5" width="30.0">
          <color>
-            <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+            <Color red="0.24120000004768372" green="0.296640008687973" blue="0.36000001430511475" opacity="0.10000000149011612" />
          </color>
       </DropShadow>
    </effect>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </VBox>

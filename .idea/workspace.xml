@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24fc0361-5766-449a-98bd-a52893a3f12c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/WebsiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/WebsiteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/competition-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/competition-card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/competition.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/competition.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/website.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/website.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-3.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

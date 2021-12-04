@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Fixing errors, and moving pane to navigator">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TopBarPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/TopBarPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
+    </list>
+
     <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="`EmailComposer` is ready" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,8 +76,8 @@
       <recent name="D:\Documents\KFUPM Vault\211\SWE206\Project\Phase Three\test-3\src\main\resources\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Documents\KFUPM Vault\211\SWE206\Project\Phase Three\test-3" />
       <recent name="D:\Documents\KFUPM Vault\211\SWE206\Project\Phase Three\test-3\src\main\resources\img" />
+      <recent name="D:\Documents\KFUPM Vault\211\SWE206\Project\Phase Three\test-3" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="utils" />
@@ -299,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638553246045</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="`EmailComposer` is ready">
+      <created>1638566827260</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1638566827260</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixing errors, and moving pane to navigator">
+      <created>1638618787576</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1638618787576</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,7 +351,8 @@
     <MESSAGE value="Updating UI" />
     <MESSAGE value="Fixing `ExcelStorage.java` indexing" />
     <MESSAGE value="`EmailComposer` is ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="`EmailComposer` is ready" />
+    <MESSAGE value="Fixing errors, and moving pane to navigator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing errors, and moving pane to navigator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,11 +366,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java</url>
           <line>91</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

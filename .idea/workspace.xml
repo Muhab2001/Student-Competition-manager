@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="`EmailComposer` is ready">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/EmailComposer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/EmailComposer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/competition.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/competition.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/competitions.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/competitions.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/team-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/team-card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/website.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/website.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,11 +59,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.21652421" />
     <property name="project.structure.side.proportion" value="0.3026534" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -87,7 +77,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.run-fx">
+  <component name="RunManager" selected="Maven.test-3 [javafx:run]">
     <configuration name="EmailComposer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="utils.EmailComposer" />
       <module name="swe-project" />
@@ -206,8 +196,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EmailComposer" />
         <item itemvalue="Application.ExcelStorage" />
+        <item itemvalue="Application.EmailComposer" />
         <item itemvalue="Application.tester" />
         <item itemvalue="Application.User" />
         <item itemvalue="Application.Navigator" />
@@ -342,11 +332,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java</url>
           <line>91</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

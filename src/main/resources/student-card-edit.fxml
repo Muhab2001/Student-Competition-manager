@@ -17,7 +17,7 @@
                 <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
             </HBox.margin>
         </ImageView>
-        <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="384.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 2;">
+        <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="384.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 1;">
             <children>
             <TextField fx:id="nameInput" prefHeight="26.0" promptText="Student name" VBox.vgrow="SOMETIMES">
                <VBox.margin>

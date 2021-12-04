@@ -1,0 +1,9 @@
+.scroll-bar:vertical > .thumb {
+    -fx-background-color:  #aeaeae;
+}.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 ;
+ }
+ .scroll-bar {
+     -fx-font-size: 10px;
+ }

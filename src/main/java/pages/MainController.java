@@ -9,36 +9,44 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import utils.Navigator;
+import utils.TopBarPane;
+import utils.TopBarable;
 
 import java.io.IOException;
 
-public class MainController {
+public class MainController implements TopBarable {
 
+    @FXML
+    private VBox root;
+    public MainController(){
 
+    }
 
     // used to fetch data when the element is displayed
     @FXML
     public void initialize() throws IOException {
-    // TODO: get content from the competitions ArrayList from CompetitionsMemory
+    // TODO: remove this snippet after testing menu population
 
+        vBox1.setPadding(new Insets(14));
+        vBox2.setPadding(new Insets(14));
+        vBox2.setAlignment(Pos.CENTER);
+        vBox1.setAlignment(Pos.CENTER);
         for(int i = 0; i < 10; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            vbox1.getChildren().add((Node) fxmlLoader.load());
+            vBox1.getChildren().add((Node) fxmlLoader.load());
              fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-            vbox2.getChildren().add((Node) fxmlLoader.load());
+            vBox2.getChildren().add((Node) fxmlLoader.load());
         }
 
     }
-
-    @FXML
-    private VBox vbox1;
-
-    @FXML
-    private VBox vbox2;
 
     @FXML
     private ScrollPane CompetitionsContainer;
@@ -51,6 +59,12 @@ public class MainController {
 
     @FXML
     private Label username;
+
+    @FXML
+    private VBox vBox1;
+
+    @FXML
+    private VBox vBox2;
 
     @FXML
     void trackCompetition(ActionEvent event) throws IOException {
@@ -73,5 +87,10 @@ public class MainController {
     }
 
 
+    @Override
+    public void addTopBar(Stage stage) {
+        TopBarPane topBar = new TopBarPane(stage,"Competitions");
+        root.getChildren().add(0,topBar);
+    }
 }
 

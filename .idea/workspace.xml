@@ -76,6 +76,10 @@
         <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="compiler:compile" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Maven.test-3 [javafx:run]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />

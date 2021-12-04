@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="`EmailComposer` is ready">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/EmailComposer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/EmailComposer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/competition.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/competition.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/competitions.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/competitions.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/team-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/team-card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/website.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/website.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
-    </list>
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="`EmailComposer` is ready" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

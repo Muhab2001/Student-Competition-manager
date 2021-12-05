@@ -16,4 +16,7 @@ public class EmailSlot {
     @FXML
     private VBox studentContainer;
 
+    public VBox getStudentContainer() {return studentContainer;}
+
+
 }

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class RankingDialog {
 
     // used to fetch data when the element is displayed
+    private Competition currentCompetition;
 
     @FXML
     public void initialize(){
@@ -41,12 +42,13 @@ public class RankingDialog {
         stage.close();
     }
 
+    // TODO: Get the ranks from the input, and add them to the Team objects. (for the email dialog)
     @FXML
     void confirmRanking(ActionEvent event) throws IOException {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
         EmailDialog controller = Navigator.<EmailDialog>nextDialog("email", "Email a team");
-        controller.fillContent();
+        controller.fillContent(currentCompetition);
     }
 
     @FXML
@@ -55,9 +57,9 @@ public class RankingDialog {
     @FXML
     private VBox studentContainer;
 
-    // TODO: DONE get all teams from the competition
     public void fillContent(Competition competition) throws IOException {
-        ArrayList<Team> teams = competition.getTeams(); // Get the teams of the current competition
+        currentCompetition = competition;
+        ArrayList<Team> teams = currentCompetition.getTeams(); // Get the teams of the current competition
         VBox vbox = new VBox(5); // A new VBox for the rankings
         for (Team team : teams) {
             System.out.println(team.toString());

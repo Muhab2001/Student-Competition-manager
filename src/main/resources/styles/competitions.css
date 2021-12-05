@@ -16,14 +16,15 @@
  -fx-skin: 'utils.skins.PrimaryButtonSkin';
 }
 
- .btn2{
--fx-skin: 'utils.skins.PrimaryButtonSkin';
- }
 
- .btn2:pressed{
- -fx-background-color:  #277bae !important;
- -fx-border-color: #277bae;
- }
+
+.btn:pressed{
+-fx-background-color:  #277bae !important;
+-fx-border-color: #277bae;
+-fx-background-radius: 4px;
+ -fx-background-insets: 0 ;
+-fx-border-radius: 4px;
+}
 
 
 
@@ -53,7 +54,7 @@
 }
 
 
-.btn{
+.btn2{
 -fx-font:  14px 'Segoe UI regular';
 -fx-text-fill: black;
 -fx-background-color: white;
@@ -63,12 +64,11 @@
 -fx-alignment: LEFT;
  -fx-background-radius: 4px;
  -fx-border-radius: 4px;
- -fx-skin: 'utils.skins.PrimaryButtonSkin';
 }
 
 
 
-.btn:pressed{
+.btn2:pressed,.btn2:hover{
 -fx-font:  14px 'Segoe UI regular';
 -fx-background-color:  #d7d7d7 !important;
 -fx-border-color: #d7d7d7;

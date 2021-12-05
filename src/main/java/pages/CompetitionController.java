@@ -97,6 +97,7 @@ public class CompetitionController implements TopBarable {
         CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition",
                 "Edit a Competition");
         dialogController.fillContent();
+        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 
     }
 

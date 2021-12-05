@@ -3,20 +3,21 @@ package cards;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import utils.TopBarPane;
+import utils.TopBarable;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class CompetitionDialog {
+public class CompetitionDialog implements TopBarable {
 
     // used to fetch data when the element is displayed
     @FXML
     public void initialize(){
+        //this.stage = (Stage)root.getScene().getWindow();
         dateInput.setDayCellFactory(param -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
@@ -24,9 +25,15 @@ public class CompetitionDialog {
                 setDisable(empty || date.compareTo(LocalDate.now()) < 0 );
             }
         });
+
     }
 
     private Stage stage;
+
+    private boolean isTrack;
+
+    @FXML
+    private DialogPane root;
 
     @FXML
     private Button cancelBtn;
@@ -68,4 +75,21 @@ public class CompetitionDialog {
 
     }
 
+    public void setIsTrack(boolean value){
+        this.isTrack = value;
+    }
+
+    @Override
+    public void addTopBar(Stage stage) {
+        String title;
+
+        if (this.isTrack)
+            title = "Track a new Competition";
+        else {
+            title = "Edit the Competition";
+            this.submitBtn.setText("Update Competition");
+        }
+        TopBarPane topBar = new TopBarPane((Stage)root.getScene().getWindow(),title);
+        root.setHeader(topBar);
+    }
 }

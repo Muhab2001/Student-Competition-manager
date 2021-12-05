@@ -69,7 +69,7 @@ public class LoginController implements TopBarable {
                 controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa");
 
 //            } else {
-//                ErrorMessage errorMessage = Navigator.<ErrorMessage>error("error-msg");
+//                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
 //                errorMessage.fillContent("Wrong Credentials! Please Enter Correct Credentials to continue");
 //                container.getChildren().remove(1);
 //                container.getChildren().add(1, errorMessage.getLabel());

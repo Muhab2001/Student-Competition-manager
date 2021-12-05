@@ -11,15 +11,6 @@
 
 
 
-.btn:pressed{
--fx-background-color:  #277bae !important;
--fx-border-color: #277bae;
--fx-background-radius: 4px;
- -fx-background-insets: 0 ;
--fx-border-radius: 4px;
-}
-
-
 .scroll-bar:vertical > .thumb {
     -fx-background-color:  #aeaeae;
 }.scroll-pane > .viewport {

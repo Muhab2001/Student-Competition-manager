@@ -84,6 +84,8 @@ public class MainController implements TopBarable {
     void trackCompetition(ActionEvent event) throws IOException {
         CompetitionDialog dialogController =
                 Navigator.<CompetitionDialog>nextDialog("competition", "Track a New Competition");
+        dialogController.setIsTrack(true);
+        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 
     }
 

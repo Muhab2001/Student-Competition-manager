@@ -29,7 +29,7 @@ public class Main extends Application {
     public void stop() throws Exception {
         super.stop();
         ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
-        System.out.println("Data Saced Successfully! "); // TODO: delete test log
+        System.out.println("Data Saved Successfully! "); // TODO: delete test log
     }
 }
 

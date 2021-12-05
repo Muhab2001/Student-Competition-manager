@@ -11,9 +11,16 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Competition;
+import models.Student;
+import models.Team;
+import org.apache.poi.ss.formula.functions.T;
+import utils.CompetitionsMemory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+// The Dialog that is shown to the user when editing a team in a competition
 public class TeamDialog {
 
     // used to fetch data when the element is displayed
@@ -34,7 +41,7 @@ public class TeamDialog {
 
     @FXML
     void mutateTeams(ActionEvent event) {
-        // TODO: get team object index in the competitionMemory an replace it with a new team object from the input
+        // TODO: get team object index in the competitionMemory and replace it with a new team object from the input
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
@@ -44,7 +51,7 @@ public class TeamDialog {
     }
 
     public void fillContent() throws IOException {
-
+        // Get a dummy competition (for testing)
 
         // TODO: use a team ArrayList parameter to populate the view
         for(int i = 0; i < 10; i++){

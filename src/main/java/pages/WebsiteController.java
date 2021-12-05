@@ -33,7 +33,7 @@ public class WebsiteController implements TopBarable {
     void navigateBack(ActionEvent event) throws IOException {
         CompetitionController controller =
                 Navigator.<CompetitionController>next("competition", event);
-        controller.fillContent();
+        controller.fillContent(controller);
 
 
     }

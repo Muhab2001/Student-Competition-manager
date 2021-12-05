@@ -43,7 +43,7 @@ public class Navigator{
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle(dialogTitle);
         dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar
+        dialog.initStyle(StageStyle.UNDECORATED); // TODO: DONE? custom bar
         dialog.show();
         return fxmlLoader.getController();
 

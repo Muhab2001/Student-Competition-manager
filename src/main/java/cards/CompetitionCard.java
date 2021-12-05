@@ -29,7 +29,7 @@ public class CompetitionCard {
     void openDetails(MouseEvent event) throws IOException {
 
         CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
-        controller.fillContent();
+        controller.fillContent(controller);
 
     }
 

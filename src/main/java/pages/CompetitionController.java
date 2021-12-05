@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Competition;
 import models.Team;
+import utils.CompetitionsMemory;
 import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
@@ -25,8 +26,11 @@ import java.time.format.DateTimeFormatter;
 
 public class CompetitionController implements TopBarable {
 
+    private CompetitionController currentController;
+
     @FXML
     public void initialize() throws IOException {
+        currentCompetition = CompetitionsMemory.INSTANCE.getCompetition(0);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse("12/1/2021", formatter);
 
@@ -94,10 +98,9 @@ public class CompetitionController implements TopBarable {
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
-        CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition",
+        CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition-edit",
                 "Edit a Competition");
-        dialogController.fillContent();
-
+        dialogController.fillContent(currentController, currentCompetition.name, currentCompetition.websiteLink, currentCompetition.teamSize, currentCompetition.dueDate);
     }
 
     @FXML
@@ -113,14 +116,24 @@ public class CompetitionController implements TopBarable {
         controller.fillContent();
     }
 
-    // TODO: Perform a proper dynamic routing using fetched websites, this is just a
-    // test
+    // TODO: DONE - Perform a proper dynamic routing using fetched websites, this is just a test
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
-
         WebsiteController controller = Navigator.<WebsiteController>next("website", event);
-        controller.showWebsite("https://www.google.com");
+        String link = validatedLink(currentCompetition.websiteLink); // the link for the current competition's website
+        controller.showWebsite(link); // visit the link
+    }
+    // Validates the link for the website of the competition
+    String validatedLink(String link) {
+        String newLink = link;
 
+        if (!newLink.startsWith("http")) // if no http protocol has been used
+            newLink = "https://" + newLink;
+
+        if (!newLink.contains(".")) // if the link has no domain suffix
+            newLink += ".com";
+
+        return newLink;
     }
 
     // TODO: Perform a proper deletion , this is just a test
@@ -132,14 +145,14 @@ public class CompetitionController implements TopBarable {
     }
 
     // TODO: replace with dynamic population
-    public void fillContent() throws IOException {
-
+    public void fillContent(CompetitionController controller) throws IOException {
+        currentController = controller; // sets the current CompetitionController
 
         for (int i = 0; i < 10; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
             teamsContainer.getChildren().add((Node) fxmlLoader.load());
-            TeamCard controller = fxmlLoader.getController();
-            controller.setContent();
+            TeamCard controller2 = fxmlLoader.getController();
+            controller2.setContent();
         }
 
 

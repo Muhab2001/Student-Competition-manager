@@ -8,6 +8,10 @@ import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import pages.CompetitionController;
+import utils.CompetitionsMemory;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -59,13 +63,26 @@ public class CompetitionDialog {
         stage.close();
     }
 
-    public void fillContent(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy");
-        dateInput.setValue(LocalDate.parse("11/19/2021", formatter));
-        linkInput.setText("http://kaggle.com");
-        nameInput.setText("Kaggle data competition");
-        sizeInput.setText("3");
-
+    //
+    public void fillContent(CompetitionController controller, String name, String websiteLink, int teamSize, String dueDate) throws IOException {
+        controller.fillContent(controller);
+        dateInput.setValue(LocalDate.parse(dueDate));
+        linkInput.setText(websiteLink);
+        nameInput.setText(name);
+        sizeInput.setText(String.valueOf(teamSize));
     }
 
+    // Edits a competition's details in the CompetitionsMemory instance
+    public void editCompetition(ActionEvent actionEvent) {
+        String name = nameInput.getText();
+        String websiteLink = linkInput.getText();
+        int teamSize = Integer.parseInt(sizeInput.getText());
+        String dueDate = String.valueOf(LocalDate.parse(String.valueOf(dateInput.getValue())));
+
+        CompetitionsMemory.INSTANCE.editCompetition(0, name, websiteLink, teamSize, dueDate);
+
+        // Closing the stage
+        stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.close();
+    }
 }

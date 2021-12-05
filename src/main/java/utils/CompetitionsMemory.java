@@ -20,19 +20,22 @@ public class CompetitionsMemory {
 
     public Competition getCompetition(int competitionId) {
         return competitions.get(competitionId);
-
     }
 
     public void addCompetition(Competition competition) {
         competitions.add(competition);
     }
 
-    public void editCompetition(int competitionId, Competition newCompetitionState) {
-        Competition targetCompetition = getCompetition(competitionId);
-        int targetIndex = this.competitions.indexOf(targetCompetition);
+    public void editCompetition(int competitionId, String name, String websiteLink, int teamSize, String dueDate) {
+        Competition currentCompetition = competitions.get(competitionId);
+        currentCompetition.name = name;
+        currentCompetition.websiteLink = websiteLink;
+        currentCompetition.teamSize = teamSize;
+        currentCompetition.dueDate = dueDate;
+    }
 
-        this.competitions.remove(targetIndex);
-        this.competitions.add(targetIndex, newCompetitionState);
+    public void editCompetitionByID(int competitionId, Competition newCompetitionState) {
+        this.competitions.set(competitionId, newCompetitionState);
     }
 
     public void deleteCompetition(int competitionId) {

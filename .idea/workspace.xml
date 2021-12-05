@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="The working pulled version">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/competition-edit-dialog.fxml" afterDir="false" />
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Finished visitWebsite and editCompetition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CompetitionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CompetitionDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/TeamDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/TeamDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cards/RankingDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/RankingDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cards/RankingSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/RankingSlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Competition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Competition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/WebsiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/WebsiteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Navigator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,12 +57,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TODO_SCOPE" value="Open Files" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/styles" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.21652421" />
     <property name="project.structure.side.proportion" value="0.3026534" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -303,7 +299,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638632263561</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Finished visitWebsite and editCompetition">
+      <created>1638717198759</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1638717198759</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Finished visitWebsite and editCompetition">
+      <created>1638717243926</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1638717243926</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,7 +327,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/ahmad-branch" />
+                        <option value="ahmad-branch" />
                       </list>
                     </value>
                   </entry>
@@ -345,7 +355,8 @@
     <MESSAGE value="Fixing `ExcelStorage.java` indexing" />
     <MESSAGE value="`EmailComposer` is ready" />
     <MESSAGE value="The working pulled version" />
-    <option name="LAST_COMMIT_MESSAGE" value="The working pulled version" />
+    <MESSAGE value="Finished visitWebsite and editCompetition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished visitWebsite and editCompetition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

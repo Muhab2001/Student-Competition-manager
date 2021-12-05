@@ -12,19 +12,6 @@
 <?import javafx.scene.text.Font?>
 
 <DialogPane maxWidth="-Infinity" prefHeight="582.0" prefWidth="578.0" stylesheets="@styles/team-dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamDialog">
-   <header>
-      <Label fx:id="headerText" maxWidth="578.0" prefHeight="70.0" prefWidth="578.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 1 0; -fx-text-fill: #3DB2FF;" text="(Create/Edit) a Team">
-         <padding>
-            <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
-         </padding>
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-         <opaqueInsets>
-            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
-         </opaqueInsets>
-      </Label>
-   </header>
    <content>
       <AnchorPane maxWidth="-Infinity" prefHeight="481.0" prefWidth="554.0">
          <children>
@@ -40,6 +27,11 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                      </padding></VBox>
                </content></ScrollPane>
+            <Button fx:id="cancelBtn" alignment="CENTER" layoutX="327.0" layoutY="426.0" mnemonicParsing="false" onAction="#cancel" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #7c7c7c; -fx-padding: 10; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI bold';" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </content>
@@ -56,4 +48,26 @@
    <padding>
       <Insets bottom="16.0" top="16.0" />
    </padding>
+   <header>
+      <VBox fx:id="headerContainer" prefHeight="93.0" prefWidth="578.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;">
+         <children>
+            <Label fx:id="headerText" maxWidth="578.0" prefHeight="100.0" prefWidth="578.0" style="-fx-text-fill: #3DB2FF;" text="(Create/Edit) a Team">
+               <padding>
+                  <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </opaqueInsets>
+            </Label>
+            <Label text="Enter Students' Informaiton for this team">
+               <padding>
+                  <Insets bottom="18.0" left="18.0" right="18.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </header>
 </DialogPane>

@@ -50,7 +50,7 @@
                         </ImageView>
                      </graphic>
                      <font>
-                        <Font size="10.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Button>
                </children>

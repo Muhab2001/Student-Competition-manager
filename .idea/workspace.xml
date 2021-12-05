@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="`EmailComposer` is ready">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="The working pulled version">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/competition-edit-dialog.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CompetitionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CompetitionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cards/TeamDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/TeamDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CompetitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/WebsiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/WebsiteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CompetitionsMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Navigator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,17 +50,20 @@
     <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="20jSaXFGn7gUeItbewnDVxl6WrZ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="TODO_SCOPE" value="Open Files" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/styles" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.21652421" />
     <property name="project.structure.side.proportion" value="0.3026534" />
@@ -61,9 +71,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ahmad\OneDrive\KFUPM\Semester 211\SWE206 (LEC &amp; LAB)\LAB (Yusuf Hassan + Khaled Daud)\Project\Phase III\swe206-project\src\main\resources\styles" />
       <recent name="D:\Documents\KFUPM Vault\211\SWE206\Project\Phase Three\test-3\src\main\resources\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ahmad\OneDrive\KFUPM\Semester 211\SWE206 (LEC &amp; LAB)\LAB (Yusuf Hassan + Khaled Daud)\Project\Phase III\swe206-project\src\main\resources" />
       <recent name="D:\Documents\KFUPM Vault\211\SWE206\Project\Phase Three\test-3" />
       <recent name="D:\Documents\KFUPM Vault\211\SWE206\Project\Phase Three\test-3\src\main\resources\img" />
     </key>
@@ -284,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638553246045</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="The working pulled version">
+      <created>1638632263561</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1638632263561</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -312,6 +331,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Fixing Styling inconsistencies" />
     <MESSAGE value="Creating Basic cinnections between FXML files" />
     <MESSAGE value="Creating Basic connections between FXML files" />
@@ -324,7 +344,8 @@
     <MESSAGE value="Updating UI" />
     <MESSAGE value="Fixing `ExcelStorage.java` indexing" />
     <MESSAGE value="`EmailComposer` is ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="`EmailComposer` is ready" />
+    <MESSAGE value="The working pulled version" />
+    <option name="LAST_COMMIT_MESSAGE" value="The working pulled version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -334,11 +355,10 @@
           <line>221</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
+          <option name="timeStamp" value="16" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

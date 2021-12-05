@@ -43,16 +43,16 @@ public class MainController implements TopBarable {
         for(int i = 0; i < CompetitionsMemory.INSTANCE.competitions.size(); i++){
 
             Competition competition = CompetitionsMemory.INSTANCE.getCompetition(i);
-            String status = competition.isOpen ? "open" : "closed";
+
             if(i % 2 == 0){
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
                 vBox1.getChildren().add((Node) fxmlLoader.load());
-                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition.name, status, competition.index, competition.teamSize);
+                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition);
             }
             else{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
                 vBox2.getChildren().add((Node) fxmlLoader.load());
-                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition.name, status, competition.index, competition.teamSize);
+                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition);
 
 
             }
@@ -95,6 +95,7 @@ public class MainController implements TopBarable {
         System.out.println(view);
     }
 
+    // DONE
     public void fillContent(String name, String email){
         username.setText(name);
         this.email.setText(email);

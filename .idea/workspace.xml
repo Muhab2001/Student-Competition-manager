@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Fixing errors, and moving pane to navigator">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Adding an id parameter to all cards, and iterating over competitions in `CompetitionsMemory`.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cards/EmailDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cards/EmailSlot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cards/RankingSlot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/email-dialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/email-slot.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CompetitionCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TopBarPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/TopBarPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ranking-dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ranking-dialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ranking-slot.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ranking-slot.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/competitions.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/competitions.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/team-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/team-card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/website.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/website.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/team-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/team-card.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -307,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638618787576</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Adding an id parameter to all cards, and iterating over competitions in `CompetitionsMemory`.">
+      <created>1638646038719</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1638646038719</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -336,7 +351,8 @@
     <MESSAGE value="Fixing `ExcelStorage.java` indexing" />
     <MESSAGE value="`EmailComposer` is ready" />
     <MESSAGE value="Fixing errors, and moving pane to navigator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing errors, and moving pane to navigator" />
+    <MESSAGE value="Adding an id parameter to all cards, and iterating over competitions in `CompetitionsMemory`." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding an id parameter to all cards, and iterating over competitions in `CompetitionsMemory`." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

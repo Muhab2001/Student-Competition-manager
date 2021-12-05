@@ -6,14 +6,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane prefHeight="366.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
+<DialogPane prefHeight="366.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.EmailDialog">
    <effect>
       <DropShadow>
          <color>
@@ -41,14 +39,7 @@
                         <Insets right="12.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="157.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Rankings" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@img/trophy-white.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                  <Button fx:id="confirmRankings" alignment="CENTER" disable="true" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="123.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Mails" textFill="WHITE">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -61,7 +52,7 @@
    <header>
       <VBox prefHeight="86.0" prefWidth="423.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;">
          <children>
-            <Label prefHeight="47.0" prefWidth="423.0" text="Announce Rankings">
+            <Label prefHeight="47.0" prefWidth="423.0" text="Email Teams">
                <padding>
                   <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                </padding>
@@ -69,7 +60,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label prefHeight="34.0" prefWidth="436.0" text="Enter the ranking for each team">
+            <Label prefHeight="34.0" prefWidth="436.0" text="Send an email to all teams">
                <padding>
                   <Insets bottom="16.0" left="12.0" right="12.0" />
                </padding>

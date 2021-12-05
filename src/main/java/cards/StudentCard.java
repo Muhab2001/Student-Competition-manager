@@ -3,10 +3,15 @@ package cards;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import models.Student;
+
+import java.util.HashMap;
 
 public class StudentCard {
 
     // used to fetch data when the element is displayed
+
+    private int index;
     @FXML
     public void initialize(){
 
@@ -32,8 +37,29 @@ public class StudentCard {
     @FXML
     private TextField nameInput;
 
-    public void fillContent(){
+    // for editing cards
+    public void fillEditableContent(Student student){
+        index = student.index;
+        majorInput.setText(student.major);
+        idInput.setText(student.id);
+        nameInput.setText(student.name);
+    }
 
+    // for view cards
+    public void fillContent(Student student){
+        index = student.index;
+        major.setText(student.major);
+        idNum.setText(student.id);
+        name.setText(student.name);
+    }
+
+    public Student retreive(){
+        // TODO: validation
+        Student student = new Student(index);
+        student.name = nameInput.getText();
+        student.id = idInput.getText();
+        student.major = majorInput.getText();
+        return student;
     }
 
 }

@@ -20,6 +20,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/team-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/team-card.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
     </list>
+
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="`EmailComposer` is ready" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,6 +141,19 @@
     <configuration name="tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tester" />
       <module name="swe-project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="swe-project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="swe-project" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

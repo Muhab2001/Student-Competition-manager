@@ -93,7 +93,7 @@ public class CompetitionController implements TopBarable {
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
         RankingDialog controller = Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
-        controller.fillContent();
+        controller.fillContent(currentCompetition);
     }
 
     @FXML

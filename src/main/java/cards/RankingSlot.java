@@ -19,6 +19,8 @@ public class RankingSlot {
     @FXML
     private VBox studentContainer;
 
+    public VBox getStudentContainer() {return studentContainer;}
+
     public void fillContent(Team team) throws IOException {
         // TODO: fill the students for that team
 

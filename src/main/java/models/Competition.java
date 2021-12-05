@@ -38,6 +38,10 @@ public class Competition implements Comparable<Competition> {
         this.index = index;
     }
 
+    public ArrayList<Team> getTeams() {
+        return this.teams;
+    }
+
     public Team getTeam(int index){
         return null;
     }

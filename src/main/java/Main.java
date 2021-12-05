@@ -19,7 +19,7 @@ public class Main extends Application {
         stage.setTitle("KFUPM Medalist");
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.getIcons().add(new Image("img/medalist.png"));
+        stage.getIcons().add(new Image("img/48.png"));
         stage.setScene(scene);
         stage.show();
         utils.ExcelStorage.getAllCompetitions(); // testing thr excel package
@@ -29,6 +29,7 @@ public class Main extends Application {
     public void stop() throws Exception {
         super.stop();
         ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
+        System.out.println("Data Saced Successfully! "); // TODO: delete test log
     }
 }
 

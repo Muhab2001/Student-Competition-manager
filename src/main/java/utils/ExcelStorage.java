@@ -31,7 +31,8 @@ public class ExcelStorage {
 
             //Create Workbook instance holding reference to .xlsx file
             XSSFWorkbook workbook = new XSSFWorkbook(file);
-            getAllCompetitions();
+
+            saveChanges(getAllCompetitions());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -88,17 +89,16 @@ public class ExcelStorage {
                 int studentCounter = 0; // index to keep track of student count, and switch team objects
                 Team team = new Team(teamIndex, competition.teamSize); // team object to store student groups
                 Row studentRow = sheet.getRow(rowStart);
-                while (studentRow != null) {
+              while (studentRow != null) {
                     Iterator<Cell> cellIterator = studentRow.cellIterator();
-                    Student tmpStudent = new Student(++studentCounter);
-
-                    for (int j = 0; j < 5; j++) {
+                    Student tmpStudent = new Student(studentCounter++);
+                    int j = 0;
+                  studentInfoIterator :  while (j < 5) {
                         Cell cell = cellIterator.next();
                         switch (j) {
                             case 0: // using the first column as the presence indicator
                                 if (cell.getCellType() != CellType.NUMERIC){
-                                    team.students.add(tmpStudent);
-                                    break; // skip the empty row to the next students
+                                    break studentInfoIterator; // skip the empty row to the next students
                                 }
                                 break;
                             case 1: // reading student id column, and converting it to a string
@@ -113,9 +113,11 @@ public class ExcelStorage {
                             case 4: // reading a possible rank column
                                 if (cell.getCellType() == CellType.NUMERIC) { // if the rank is not empty, save it under the team object
                                     team.rank = (int) cell.getNumericCellValue();
+
                                 }
 
                         }
+                        j++;
                     }
 
                     team.students.add(tmpStudent);
@@ -130,7 +132,7 @@ public class ExcelStorage {
                         team = new Team(++teamIndex, competition.teamSize);
                     }
 
-                    studentRow = sheet.getRow(rowStart++); // go for the next team;
+                    studentRow = sheet.getRow(++rowStart); // go for the next team;
                 }
 
                 competitions.add(competition);

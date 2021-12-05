@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox minHeight="137.0" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
+<HBox minHeight="137.0" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingSlot">
    <children>
       <VBox fx:id="studentContainer" prefHeight="206.0" prefWidth="293.0">
          <padding>

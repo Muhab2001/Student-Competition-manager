@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonReader;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -97,7 +98,7 @@ public class LoginController implements TopBarable {
             }
             reader.endArray();
             reader.close();
-            System.out.println("INcorrect password!");
+            System.out.println("Incorrect password!");
 
             return false;
         } catch (Exception e) {

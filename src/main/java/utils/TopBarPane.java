@@ -31,7 +31,7 @@ public class TopBarPane extends BorderPane{
 
     public TopBarPane(Stage stage,String title) {
         this.stage = stage;
-        this.title = new Label("KFUPM Medalist || "+title); //this title is received by SelectionPane or CreateScene
+        this.title = new Label("KFUPM Medalist | "+title); //this title is received by SelectionPane or CreateScene
 
         //build the layout of this pane
         buildPane();
@@ -76,7 +76,7 @@ public class TopBarPane extends BorderPane{
         BorderPane.setAlignment(this.title, Pos.CENTER);
 
         //set icon for the stage
-        ImageView icon = new ImageView(getClass().getClassLoader().getResource("img/medalist.png").toString());
+        ImageView icon = new ImageView(getClass().getClassLoader().getResource("img/48.png").toString());
         icon.setFitWidth(18);icon.setFitHeight(18);
         this.title.setGraphic(icon);
 
@@ -97,7 +97,7 @@ public class TopBarPane extends BorderPane{
             stage.setY(e.getScreenY() - yOff);
         });
 
-        buttons.getChildren().addAll(minimize,maximize,X);
+        buttons.getChildren().addAll(minimize,X);
 
 
     }

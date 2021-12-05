@@ -2,16 +2,22 @@
     -fx-background-color:  #aeaeae;
 }.scroll-pane > .viewport {
     -fx-background-color: transparent;
-    -fx-background-insets: 0 ;
+    -fx-background-insets:0 ;
  }
+ .scroll-bar {
+     -fx-font-size: 10px;
+ }
+
+
+.btn{
+    -fx-background-color:  #3DB2FF;
+ -fx-background-radius: 4px;
+ -fx-border-radius: 4px;
+ -fx-skin: 'utils.skins.PrimaryButtonSkin';
+}
 
  .btn2{
-  -fx-background-insets: 0 ;
- }
-
- .btn2:hover{
- -fx-background-color:  #369cdc !important;
- -fx-border-color: #369cdc;
+-fx-skin: 'utils.skins.PrimaryButtonSkin';
  }
 
  .btn2:pressed{
@@ -23,12 +29,16 @@
 
 .small-btn{
 -fx-background-radius: 20px !important;
+-fx-border-radius: 20px !important;
 -fx-pref-width: 40px !important;
 -fx-min-width: 40px !important;
 -fx-max-width: 40px !important;
 -fx-pref-height: 40px !important;
 -fx-min-height: 40px !important;
 -fx-max-height: 40px !important;
+
+
+}
 
 }
 
@@ -51,15 +61,12 @@
 -fx-background-radius: 8px;
 -fx-border-radius: 8px;
 -fx-alignment: LEFT;
+ -fx-background-radius: 4px;
+ -fx-border-radius: 4px;
+ -fx-skin: 'utils.skins.PrimaryButtonSkin';
 }
 
-.btn:hover{
--fx-font:  14px 'Segoe UI regular';
--fx-background-color:  #f5f5f5 !important;
--fx-border-color: #f5f5f5;
--fx-background-radius: 8px;
--fx-border-radius: 8px;
-}
+
 
 .btn:pressed{
 -fx-font:  14px 'Segoe UI regular';

@@ -81,7 +81,7 @@ public class CompetitionController implements TopBarable {
     private Button deleteBtn;
 
     @FXML
-    private ScrollPane teamsContainer;
+    private VBox teamsContainer;
 
     @FXML
     private Button announceRanking;
@@ -102,44 +102,46 @@ public class CompetitionController implements TopBarable {
 
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
-        Navigator.<MainController>next("main", event);
+       MainController controller = Navigator.<MainController>next("main", event);
+        controller.addTopBar((Stage)((Node) event.getSource()).getScene().getWindow());
     }
 
     @FXML
     void addTeam(ActionEvent event) throws IOException {
         TeamDialog controller = Navigator.<TeamDialog>nextDialog("team", "Add a Team");
         controller.setHeader("Add a Team");
-
+        controller.fillContent();
     }
 
     // TODO: Perform a proper dynamic routing using fetched websites, this is just a
     // test
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
+
         WebsiteController controller = Navigator.<WebsiteController>next("website", event);
         controller.showWebsite("https://www.google.com");
+
     }
 
     // TODO: Perform a proper deletion , this is just a test
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
-        Navigator.<MainController>next("../main", event);
+       MainController controller = Navigator.<MainController>next("../main", event);
 
     }
 
     // TODO: replace with dynamic population
     public void fillContent() throws IOException {
 
-        VBox vbox = new VBox(8);
+
         for (int i = 0; i < 10; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
-            vbox.getChildren().add((Node) fxmlLoader.load());
+            teamsContainer.getChildren().add((Node) fxmlLoader.load());
             TeamCard controller = fxmlLoader.getController();
             controller.setContent();
         }
 
-        teamsContainer.setContent(vbox);
 
     }
 

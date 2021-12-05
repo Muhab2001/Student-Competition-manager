@@ -79,7 +79,7 @@ public class TeamCard {
     // passing the information for the card
     public void setContent() throws IOException {
         // set content to labels
-        // TODO: replace with a dynamic population according to team number
+        // TODO: set content according to a team object parameter
         for(int i = 0; i < 3; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../student-card-view.fxml"));
             studentsContainer.getChildren().add((Node) fxmlLoader.load());

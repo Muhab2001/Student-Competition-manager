@@ -15,7 +15,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="418.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-insets: 8; -fx-border-insets: 8; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
+<DialogPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="418.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-insets: 8; -fx-border-insets: 8; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="516.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
         <columnConstraints>

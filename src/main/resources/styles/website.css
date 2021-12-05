@@ -6,6 +6,10 @@
 -fx-pref-height: 40px !important;
 -fx-min-height: 40px !important;
 -fx-max-height: 40px !important;
+ -fx-background-radius: 4px;
+ -fx-border-radius: 4px;
+ -fx-skin: 'utils.skins.PrimaryButtonSkin';
+}
 
 }
 

@@ -41,7 +41,7 @@ public class CompetitionController implements TopBarable {
             statusIndicator.setFill(Color.RED);
             statusLabel.setText("Closed");
         }else {
-            statusIndicator.setFill(Color.GREENYELLOW);
+            statusIndicator.setFill(Color.GREEN);
             statusLabel.setText("Open");
         }
     }
@@ -100,7 +100,7 @@ public class CompetitionController implements TopBarable {
     void editDetails(ActionEvent event) throws IOException {
         CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition-edit",
                 "Edit a Competition");
-        dialogController.fillContent(currentController, currentCompetition.name, currentCompetition.websiteLink, currentCompetition.teamSize, currentCompetition.dueDate);
+        dialogController.fillContent(currentCompetition, currentController);
     }
 
     @FXML
@@ -120,33 +120,30 @@ public class CompetitionController implements TopBarable {
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
         WebsiteController controller = Navigator.<WebsiteController>next("website", event);
-        String link = validatedLink(currentCompetition.websiteLink); // the link for the current competition's website
-        controller.showWebsite(link); // visit the link
+
+        controller.showWebsite(currentCompetition); // visit the link
     }
     // Validates the link for the website of the competition
-    String validatedLink(String link) {
-        String newLink = link;
 
-        if (!newLink.startsWith("http")) // if no http protocol has been used
-            newLink = "https://" + newLink;
-
-        if (!newLink.contains(".")) // if the link has no domain suffix
-            newLink += ".com";
-
-        return newLink;
-    }
 
     // TODO: Perform a proper deletion , this is just a test
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
+        CompetitionsMemory.INSTANCE.competitions.remove(currentCompetition.index);
        MainController controller = Navigator.<MainController>next("../main", event);
+       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, "some email"); // TODO: add email
+
 
     }
 
     // TODO: replace with dynamic population
-    public void fillContent(CompetitionController controller) throws IOException {
-        currentController = controller; // sets the current CompetitionController
+    public void fillContent(Competition competition, CompetitionController controller) throws IOException {
+        currentController = controller;
+        competitionName.setText(competition.name);
+        dateLabel.setText(competition.dueDate);
+        sizeLabel.setText(String.valueOf(competition.teamSize));
+        teamNumLAbel.setText(String.valueOf(competition.teams.size()));
 
         for (int i = 0; i < 10; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));

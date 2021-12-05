@@ -9,13 +9,15 @@
  }
 
 
- .btn2{
-  -fx-background-insets: 0 ;
- }
+.btn{
+    -fx-background-color:  #3DB2FF;
+ -fx-background-radius: 4px;
+ -fx-border-radius: 4px;
+ -fx-skin: 'utils.skins.PrimaryButtonSkin';
+}
 
- .btn2:hover{
- -fx-background-color:  #369cdc !important;
- -fx-border-color: #369cdc;
+ .btn2{
+-fx-skin: 'utils.skins.PrimaryButtonSkin';
  }
 
  .btn2:pressed{
@@ -34,6 +36,9 @@
 -fx-pref-height: 40px !important;
 -fx-min-height: 40px !important;
 -fx-max-height: 40px !important;
+
+
+}
 
 }
 
@@ -56,15 +61,12 @@
 -fx-background-radius: 8px;
 -fx-border-radius: 8px;
 -fx-alignment: LEFT;
+ -fx-background-radius: 4px;
+ -fx-border-radius: 4px;
+ -fx-skin: 'utils.skins.PrimaryButtonSkin';
 }
 
-.btn:hover{
--fx-font:  14px 'Segoe UI regular';
--fx-background-color:  #f5f5f5 !important;
--fx-border-color: #f5f5f5;
--fx-background-radius: 8px;
--fx-border-radius: 8px;
-}
+
 
 .btn:pressed{
 -fx-font:  14px 'Segoe UI regular';

@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.User;
+import utils.CompetitionsMemory;
 import utils.Navigator;
 import java.io.FileReader;
 import java.io.IOException;
@@ -74,6 +75,7 @@ public class LoginController implements TopBarable {
 //                container.getChildren().remove(1);
 //                container.getChildren().add(1, errorMessage.getLabel());
 //            }
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -93,6 +95,7 @@ public class LoginController implements TopBarable {
                 User user = gson.fromJson(reader, User.class);
 
                 if (user.username.equals(username) && user.password.equals(hashedPass)) {
+                    CompetitionsMemory.CURRENT_USER = user;
                     return true;
                 }
             }

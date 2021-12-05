@@ -9,12 +9,15 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Team;
+import utils.Navigator;
 
 import java.io.IOException;
 
 public class RankingDialog {
 
     // used to fetch data when the element is displayed
+
     @FXML
     public void initialize(){
 
@@ -36,9 +39,11 @@ public class RankingDialog {
     }
 
     @FXML
-    void confirmRanking(ActionEvent event) {
+    void confirmRanking(ActionEvent event) throws IOException {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
+        EmailDialog controller = Navigator.<EmailDialog>nextDialog("email", "Email a team");
+        controller.fillContent();
     }
 
     @FXML
@@ -47,6 +52,7 @@ public class RankingDialog {
     @FXML
     private VBox studentContainer;
 
+    // TODO: get all teams from the competition
     public void fillContent() throws IOException {
         VBox vbox = new VBox(5);
 

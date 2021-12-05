@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import models.Competition;
 import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
@@ -16,6 +17,8 @@ import utils.TopBarable;
 import java.io.IOException;
 
 public class WebsiteController implements TopBarable {
+
+    Competition competition;
 
     @FXML
     private Button returnBtn;
@@ -28,25 +31,28 @@ public class WebsiteController implements TopBarable {
 
     @FXML
     private WebView websiteViewer;
-
+    //DONE
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
         CompetitionController controller =
                 Navigator.<CompetitionController>next("competition", event);
-        controller.fillContent();
-
+        controller.fillContent(competition, controller);
 
     }
 
-    public void showWebsite(String link){
-        websiteLink.setText(link);
+
+    // DONE
+    public void showWebsite(Competition competition){
+        websiteLink.setText(competition.websiteLink);
         WebEngine engine = websiteViewer.getEngine();
-        engine.load(link);
+        engine.load(competition.websiteLink);
     }
-
+    // DONE
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Competition Website");
         root.getChildren().add(0,topBar);
     }
+
+
 }

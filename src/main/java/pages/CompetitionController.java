@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Competition;
 import models.Team;
+import utils.CompetitionsMemory;
 import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
@@ -25,8 +26,11 @@ import java.time.format.DateTimeFormatter;
 
 public class CompetitionController implements TopBarable {
 
+    private CompetitionController currentController;
+
     @FXML
     public void initialize() throws IOException {
+        currentCompetition = CompetitionsMemory.INSTANCE.getCompetition(0);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse("12/1/2021", formatter);
 
@@ -37,7 +41,7 @@ public class CompetitionController implements TopBarable {
             statusIndicator.setFill(Color.RED);
             statusLabel.setText("Closed");
         }else {
-            statusIndicator.setFill(Color.GREENYELLOW);
+            statusIndicator.setFill(Color.GREEN);
             statusLabel.setText("Open");
         }
     }
@@ -94,11 +98,9 @@ public class CompetitionController implements TopBarable {
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
-        CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition",
+        CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition-edit",
                 "Edit a Competition");
-        dialogController.fillContent();
-        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
-
+        dialogController.fillContent(currentCompetition, currentController);
     }
 
     @FXML
@@ -114,33 +116,40 @@ public class CompetitionController implements TopBarable {
         controller.fillContent();
     }
 
-    // TODO: Perform a proper dynamic routing using fetched websites, this is just a
-    // test
+    // TODO: DONE - Perform a proper dynamic routing using fetched websites, this is just a test
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
-
         WebsiteController controller = Navigator.<WebsiteController>next("website", event);
-        controller.showWebsite("https://www.google.com");
 
+        controller.showWebsite(currentCompetition); // visit the link
     }
+    // Validates the link for the website of the competition
+
 
     // TODO: Perform a proper deletion , this is just a test
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
+        CompetitionsMemory.INSTANCE.competitions.remove(currentCompetition.index);
        MainController controller = Navigator.<MainController>next("../main", event);
+       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, "some email"); // TODO: add email
+
 
     }
 
     // TODO: replace with dynamic population
-    public void fillContent() throws IOException {
-
+    public void fillContent(Competition competition, CompetitionController controller) throws IOException {
+        currentController = controller;
+        competitionName.setText(competition.name);
+        dateLabel.setText(competition.dueDate);
+        sizeLabel.setText(String.valueOf(competition.teamSize));
+        teamNumLAbel.setText(String.valueOf(competition.teams.size()));
 
         for (int i = 0; i < 10; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
             teamsContainer.getChildren().add((Node) fxmlLoader.load());
-            TeamCard controller = fxmlLoader.getController();
-            controller.setContent();
+            TeamCard controller2 = fxmlLoader.getController();
+            controller2.setContent();
         }
 
 

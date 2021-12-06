@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import models.Competition;
 import pages.CompetitionController;
 import utils.CompetitionsMemory;
@@ -32,7 +33,30 @@ public class CompetitionDialog {
             }
         });
         dateInput.getEditor().setDisable(true);
+        dateInput.setConverter(new StringConverter<LocalDate>() {
+            String pattern = "M/d/yyyy";
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
 
+            {
+                dateInput.setPromptText(pattern.toLowerCase());
+            }
+
+            @Override public String toString(LocalDate date) {
+                if (date != null) {
+                    return dateFormatter.format(date);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, dateFormatter);
+                } else {
+                    return null;
+                }
+            }
+        });
     }
 
     private Stage stage;
@@ -64,7 +88,7 @@ public class CompetitionDialog {
         stage.close();
     }
 
-    @FXML
+    @FXML // TODO: tracking a competition
     void trackCompetition(ActionEvent event) {
         // if statement
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -85,10 +109,12 @@ public class CompetitionDialog {
     // Edits a competition's details in the CompetitionsMemory instance
     @FXML
     public void editCompetition(ActionEvent actionEvent) throws IOException {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+
         competition.name = nameInput.getText();
         competition.websiteLink = validatedLink(linkInput.getText());
         competition.teamSize = Integer.parseInt(sizeInput.getText());
-       competition.dueDate = String.valueOf(LocalDate.parse(String.valueOf(dateInput.getValue())));
+       competition.dueDate = String.valueOf((dateInput.getValue()).format(dateTimeFormatter));
         currentController.fillContent(competition, currentController);
         CompetitionsMemory.INSTANCE.editCompetition(competition);
 

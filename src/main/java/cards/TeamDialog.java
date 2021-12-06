@@ -58,6 +58,7 @@ public class TeamDialog {
         Competition competition = CompetitionsMemory.INSTANCE.getCompetition(currentCompetitionIndex);
         Team newTeam = new Team(index, competition.teamSize);
         for(int i = 0; i < competition.teamSize;i++){
+            System.out.println(stdControllers.get(i).retreive());
             newTeam.students.add(stdControllers.get(i).retreive());
         }
         if(isEditing)

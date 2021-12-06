@@ -9,12 +9,22 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Competition;
+import models.Student;
+import models.Team;
+import pages.CompetitionController;
+import utils.Navigator;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class RankingDialog {
 
     // used to fetch data when the element is displayed
+    private Competition currentCompetition;
+    private ArrayList<RankingSlot> controllers = new ArrayList<>();
+    private CompetitionController compController;
+
     @FXML
     public void initialize(){
 
@@ -36,9 +46,16 @@ public class RankingDialog {
     }
 
     @FXML
-    void confirmRanking(ActionEvent event) {
+    void confirmRanking(ActionEvent event) throws IOException {
+        for(RankingSlot slot: controllers){
+            //TODO: validation for ranks input
+            slot.cardTeam.rank = Integer.parseInt(slot.retreiveRank());
+        }
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
+        EmailDialog controller = Navigator.<EmailDialog>nextDialog("email", "Email a team");
+        controller.fillContent(currentCompetition, controller);
+        compController.fillContent(currentCompetition, compController);
     }
 
     @FXML
@@ -47,15 +64,21 @@ public class RankingDialog {
     @FXML
     private VBox studentContainer;
 
-    public void fillContent() throws IOException {
-        VBox vbox = new VBox(5);
 
-            for(int i = 0; i < 3; i++){
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../ranking-slot.fxml"));
-                vbox.getChildren().add((Node) fxmlLoader.load());
+    public void fillContent(Competition competition, CompetitionController compController) throws IOException {
+        currentCompetition = competition;
+        this.compController = compController;
+        ArrayList<Team> teams = competition.teams; // Get the teams of the current competition
+        for (Team team : teams) {
+            System.out.println(team.toString());
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../ranking-slot.fxml"));
+            studentContainer.getChildren().add((Node) fxmlLoader.load()); // Add empty ranking cards to the VBox
+            RankingSlot slot = fxmlLoader.getController();
+            controllers.add(slot);
+            slot.fillContent(team);
 
-            }
-        ranksContainer.setContent(vbox);
+        }
+
 
     }
 

@@ -1,7 +1,9 @@
 package utils;
 
 import models.Competition;
+import models.User;
 import org.apache.bcel.generic.RETURN;
+import pages.CompetitionController;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -9,6 +11,8 @@ import java.util.NoSuchElementException;
 public class CompetitionsMemory {
 
     public static CompetitionsMemory INSTANCE = new CompetitionsMemory();
+
+    public static User CURRENT_USER;
 
     private CompetitionsMemory(){}
 
@@ -20,19 +24,16 @@ public class CompetitionsMemory {
 
     public Competition getCompetition(int competitionId) {
         return competitions.get(competitionId);
-
     }
 
     public void addCompetition(Competition competition) {
         competitions.add(competition);
     }
 
-    public void editCompetition(int competitionId, Competition newCompetitionState) {
-        Competition targetCompetition = getCompetition(competitionId);
-        int targetIndex = this.competitions.indexOf(targetCompetition);
 
-        this.competitions.remove(targetIndex);
-        this.competitions.add(targetIndex, newCompetitionState);
+
+    public void editCompetition(Competition competition) {
+        this.competitions.set(competition.index, competition);
     }
 
     public void deleteCompetition(int competitionId) {

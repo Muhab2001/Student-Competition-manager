@@ -28,8 +28,8 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
-        System.out.println("Data Saced Successfully! "); // TODO: delete test log
+//        ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
+//        System.out.println("Data Saced Successfully! "); // TODO: delete test log
     }
 }
 

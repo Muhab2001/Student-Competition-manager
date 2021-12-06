@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="51.0" prefWidth="430.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
+<HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefWidth="410.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
    <children>
       <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,19 +18,19 @@
             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
          </HBox.margin>
       </ImageView>
-      <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="302.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 1;">
+      <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="302.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 1;">
          <children>
-            <Label fx:id="name" prefHeight="37.0" prefWidth="370.0" text="Student Name">
+            <Label fx:id="name" prefWidth="370.0" text="Student Name">
                <padding>
-                  <Insets left="16.0" top="4.0" />
+                  <Insets left="16.0" top="6.0" />
                </padding>
                <font>
                   <Font name="Segoe UI Semibold" size="16.0" />
                </font>
             </Label>
-            <HBox prefHeight="46.0" prefWidth="370.0">
+            <HBox prefWidth="370.0">
                <children>
-                  <Label fx:id="idNum" prefHeight="46.0" prefWidth="300.0" style="-fx-text-fill: #6e6e6e;" text="201945570" textFill="#6e6e6e">
+                  <Label fx:id="idNum" prefWidth="300.0" style="-fx-text-fill: #6e6e6e;" text="201945570" textFill="#6e6e6e">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -41,8 +41,11 @@
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </Label>
-                  <Label fx:id="major" prefHeight="46.0" prefWidth="358.0" style="-fx-text-fill: #6e6e6e;" text="Major" textFill="#6e6e6e">
+                  <Label fx:id="major" prefWidth="358.0" style="-fx-text-fill: #6e6e6e;" text="Major" textFill="#6e6e6e">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -56,10 +59,13 @@
                      <padding>
                         <Insets left="12.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </Label>
                </children>
                <padding>
-                  <Insets left="16.0" />
+                  <Insets bottom="8.0" left="16.0" right="8.0" top="8.0" />
                </padding>
             </HBox>
          </children>

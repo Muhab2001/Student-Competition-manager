@@ -58,7 +58,7 @@
                               <Insets left="12.0" right="12.0" />
                            </padding>
                            <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
+                              <Font name="Segoe UI Bold" size="11.0" />
                            </font>
                            <graphic>
                               <Circle fx:id="statusIndicator" fill="#1fff91" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -67,12 +67,12 @@
                               <Tooltip style="-fx-font: 14px 'Segoe UI regular';" text="Status" />
                            </tooltip>
                         </Label>
-                        <Label fx:id="sizeLabel" alignment="CENTER" text="3" textAlignment="CENTER">
+                        <Label fx:id="sizeLabel" alignment="CENTER" prefHeight="20.0" prefWidth="69.0" text="3" textAlignment="CENTER">
                            <padding>
                               <Insets left="12.0" right="12.0" />
                            </padding>
                            <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
+                              <Font name="Segoe UI Bold" size="11.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -85,7 +85,7 @@
                               <Tooltip style="-fx-font: 14px 'Segoe UI regular';" text="Team Size" />
                            </tooltip>
                         </Label>
-                        <Label fx:id="dateLabel" alignment="CENTER" style="-fx-font: 14px 'Segoe UI bold';" text="2-Oct-21" textAlignment="CENTER">
+                        <Label fx:id="dateLabel" alignment="CENTER" style="-fx-font: 11px 'Segoe UI bold';" text="2-Oct-21" textAlignment="CENTER">
                            <padding>
                               <Insets left="12.0" right="12.0" />
                            </padding>
@@ -108,7 +108,7 @@
                               <Insets left="12.0" right="12.0" />
                            </padding>
                            <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
+                              <Font name="Segoe UI Bold" size="11.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">

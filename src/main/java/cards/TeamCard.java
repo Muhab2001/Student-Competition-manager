@@ -99,6 +99,10 @@ public class TeamCard {
     // passing the information for the card
     public void setContent(Team team, CompetitionController controller, int competitionIndex) throws IOException {
         // set content to labels
+        if(team.rank == -1)
+            rankLabel.setText("TBA");
+        else
+            rankLabel.setText(String.valueOf(team.rank));
         currentController = controller;
         this.competitionIndex = competitionIndex;
         currentTeam = team;

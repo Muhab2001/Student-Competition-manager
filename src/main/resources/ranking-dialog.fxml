@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane prefHeight="366.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="610.0" style="-fx-background-color: white; -fx-background-radius: 8;" stylesheets="@styles/rank-dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
    <effect>
       <DropShadow>
          <color>
@@ -25,9 +25,22 @@
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
    </opaqueInsets>
    <content>
-      <VBox minHeight="300.0" prefHeight="378.0" prefWidth="377.0">
+      <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="378.0" prefWidth="377.0">
          <children>
-            <ScrollPane fx:id="ranksContainer" hbarPolicy="NEVER" minViewportHeight="200.0" minViewportWidth="280.0" pannable="true" prefWidth="401.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" VBox.vgrow="SOMETIMES" />
+            <ScrollPane fx:id="ranksContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity" minHeight="-Infinity" minViewportHeight="200.0" minViewportWidth="280.0" minWidth="-Infinity" pannable="true" prefHeight="318.0" prefWidth="590.0" style="-fx-border-width: 0;" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox fx:id="studentContainer" alignment="TOP_CENTER" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="597.0" spacing="6.0">
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                  </VBox>
+               </content>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding></ScrollPane>
             <HBox alignment="TOP_RIGHT" prefHeight="59.0" prefWidth="385.0">
                <VBox.margin>
                   <Insets left="8.0" right="8.0" top="8.0" />

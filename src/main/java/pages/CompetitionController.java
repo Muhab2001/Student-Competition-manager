@@ -94,7 +94,7 @@ public class CompetitionController implements TopBarable {
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
         RankingDialog controller = Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
-        controller.fillContent();
+        controller.fillContent(currentCompetition, currentController);
     }
 
     @FXML
@@ -147,21 +147,22 @@ public class CompetitionController implements TopBarable {
     // TODO: replace with dynamic population
     public void fillContent(Competition competition, CompetitionController controller) throws IOException {
 
-        if(!OPENED){
+
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             LocalDate date = LocalDate.parse(competition.dueDate, formatter);
 
 
             if (LocalDate.now().compareTo(date) > 0) {
-
-                Navigator.<DueDialog>nextDialog("due", "This competition is due!");
+                if(!OPENED) {
+                    Navigator.<DueDialog>nextDialog("due", "This competition is due!");
+                }
                 statusIndicator.setFill(Color.RED);
                 statusLabel.setText("Closed");
             } else {
                 statusIndicator.setFill(Color.GREEN);
                 statusLabel.setText("Open");
             }
-        }
+
         currentController = controller;
         competitionName.setText(competition.name);
         dateLabel.setText(competition.dueDate);

@@ -49,7 +49,6 @@ public class Team implements Comparable<Team>, Cloneable{
     public Team clone() {
 
             Team clone = new Team(index, teamSize);
-            // TODO: copy mutable state here, so the clone can't change the internals of the original
             for(Student student: this.students){
                 clone.students.add(new Student(student.index, student.id, student.name, student.major));
             }

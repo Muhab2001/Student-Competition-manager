@@ -42,7 +42,7 @@ public class CompetitionController implements TopBarable {
             statusIndicator.setFill(Color.RED);
             statusLabel.setText("Closed");
         }else {
-            statusIndicator.setFill(Color.GREEN);
+            statusIndicator.setFill(Color.rgb(31, 255, 145));
             statusLabel.setText("Open");
         }
     }
@@ -101,8 +101,11 @@ public class CompetitionController implements TopBarable {
     void editDetails(ActionEvent event) throws IOException {
         CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition-edit",
                 "Edit a Competition");
+
         dialogController.fillContent(currentCompetition, currentController);
-    }
+
+        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
+}
 
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
@@ -118,9 +121,10 @@ public class CompetitionController implements TopBarable {
 
     }
 
-    // TODO: DONE - Perform a proper dynamic routing using fetched websites, this is just a test
+
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
+
         WebsiteController controller = Navigator.<WebsiteController>next("website", event);
 
         controller.showWebsite(currentCompetition); // visit the link
@@ -128,7 +132,7 @@ public class CompetitionController implements TopBarable {
     // Validates the link for the website of the competition
 
 
-    // TODO: Perform a proper deletion , this is just a test
+
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
@@ -139,12 +143,11 @@ public class CompetitionController implements TopBarable {
             }
         }
        MainController controller = Navigator.<MainController>next("../main", event);
-       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, "some email"); // TODO: add email
+       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email);
 
 
     }
 
-    // TODO: replace with dynamic population
     public void fillContent(Competition competition, CompetitionController controller) throws IOException {
 
 
@@ -176,7 +179,7 @@ public class CompetitionController implements TopBarable {
             controller2.setContent(competition.teams.get(i), currentController, competition.index);
         }
 
-        OPENED = true;
+    OPENED = true;
     }
 
     @Override

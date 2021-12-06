@@ -58,20 +58,26 @@
 -fx-font:  14px 'Segoe UI regular';
 -fx-text-fill: black;
 -fx-background-color: white;
--fx-border-color: white;
+-fx-background-insets: 0;
 -fx-background-radius: 8px;
 -fx-border-radius: 8px;
 -fx-alignment: LEFT;
  -fx-background-radius: 4px;
- -fx-border-radius: 4px;
+ -fx-border-width: 0px
 }
 
 
 
-.btn2:pressed,.btn2:hover{
+.btn2:hover{
 -fx-font:  14px 'Segoe UI regular';
--fx-background-color:  #d7d7d7 !important;
--fx-border-color: #d7d7d7;
+-fx-background-color:  #ECF0F1 ;
+-fx-background-radius: 8px;
+-fx-border-radius: 8px;
+}
+
+.btn2:pressed{
+-fx-font:  14px 'Segoe UI regular';
+-fx-background-color:  #ECF0F1 ;
 -fx-background-radius: 8px;
 -fx-border-radius: 8px;
 }

@@ -54,7 +54,7 @@ public class TeamDialog {
 
     @FXML
     void mutateTeams(ActionEvent event) throws IOException {
-        // TODO: mutation validation
+        // TODO: validate edited parameters
         Competition competition = CompetitionsMemory.INSTANCE.getCompetition(currentCompetitionIndex);
         Team newTeam = new Team(index, competition.teamSize);
         for(int i = 0; i < competition.teamSize;i++){
@@ -88,7 +88,7 @@ public class TeamDialog {
     currentCompetitionIndex = competitionIndex;
     currentController = controller;
     isEditing = true;
-        // TODO: use a team ArrayList parameter to populate the view
+
         for(int i = 0; i < team.teamSize; i++){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../student-card-edit.fxml"));
             studentsContainer.getChildren().add((Node) fxmlLoader.load());

@@ -17,6 +17,10 @@ import java.util.ArrayList;
 
 public class EmailDialog {
 
+    private int emailCounter = 0;
+    private EmailDialog currentController;
+    private Competition currentCompetition;
+
     @FXML
     private Button cancelRankings;
 
@@ -32,7 +36,7 @@ public class EmailDialog {
         stage.close();
     }
 
-    @FXML
+    @FXML // TODO: changing the method name
     void confirmRanking(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
@@ -41,19 +45,25 @@ public class EmailDialog {
     @FXML
     private VBox studentContainer;
 
-    // TODO: get the ranks inputted by the user in the RankingDialog
-    public void fillContent(Competition currentCompetition) throws IOException {
-        ArrayList<Team> teams = currentCompetition.teams; // Get the teams of the current competition
-
+    public void fillContent(Competition competition, EmailDialog controller) throws IOException {
+        ArrayList<Team> teams = competition.teams; // Get the teams of the current competition
+        currentController = controller;
+        currentCompetition = competition;
         for (Team team : teams) {
             System.out.println(team.toString());
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../email-slott.fxml"));
             studentContainer.getChildren().add((Node) fxmlLoader.load()); // Add empty ranking cards to the VBox
             EmailSlot slot = fxmlLoader.getController();
-            slot.fillContent(team, currentCompetition.name);
+            slot.fillContent(team, competition.name, currentController);
 
         }
 
+    }
+
+    public void incrementCounter(){
+        emailCounter++;
+        if(emailCounter == currentCompetition.teams.size())
+            confirmRankings.setDisable(false);
     }
 
 }

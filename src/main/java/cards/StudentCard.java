@@ -54,7 +54,7 @@ public class StudentCard {
     }
 
     public Student retreive(){
-        // TODO: validation
+        // TODO: validating students' info
         Student student = new Student(index);
         student.name = nameInput.getText();
         student.id = idInput.getText();

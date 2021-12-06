@@ -48,13 +48,13 @@ public class RankingDialog {
     @FXML
     void confirmRanking(ActionEvent event) throws IOException {
         for(RankingSlot slot: controllers){
-            //TODO: validation
+            //TODO: validation for ranks input
             slot.cardTeam.rank = Integer.parseInt(slot.retreiveRank());
         }
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
         EmailDialog controller = Navigator.<EmailDialog>nextDialog("email", "Email a team");
-        controller.fillContent(currentCompetition);
+        controller.fillContent(currentCompetition, controller);
         compController.fillContent(currentCompetition, compController);
     }
 

@@ -36,7 +36,7 @@ public class MainController implements TopBarable {
     // used to fetch data when the element is displayed
     @FXML
     public void initialize() throws IOException {
-    // TODO: remove this snippet after testing menu population
+
 
         vBox1.setPadding(new Insets(14));
         vBox2.setPadding(new Insets(14));
@@ -84,6 +84,8 @@ public class MainController implements TopBarable {
     void trackCompetition(ActionEvent event) throws IOException {
         CompetitionDialog dialogController =
                 Navigator.<CompetitionDialog>nextDialog("competition", "Track a New Competition");
+        dialogController.setIsTrack(true);
+        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 
     }
 

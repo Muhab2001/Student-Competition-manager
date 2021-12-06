@@ -5,17 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 import models.Competition;
 import pages.CompetitionController;
 import utils.CompetitionsMemory;
+import utils.TopBarPane;
+import utils.TopBarable;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class CompetitionDialog {
+public class CompetitionDialog implements TopBarable {
 
     // used to fetch data when the element is displayed
     private Competition competition;
@@ -33,33 +34,12 @@ public class CompetitionDialog {
             }
         });
         dateInput.getEditor().setDisable(true);
-        dateInput.setConverter(new StringConverter<LocalDate>() {
-            String pattern = "M/d/yyyy";
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
 
-            {
-                dateInput.setPromptText(pattern.toLowerCase());
-            }
-
-            @Override public String toString(LocalDate date) {
-                if (date != null) {
-                    return dateFormatter.format(date);
-                } else {
-                    return "";
-                }
-            }
-
-            @Override public LocalDate fromString(String string) {
-                if (string != null && !string.isEmpty()) {
-                    return LocalDate.parse(string, dateFormatter);
-                } else {
-                    return null;
-                }
-            }
-        });
     }
 
     private Stage stage;
+
+    private boolean isTrack;
 
     @FXML
     private DialogPane root;
@@ -88,7 +68,7 @@ public class CompetitionDialog {
         stage.close();
     }
 
-    @FXML // TODO: tracking a competition
+    @FXML // TODO: tracking a competition with validation
     void trackCompetition(ActionEvent event) {
         // if statement
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -132,7 +112,23 @@ public class CompetitionDialog {
 
         if (!newLink.contains(".")) // if the link has no domain suffix
             newLink += ".com";
-
         return newLink;
+    }
+    public void setIsTrack(boolean value){
+        this.isTrack = value;
+    }
+
+    @Override
+    public void addTopBar(Stage stage) {
+        String title;
+
+        if (this.isTrack)
+            title = "Track a new Competition";
+        else {
+            title = "Edit the Competition";
+            this.submitBtn.setText("Update Competition");
+        }
+        TopBarPane topBar = new TopBarPane((Stage)root.getScene().getWindow(),title);
+        root.setHeader(topBar);
     }
 }

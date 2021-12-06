@@ -22,7 +22,7 @@ public class RankingSlot {
 
 
     public void fillContent(Team team) throws IOException {
-        // TODO: fill the students for that team
+
         cardTeam = team;
         for (Student student : cardTeam.students) { // Add each student card to the student container VBox
             if(student.name.length() != 0) {

@@ -83,7 +83,7 @@ public class TeamCard {
         controller.setHeader("Edit a Team");
     }
 
-    // TODO: launch a confirmation dialog
+    // TODO: launch a confirmation dialog that confirms deletion and move this function
     @FXML
     void deleteTeam(ActionEvent event) throws IOException {
         Competition competition = CompetitionsMemory.INSTANCE.getCompetition(competitionIndex);

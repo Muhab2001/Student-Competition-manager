@@ -14,15 +14,17 @@ public class User {
 
     public String password;
     public String username;
+    public String email;
 
     public User(){
         password = "";
         username = "";
     }
 
-    public User(String username, String password){
+    public User(String username, String password, String email){
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     // tester for password encryption
@@ -32,8 +34,8 @@ public class User {
         // writing to json
         JsonWriter writer = new JsonWriter(new PrintWriter("PasswordContainer.json"));
         ArrayList<User> users = new ArrayList<>();
-        users.add(new User("KFUPM Press1", Crypt.crypt("Pass12#34?", "$6$" + new Random("Pass12#34?".length()).nextInt(100000) + (int) "Pass12#34?".charAt(3))));
-        users.add(new User("KFUPM Press2", Crypt.crypt("Pass124567?", "$6$" + new Random("Pass124567?".length()).nextInt(100000) + (int) "Pass124567?".charAt(3))));
+        users.add(new User("KFUPM Press1", Crypt.crypt("Pass12#34?", "$6$" + new Random("Pass12#34?".length()).nextInt(100000) + (int) "Pass12#34?".charAt(3)), "pressemail1@kfupm.edu.sa"));
+        users.add(new User("KFUPM Press2", Crypt.crypt("Pass124567?", "$6$" + new Random("Pass124567?".length()).nextInt(100000) + (int) "Pass124567?".charAt(3)), "pressemail1@kfupm.edu.sa"));
         writer.setIndent("  ");
         writer.beginArray();
         for (User user : users) {

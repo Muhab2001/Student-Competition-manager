@@ -27,6 +27,7 @@ import java.time.format.DateTimeFormatter;
 public class CompetitionController implements TopBarable {
 
     private CompetitionController currentController;
+    private boolean OPENED = false;
 
     @FXML
     public void initialize() throws IOException {
@@ -34,14 +35,14 @@ public class CompetitionController implements TopBarable {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse("12/1/2021", formatter);
 
-        dateLabel.setText("12/1/2021");
+
         if(LocalDate.now().compareTo(date) > 0){
 
             Navigator.<DueDialog>nextDialog("due", "This competition is due!");
             statusIndicator.setFill(Color.RED);
             statusLabel.setText("Closed");
         }else {
-            statusIndicator.setFill(Color.GREEN);
+            statusIndicator.setFill(Color.rgb(31, 255, 145));
             statusLabel.setText("Open");
         }
     }
@@ -93,15 +94,18 @@ public class CompetitionController implements TopBarable {
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
         RankingDialog controller = Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
-        controller.fillContent(currentCompetition);
+        controller.fillContent(currentCompetition, currentController);
     }
 
     @FXML
     void editDetails(ActionEvent event) throws IOException {
         CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition-edit",
                 "Edit a Competition");
+
         dialogController.fillContent(currentCompetition, currentController);
-    }
+
+        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
+}
 
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
@@ -113,12 +117,14 @@ public class CompetitionController implements TopBarable {
     void addTeam(ActionEvent event) throws IOException {
         TeamDialog controller = Navigator.<TeamDialog>nextDialog("team", "Add a Team");
         controller.setHeader("Add a Team");
-        controller.fillContent();
+        controller.fillEmptyContent(currentCompetition.teamSize, currentController, currentCompetition.index);
+
     }
 
-    // TODO: DONE - Perform a proper dynamic routing using fetched websites, this is just a test
+
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
+
         WebsiteController controller = Navigator.<WebsiteController>next("website", event);
 
         controller.showWebsite(currentCompetition); // visit the link
@@ -126,33 +132,54 @@ public class CompetitionController implements TopBarable {
     // Validates the link for the website of the competition
 
 
-    // TODO: Perform a proper deletion , this is just a test
+
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
         CompetitionsMemory.INSTANCE.competitions.remove(currentCompetition.index);
+        if(currentCompetition.index != CompetitionsMemory.INSTANCE.competitions.size()){
+            for(int i = currentCompetition.index; i < CompetitionsMemory.INSTANCE.competitions.size(); i++){
+                CompetitionsMemory.INSTANCE.competitions.get(i).index -= CompetitionsMemory.INSTANCE.competitions.get(i).index;
+            }
+        }
        MainController controller = Navigator.<MainController>next("../main", event);
-       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, "some email"); // TODO: add email
+       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email);
 
 
     }
 
-    // TODO: replace with dynamic population
     public void fillContent(Competition competition, CompetitionController controller) throws IOException {
+
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+            LocalDate date = LocalDate.parse(competition.dueDate, formatter);
+
+
+            if (LocalDate.now().compareTo(date) > 0) {
+                if(!OPENED) {
+                    Navigator.<DueDialog>nextDialog("due", "This competition is due!");
+                }
+                statusIndicator.setFill(Color.RED);
+                statusLabel.setText("Closed");
+            } else {
+                statusIndicator.setFill(Color.GREEN);
+                statusLabel.setText("Open");
+            }
+
         currentController = controller;
         competitionName.setText(competition.name);
         dateLabel.setText(competition.dueDate);
         sizeLabel.setText(String.valueOf(competition.teamSize));
         teamNumLAbel.setText(String.valueOf(competition.teams.size()));
-
-        for (int i = 0; i < 10; i++) {
+            teamsContainer.getChildren().clear();
+        for (int i = 0; i < competition.teams.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
             teamsContainer.getChildren().add((Node) fxmlLoader.load());
             TeamCard controller2 = fxmlLoader.getController();
-            controller2.setContent();
+            controller2.setContent(competition.teams.get(i), currentController, competition.index);
         }
 
-
+    OPENED = true;
     }
 
     @Override

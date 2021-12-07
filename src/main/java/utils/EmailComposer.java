@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class EmailComposer {
 
     public static void main(String[] args) throws Exception {
-        String[] names = {"Muhab", "Ahmed", "Basel", "Mubarak", "Abdulaziz", "yo"};
+        String[] names = {"Muhab", "Ahmed", "Basel", "Mubarak", "Abdulaziz", ""};
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         Team team1 = new Team(0, 6);
         team1.rank = 23;
@@ -27,14 +27,18 @@ public class EmailComposer {
     }
 
     public static void sendMail(Team team, String CompetitionName) throws Exception {
-        String[] emails = new String[team.students.size()];
-        String[] names = new String[team.students.size()];
-        for(int i = 0; i < team.students.size(); i++){
+        Team cloneTeam = team.clone();
+        cloneTeam.students.removeIf(student -> student.name.length() == 0);
+        String[] emails = new String[cloneTeam.students.size()];
+        String[] names = new String[cloneTeam.students.size()];
+
+        for(int i = 0; i < cloneTeam.students.size(); i++){
             emails[i] = team.students.get(i).id;
             names[i] = team.students.get(i).name;
         }
 
         String URIstring = prepareMessage(emails,names,  CompetitionName, team.rank);
+        System.out.println(URIstring);
         sendMail(URIstring);
     }
 
@@ -54,10 +58,11 @@ public class EmailComposer {
         String email = "";
         String namesStr = "";
         for(int i = 0; i < emails.length - 1; i++){
-            email += "s" + emails[i] + "@kfupm.edu.sa;";
-            namesStr += ", " + names[i] ;
+                email += "s" + emails[i] + "@kfupm.edu.sa;";
+                namesStr += names[i] + ", ";
+
         }
-        namesStr += ", " + names[names.length - 1];
+        namesStr +=names[names.length - 1];
         email += "s" +  emails[emails.length - 1] + "@kfupm.edu.sa";
         String suffix = "";
         String rankStr = Integer.toString(rank);
@@ -90,6 +95,8 @@ public class EmailComposer {
            body = body.replace("[Student name/Team name]", namesStr);
            body = body.replace("[Competition name]", CompetitionName);
            body = body.replace(" ", "%20"); // mailto URI schema whitespace character
+            body = body.replace("#", "%23");
+
            subject = subject.replace(" ", "%20");
        return ("mailto:" + email + "?subject=" + subject + "&body=" + body.strip()).strip();
     }

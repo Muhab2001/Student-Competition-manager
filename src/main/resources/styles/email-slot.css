@@ -1,0 +1,23 @@
+.btn3{
+-fx-background-radius: 18px !important;
+-fx-border-radius: 18px !important;
+-fx-pref-width: 36px !important;
+-fx-min-width: 36px !important;
+-fx-max-width: 36px !important;
+-fx-pref-height: 36px !important;
+-fx-min-height: 36px !important;
+-fx-max-height: 36px !important;
+ -fx-background-color: #3DB2FF;
+ -fx-background-insets: 0 ;
+}
+
+.btn3:hover{
+-fx-background-color:  #369cdc !important;
+
+}
+
+.btn3:pressed{
+
+-fx-background-color:  #369cdc !important;
+
+}

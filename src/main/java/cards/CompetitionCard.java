@@ -27,7 +27,7 @@ public class CompetitionCard {
     @FXML
     private Label teamSize;
 
-    // TODO: pass a competition object according to the index
+
     @FXML
     void openDetails(MouseEvent event) throws IOException {
 

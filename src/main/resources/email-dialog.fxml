@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane prefHeight="366.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.EmailDialog">
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="610.0" style="-fx-background-color: white; -fx-background-radius: 8;" stylesheets="@styles/rank-dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.EmailDialog">
    <effect>
       <DropShadow>
          <color>
@@ -25,7 +25,16 @@
    <content>
       <VBox minHeight="300.0" prefHeight="378.0" prefWidth="377.0">
          <children>
-            <ScrollPane fx:id="ranksContainer" hbarPolicy="NEVER" minViewportHeight="200.0" minViewportWidth="280.0" pannable="true" prefWidth="401.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" VBox.vgrow="SOMETIMES" />
+            <ScrollPane fx:id="ranksContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity" minViewportHeight="200.0" minViewportWidth="280.0" minWidth="-Infinity" pannable="true" prefWidth="590.0" style="-fx-border-width: 0;" VBox.vgrow="SOMETIMES">
+               <content>
+                  <VBox fx:id="studentContainer" alignment="TOP_CENTER" prefWidth="610.0" spacing="6.0">
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding></VBox>
+               </content>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding></ScrollPane>
             <HBox alignment="TOP_RIGHT" prefHeight="59.0" prefWidth="385.0">
                <VBox.margin>
                   <Insets left="8.0" right="8.0" top="8.0" />
@@ -52,7 +61,7 @@
    <header>
       <VBox prefHeight="86.0" prefWidth="423.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;">
          <children>
-            <Label prefHeight="47.0" prefWidth="423.0" text="Email Teams">
+            <Label prefHeight="47.0" prefWidth="583.2" text="Email Teams">
                <padding>
                   <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                </padding>
@@ -60,7 +69,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label prefHeight="34.0" prefWidth="436.0" text="Send an email to all teams">
+            <Label prefHeight="34.0" prefWidth="436.0" text="Send Emails to congratulate teams">
                <padding>
                   <Insets bottom="16.0" left="12.0" right="12.0" />
                </padding>

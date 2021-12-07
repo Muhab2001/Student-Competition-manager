@@ -60,7 +60,7 @@ public class TopBarPane extends BorderPane{
         minimize.setOnMouseEntered(e -> minimize.setStyle(" -fx-cursor:hand;-fx-background-color:#eee;-fx-font-size:16; -fx-text-fill:#FFF"));
         minimize.setOnMouseExited(e -> minimize.setStyle(" -fx-cursor:hand;-fx-background-color: transparent;-fx-font-size:16; -fx-text-fill:#555"));
 
-        X.setOnMouseClicked(e -> Platform.exit()); // if X is clicked exit the app
+        X.setOnMouseClicked(e -> this.stage.close()); // if X is clicked exit the app
 
         maximize.setOnMouseClicked(e -> {
             if(stage.isMaximized())stage.setMaximized(false);

@@ -8,13 +8,15 @@ import javafx.stage.Stage;
 import models.Competition;
 import pages.CompetitionController;
 import utils.CompetitionsMemory;
+import utils.TopBarPane;
+import utils.TopBarable;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class CompetitionDialog {
+public class CompetitionDialog implements TopBarable {
 
     // used to fetch data when the element is displayed
     private Competition competition;
@@ -36,6 +38,8 @@ public class CompetitionDialog {
     }
 
     private Stage stage;
+
+    private boolean isTrack;
 
     @FXML
     private DialogPane root;
@@ -64,7 +68,7 @@ public class CompetitionDialog {
         stage.close();
     }
 
-    @FXML
+    @FXML // TODO: tracking a competition with validation
     void trackCompetition(ActionEvent event) {
         // if statement
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -85,10 +89,12 @@ public class CompetitionDialog {
     // Edits a competition's details in the CompetitionsMemory instance
     @FXML
     public void editCompetition(ActionEvent actionEvent) throws IOException {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+
         competition.name = nameInput.getText();
         competition.websiteLink = validatedLink(linkInput.getText());
         competition.teamSize = Integer.parseInt(sizeInput.getText());
-       competition.dueDate = String.valueOf(LocalDate.parse(String.valueOf(dateInput.getValue())));
+       competition.dueDate = String.valueOf((dateInput.getValue()).format(dateTimeFormatter));
         currentController.fillContent(competition, currentController);
         CompetitionsMemory.INSTANCE.editCompetition(competition);
 
@@ -106,7 +112,23 @@ public class CompetitionDialog {
 
         if (!newLink.contains(".")) // if the link has no domain suffix
             newLink += ".com";
-
         return newLink;
+    }
+    public void setIsTrack(boolean value){
+        this.isTrack = value;
+    }
+
+    @Override
+    public void addTopBar(Stage stage) {
+        String title;
+
+        if (this.isTrack)
+            title = "Track a new Competition";
+        else {
+            title = "Edit the Competition";
+            this.submitBtn.setText("Update Competition");
+        }
+        TopBarPane topBar = new TopBarPane((Stage)root.getScene().getWindow(),title);
+        root.setHeader(topBar);
     }
 }

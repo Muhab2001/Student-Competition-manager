@@ -5,8 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import utils.TopBarable;
 
-public class DueDialog {
+public class DueDialog{
 
     @FXML
     private Button proceedBtn;

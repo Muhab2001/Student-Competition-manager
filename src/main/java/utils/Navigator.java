@@ -1,13 +1,16 @@
 package utils;
 
 import cards.TeamDialog;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.apache.poi.ss.formula.functions.T;
@@ -43,7 +46,8 @@ public class Navigator{
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle(dialogTitle);
         dialog.setDialogPane(dialogPane); // fxml as a dialog
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: DONE? custom bar
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar for dialogs
         dialog.show();
         return fxmlLoader.getController();
 

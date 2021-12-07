@@ -2,7 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
-public class Team implements Comparable<Team>{
+public class Team implements Comparable<Team>, Cloneable{
     public int index;
     public ArrayList<Student> students;
     public int teamSize;
@@ -43,5 +43,17 @@ public class Team implements Comparable<Team>{
                 ", teamSize=" + teamSize +
                 "rank="+ rank +
                 '}' + "-------------------------------------------\n";
+    }
+
+    @Override
+    public Team clone() {
+
+            Team clone = new Team(index, teamSize);
+            for(Student student: this.students){
+                clone.students.add(new Student(student.index, student.id, student.name, student.major));
+            }
+            clone.rank = this.rank;
+            return clone;
+
     }
 }

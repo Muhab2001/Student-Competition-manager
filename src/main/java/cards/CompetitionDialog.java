@@ -7,7 +7,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Competition;
 import pages.CompetitionController;
+import pages.MainController;
 import utils.CompetitionsMemory;
+import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
 
@@ -20,7 +22,9 @@ public class CompetitionDialog implements TopBarable {
 
     // used to fetch data when the element is displayed
     private Competition competition;
-    private CompetitionController currentController;
+    private CompetitionController compController;
+    private MainController mainController;
+    private Stage mainStage;
 
 
 
@@ -68,22 +72,35 @@ public class CompetitionDialog implements TopBarable {
         stage.close();
     }
 
-    @FXML // TODO: tracking a competition with validation
-    void trackCompetition(ActionEvent event) {
-        // if statement
+    @FXML
+    void trackCompetition(ActionEvent event) throws IOException {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        // TODO: tracking a competition  validation
+        Competition competition = new Competition((dateInput.getValue()).format(dateTimeFormatter), nameInput.getText(), Integer.parseInt(sizeInput.getText()), linkInput.getText(), CompetitionsMemory.competitions.size());
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
+        mainStage.close();
+        // open a new page for the new competition
+        CompetitionsMemory.competitions.add(competition);
+        CompetitionController controller = Navigator.next("competition", event);
+        controller.fillContent(competition, controller);
+
     }
 
     //
-    public void fillContent(Competition competition, CompetitionController competitionController) throws IOException {
-       currentController = competitionController;
+    public void fillEditContent(Competition competition, CompetitionController competitionController) throws IOException {
+       compController = competitionController;
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
        this.competition = competition;
         dateInput.setValue(LocalDate.parse(competition.dueDate, dateTimeFormatter));
         linkInput.setText(competition.websiteLink);
         nameInput.setText(competition.name);
         sizeInput.setText(String.valueOf(competition.teamSize));
+    }
+
+    public void fillEmptycontent(MainController controller, Stage stage){
+        mainController = controller;
+        mainStage = stage;
     }
 
     // Edits a competition's details in the CompetitionsMemory instance
@@ -95,8 +112,8 @@ public class CompetitionDialog implements TopBarable {
         competition.websiteLink = validatedLink(linkInput.getText());
         competition.teamSize = Integer.parseInt(sizeInput.getText());
        competition.dueDate = String.valueOf((dateInput.getValue()).format(dateTimeFormatter));
-        currentController.fillContent(competition, currentController);
-        CompetitionsMemory.INSTANCE.editCompetition(competition);
+        compController.fillContent(competition, compController);
+        CompetitionsMemory.editCompetition(competition);
 
         // Closing the stage
         stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();

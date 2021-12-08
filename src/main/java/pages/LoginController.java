@@ -66,8 +66,8 @@ public class LoginController implements TopBarable {
         try {
             if (authenticate(usernameInput.getText(), passwordInput.getText())) {
 
-                MainController controller = Navigator.<MainController>next("main", event);
-                controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa");
+                MainController controller = Navigator.next("main", event);
+                controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa", controller);
 
             } else {
                 ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");

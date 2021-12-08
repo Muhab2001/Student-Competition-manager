@@ -27,20 +27,7 @@ public class CompetitionController implements TopBarable {
 
     @FXML
     public void initialize() throws IOException {
-        currentCompetition = CompetitionsMemory.INSTANCE.getCompetition(0);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-        LocalDate date = LocalDate.parse("12/1/2021", formatter);
 
-
-        if(LocalDate.now().compareTo(date) > 0){
-
-            Navigator.<DueDialog>nextDialog("due", "This competition is due!");
-            statusIndicator.setFill(Color.RED);
-            statusLabel.setText("Closed");
-        }else {
-            statusIndicator.setFill(Color.rgb(31, 255, 145));
-            statusLabel.setText("Open");
-        }
     }
 
     private Competition currentCompetition;
@@ -98,15 +85,14 @@ public class CompetitionController implements TopBarable {
         CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition-edit",
                 "Edit a Competition");
 
-        dialogController.fillContent(currentCompetition, currentController);
+        dialogController.fillEditContent(currentCompetition, currentController);
 
         dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 }
 
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
-       MainController controller = Navigator.<MainController>next("main", event);
-        controller.addTopBar((Stage)((Node) event.getSource()).getScene().getWindow());
+       Navigator.<MainController>next("main", event);
     }
 
     @FXML
@@ -130,14 +116,14 @@ public class CompetitionController implements TopBarable {
     @FXML
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
-        CompetitionsMemory.INSTANCE.competitions.remove(currentCompetition.index);
-        if(currentCompetition.index != CompetitionsMemory.INSTANCE.competitions.size()){
-            for(int i = currentCompetition.index; i < CompetitionsMemory.INSTANCE.competitions.size(); i++){
-                CompetitionsMemory.INSTANCE.competitions.get(i).index -= CompetitionsMemory.INSTANCE.competitions.get(i).index;
+        CompetitionsMemory.competitions.remove(currentCompetition.index);
+        if(currentCompetition.index != CompetitionsMemory.competitions.size()){
+            for(int i = currentCompetition.index; i < CompetitionsMemory.competitions.size(); i++){
+                CompetitionsMemory.competitions.get(i).index -= CompetitionsMemory.competitions.get(i).index;
             }
         }
        MainController controller = Navigator.<MainController>next("../main", event);
-       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email);
+       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email, controller);
 
 
     }
@@ -147,16 +133,16 @@ public class CompetitionController implements TopBarable {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             LocalDate date = LocalDate.parse(competition.dueDate, formatter);
+        System.out.println((LocalDate.now()).compareTo(date));
 
-
-            if (LocalDate.now().compareTo(date) > 0) {
+            if ((LocalDate.now()).compareTo(date) > 0) {
                 if(!OPENED) {
                     Navigator.<DueDialog>nextDialog("due", "This competition is due!");
                 }
                 statusIndicator.setFill(Color.RED);
                 statusLabel.setText("Closed");
             } else {
-                statusIndicator.setFill(Color.GREEN);
+                statusIndicator.setFill(Color.rgb(31, 255, 145));
                 statusLabel.setText("Open");
             }
 

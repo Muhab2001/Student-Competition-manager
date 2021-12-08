@@ -18,8 +18,9 @@ public class Competition implements Comparable<Competition> {
 
     public Competition(String dueDate, String name, int teamSize, String websiteLink, ArrayList<Team> teams, int index) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-        LocalDate date = LocalDate.parse(dueDate.toString(), formatter);
-        this.isOpen = LocalDate.now().compareTo(date) > 0;this.dueDate = dueDate;
+        LocalDate date = LocalDate.parse(dueDate.strip(), formatter);
+        this.isOpen = LocalDate.now().compareTo(date) >= 0;
+        this.dueDate = dueDate;
         this.teamSize  =teamSize;
         this.teams = teams;
         this.websiteLink = websiteLink;
@@ -29,13 +30,15 @@ public class Competition implements Comparable<Competition> {
 
     public Competition(String dueDate, String name, int teamSize, String websiteLink, int index) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-        LocalDate date = LocalDate.parse(dueDate.toString().strip(), formatter);
-        this.isOpen = LocalDate.now().compareTo(date) > 0;this.dueDate = dueDate;
+        LocalDate date = LocalDate.parse(dueDate.strip(), formatter);
+        this.isOpen = LocalDate.now().compareTo(date) >= 0;
+        this.dueDate = dueDate;
         this.teamSize  =teamSize;
         this.teams = new ArrayList<>();
         this.websiteLink = websiteLink;
         this.name = name;
         this.index = index;
+
     }
 
     public Team getTeam(int index){

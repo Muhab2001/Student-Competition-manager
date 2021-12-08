@@ -64,24 +64,24 @@ public class LoginController implements TopBarable {
 
     private void logger(Event event) {
         try {
-            //if (authenticate(usernameInput.getText(), passwordInput.getText())) {
+            if (authenticate(usernameInput.getText(), passwordInput.getText())) {
 
-                MainController controller = Navigator.<MainController>next("main", event);
-                controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa");
+                MainController controller = Navigator.next("main", event);
+                controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa", controller);
 
-//            } else {
-//                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
-//                errorMessage.fillContent("Wrong Credentials! Please Enter Correct Credentials to continue");
-//                container.getChildren().remove(1);
-//                container.getChildren().add(1, errorMessage.getLabel());
-//            }
+            } else {
+                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
+                errorMessage.fillContent("Wrong Credentials! Please Enter Correct Credentials to continue");
+                container.getChildren().remove(1);
+                container.getChildren().add(1, errorMessage.getLabel());
+            }
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    private boolean authenticate(String username, String password) {
+    public boolean authenticate(String username, String password) {
         // we will use a txt file to store credentials for our users
         try {
 
@@ -105,7 +105,6 @@ public class LoginController implements TopBarable {
 
             return false;
         } catch (Exception e) {
-            System.out.println(e.getMessage() + " Duh!");
             return false;
         }
     }

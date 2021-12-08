@@ -1,6 +1,5 @@
 # Project exclude paths
 /target/
 /src/main/java/tester.java
-.idea/workspace.xml
-.idea/usage.statistics.xml
-.idea/shelf
+
+/.idea/

@@ -6,16 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Competition;
 import utils.CompetitionsMemory;
@@ -27,11 +21,11 @@ import java.io.IOException;
 
 public class MainController implements TopBarable {
 
-    @FXML
-    private VBox root;
-    public MainController(){
+    private MainController mainController;
 
-    }
+    @FXML
+    private VBox mainRoot;
+
 
     // used to fetch data when the element is displayed
     @FXML
@@ -40,22 +34,20 @@ public class MainController implements TopBarable {
 
         vBox1.setPadding(new Insets(14));
         vBox2.setPadding(new Insets(14));
-        for(int i = 0; i < CompetitionsMemory.INSTANCE.competitions.size(); i++){
+        for(int i = 0; i < CompetitionsMemory.competitions.size(); i++){
 
-            Competition competition = CompetitionsMemory.INSTANCE.getCompetition(i);
+            Competition competition = CompetitionsMemory.getCompetition(i);
 
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
             if(i % 2 == 0){
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-                vBox1.getChildren().add((Node) fxmlLoader.load());
-                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition);
+                vBox1.getChildren().add(fxmlLoader.load());
             }
             else{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-                vBox2.getChildren().add((Node) fxmlLoader.load());
-                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition);
+                vBox2.getChildren().add(fxmlLoader.load());
 
 
             }
+            ((CompetitionCard) fxmlLoader.getController()).fillContent(competition);
 
 
         }
@@ -82,10 +74,12 @@ public class MainController implements TopBarable {
 
     @FXML
     void trackCompetition(ActionEvent event) throws IOException {
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         CompetitionDialog dialogController =
-                Navigator.<CompetitionDialog>nextDialog("competition", "Track a New Competition");
+                Navigator.nextDialog("competition", "Track a New Competition");
         dialogController.setIsTrack(true);
-        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
+        dialogController.addTopBar(stage);
+        dialogController.fillEmptycontent(mainController, stage);
 
     }
 
@@ -93,12 +87,13 @@ public class MainController implements TopBarable {
     @FXML
     void profileClicked(MouseEvent event) {
         Node node = (Node) event.getSource();
-        String view = (String) node.getId();
+        String view = node.getId();
         System.out.println(view);
     }
 
     // DONE
-    public void fillContent(String name, String email){
+    public void fillContent(String name, String email, MainController controller){
+        mainController = controller;
         username.setText(name);
         this.email.setText(email);
     }
@@ -107,7 +102,7 @@ public class MainController implements TopBarable {
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Competitions");
-        root.getChildren().add(0,topBar);
+        mainRoot.getChildren().add(0,topBar);
     }
 }
 

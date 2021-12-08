@@ -4,17 +4,13 @@ import cards.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import models.Competition;
-import models.Team;
 import utils.CompetitionsMemory;
 import utils.Navigator;
 import utils.TopBarPane;
@@ -50,7 +46,7 @@ public class CompetitionController implements TopBarable {
     private Competition currentCompetition;
 
     @FXML
-    private VBox root;
+    private VBox compRoot;
 
     @FXML
     private Circle statusIndicator;
@@ -120,8 +116,6 @@ public class CompetitionController implements TopBarable {
         controller.fillEmptyContent(currentCompetition.teamSize, currentController, currentCompetition.index);
 
     }
-
-
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
 
@@ -185,6 +179,6 @@ public class CompetitionController implements TopBarable {
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,competitionName.getText());
-        root.getChildren().add(0,topBar);
+        compRoot.getChildren().add(0,topBar);
     }
 }

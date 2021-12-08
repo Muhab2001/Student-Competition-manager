@@ -6,16 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Competition;
 import utils.CompetitionsMemory;
@@ -28,10 +22,8 @@ import java.io.IOException;
 public class MainController implements TopBarable {
 
     @FXML
-    private VBox root;
-    public MainController(){
+    private VBox mainRoot;
 
-    }
 
     // used to fetch data when the element is displayed
     @FXML
@@ -107,7 +99,7 @@ public class MainController implements TopBarable {
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Competitions");
-        root.getChildren().add(0,topBar);
+        mainRoot.getChildren().add(0,topBar);
     }
 }
 

@@ -16,13 +16,13 @@ public class CompetitionsMemory {
 
     private CompetitionsMemory(){}
 
-    public ArrayList<Competition> competitions = new ArrayList<>();
+    public static ArrayList<Competition> competitions = new ArrayList<>();
 
     public ArrayList<Competition> getCompetitions() {
-        return this.competitions;
+        return competitions;
     }
 
-    public Competition getCompetition(int competitionId) {
+    public static Competition getCompetition(int competitionId) {
         return competitions.get(competitionId);
     }
 
@@ -32,13 +32,13 @@ public class CompetitionsMemory {
 
 
 
-    public void editCompetition(Competition competition) {
-        this.competitions.set(competition.index, competition);
+    public static void editCompetition(Competition competition) {
+        competitions.set(competition.index, competition);
     }
 
     public void deleteCompetition(int competitionId) {
         Competition targetCompetition = getCompetition(competitionId);
-        this.competitions.remove(targetCompetition);
+        competitions.remove(targetCompetition);
     }
 
     @Override

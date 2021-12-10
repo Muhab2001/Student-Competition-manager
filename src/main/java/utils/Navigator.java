@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,7 +33,8 @@ public class Navigator{
         FXMLLoader fxmlLoader = new FXMLLoader(Navigator.class.getClassLoader().getResource(dist+".fxml"));
         Stage stage = (Stage)((Node) context.getSource()).getScene().getWindow(); // get the current stage
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-       T controller = fxmlLoader.getController();
+        T controller = fxmlLoader.getController();
+        stage.getIcons().add(new Image("img/48.png"));
        controller.addTopBar(stage);
         stage.setScene(scene);
         stage.show();
@@ -47,7 +49,7 @@ public class Navigator{
         dialog.setTitle(dialogTitle);
         dialog.setDialogPane(dialogPane); // fxml as a dialog
         dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initStyle(StageStyle.UNDECORATED); // TODO: custom bar for dialogs
+        dialog.initStyle(StageStyle.UNDECORATED);
         dialog.show();
         return fxmlLoader.getController();
 

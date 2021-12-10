@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="544.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingSlot">
+<HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="544.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" stylesheets="@styles/stu-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingSlot">
    <children>
       <VBox fx:id="studentContainer" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="430.0" spacing="8.0" style="-fx-background-radius: 8; -fx-background-color: #ECF0F1;">
          <padding>

@@ -50,35 +50,35 @@ public class LoginController implements TopBarable {
      * @param event the enter key trigger
      */
     @FXML
-    void enterLogin(KeyEvent event) {
+    void enterLogin(KeyEvent event) throws IOException {
         if (event.getCode().equals(KeyCode.ENTER))
             logger(event);
 
     }
 
     @FXML
-    void login(ActionEvent event) {
+    void login(ActionEvent event) throws IOException {
         logger(event);
     }
 
 
-    private void logger(Event event) {
-        try {
-            if (authenticate(usernameInput.getText(), passwordInput.getText())) {
+    private void logger(Event event) throws IOException {
+//        try {
+//            if (authenticate(usernameInput.getText(), passwordInput.getText())) {
 
                 MainController controller = Navigator.next("main", event);
                 controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa", controller);
-
-            } else {
-                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
-                errorMessage.fillContent("Wrong Credentials! Please Enter Correct Credentials to continue");
-                container.getChildren().remove(1);
-                container.getChildren().add(1, errorMessage.getLabel());
-            }
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+//
+//            } else {
+//                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
+//                errorMessage.fillContent("Wrong Credentials! Please Enter Correct Credentials to continue");
+//                container.getChildren().remove(1);
+//                container.getChildren().add(1, errorMessage.getLabel());
+//            }
+//
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 
     public boolean authenticate(String username, String password) {

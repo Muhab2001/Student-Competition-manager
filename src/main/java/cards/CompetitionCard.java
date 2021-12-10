@@ -47,6 +47,7 @@ public class CompetitionCard {
         this.status.setStyle(style);
         this.teamNum.setText(Integer.toString(competition.teams.size()));
         this.teamSize.setText(Integer.toString(competition.teamSize));
+
     }
 
 }

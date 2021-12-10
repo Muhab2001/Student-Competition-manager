@@ -7,15 +7,13 @@
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="418.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-insets: 8; -fx-border-insets: 8; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
+<DialogPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="467.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="516.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
         <columnConstraints>
@@ -110,6 +108,9 @@
                <GridPane.margin>
                   <Insets right="100.0" top="20.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Quicksand SemiBold" size="12.0" />
+               </font>
             </Button>
             <Button fx:id="cancelBtn" layoutX="78.0" layoutY="302.0" mnemonicParsing="false" onAction="#cancel" style="-fx-padding: 10; -fx-background-color: grey; -fx-background-radius: 4;" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <padding>
@@ -121,28 +122,36 @@
                <GridPane.margin>
                   <Insets right="20.0" top="20.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Quicksand Regular" size="12.0" />
+               </font>
             </Button>
          </children>
       </GridPane>
    </content>
-   <header>
-      <Label prefHeight="58.0" prefWidth="478.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 1 0; -fx-text-fill: #3DB2FF; -fx-background-color: white; -fx-background-radius: 6 6 0 0;" text="Edit Competition Details">
-         <padding>
-            <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
-         </padding>
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-      </Label>
-   </header>
-   <effect>
-      <DropShadow>
-         <color>
-            <Color red="0.46315789222717285" green="0.46315789222717285" blue="0.46315789222717285" />
-         </color>
-      </DropShadow>
-   </effect>
    <opaqueInsets>
-      <Insets top="16.0" />
+      <Insets />
    </opaqueInsets>
+   <header>
+      <VBox fx:id="dialogHeader" prefWidth="100.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Label prefHeight="61.0" prefWidth="539.0" style="-fx-text-fill: #3DB2FF; -fx-background-color: white; -fx-background-radius: 6 6 0 0;" styleClass="labels" stylesheets="@styles/comp-dialog.css" text="Edit Competition Details">
+               <padding>
+                  <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+               </padding>
+               <font>
+                  <Font name="Quicksand SemiBold" size="29.0" />
+               </font>
+            </Label>
+            <Label maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="537.0" style="-fx-background-color: white;" text="Enter the new information for the competition">
+               <padding>
+                  <Insets bottom="18.0" left="18.0" right="18.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </header>
 </DialogPane>

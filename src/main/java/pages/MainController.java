@@ -79,7 +79,7 @@ public class MainController implements TopBarable {
                 Navigator.nextDialog("competition", "Track a New Competition");
         dialogController.setIsTrack(true);
         dialogController.addTopBar(stage);
-        dialogController.fillEmptycontent(mainController, stage);
+        dialogController.fillEmptyContent(mainController, stage);
 
     }
 

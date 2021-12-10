@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Competition implements Comparable<Competition> {
+public class Competition implements Comparable<Competition>, Cloneable {
 
 
     public String dueDate;
@@ -19,7 +19,7 @@ public class Competition implements Comparable<Competition> {
     public Competition(String dueDate, String name, int teamSize, String websiteLink, ArrayList<Team> teams, int index) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse(dueDate.strip(), formatter);
-        this.isOpen = LocalDate.now().compareTo(date) >= 0;
+        this.isOpen = (LocalDate.now()).compareTo(date) <= 0;
         this.dueDate = dueDate;
         this.teamSize  =teamSize;
         this.teams = teams;
@@ -31,7 +31,7 @@ public class Competition implements Comparable<Competition> {
     public Competition(String dueDate, String name, int teamSize, String websiteLink, int index) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse(dueDate.strip(), formatter);
-        this.isOpen = LocalDate.now().compareTo(date) >= 0;
+        this.isOpen = (LocalDate.now()).compareTo(date) <= 0;
         this.dueDate = dueDate;
         this.teamSize  =teamSize;
         this.teams = new ArrayList<>();
@@ -62,5 +62,15 @@ public class Competition implements Comparable<Competition> {
                 "\n, teams=" + teams.toString() +
                 "\n, index=" + index +
                 '}';
+    }
+
+    @Override
+    public Competition clone() {
+        Competition clone = new Competition(this.dueDate, this.name, this.teamSize, this.websiteLink, this.index);
+        for(Team team: this.teams){
+            clone.teams.add(team.clone());
+        }
+
+        return clone;
     }
 }

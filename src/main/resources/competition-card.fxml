@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: #e2ece9; -fx-background-radius: 12;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
+<VBox fx:id="competitionId" onMouseClicked="#openDetails" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: #e2ece9; -fx-background-radius: 12;" styleClass="comp-cards" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
    <children>
       <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 0 0; -fx-border-color: #95A5A6;" text="Competition Name">
          <padding>

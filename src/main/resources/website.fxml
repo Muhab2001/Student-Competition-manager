@@ -16,11 +16,11 @@
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" stylesheets="@styles/website.css">
          <children>
-            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="55.0" prefWidth="900.0" style="-fx-background-color: white;">
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="55.0" prefWidth="900.0" style="-fx-background-color: white; -fx-border-width: 0 0 1 0; -fx-border-color: #d4cbcb;">
                <effect>
-                  <DropShadow offsetY="3.0">
+                  <DropShadow offsetY="10.0">
                      <color>
-                        <Color red="0.4421052634716034" green="0.4421052634716034" blue="0.4421052634716034" />
+                        <Color red="0.6421052813529968" green="0.6325926184654236" blue="0.6325926184654236" />
                      </color>
                   </DropShadow>
                </effect>

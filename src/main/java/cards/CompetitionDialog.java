@@ -55,7 +55,11 @@ public class CompetitionDialog implements TopBarable {
     private VBox dialogHeader;
 
     @FXML
-    private DialogPane root;
+    private DialogPane trackRoot;
+
+    @FXML
+    private DialogPane editRoot;
+
 
     @FXML
     private Button cancelBtn;
@@ -200,7 +204,7 @@ public class CompetitionDialog implements TopBarable {
     private String validatedLink(String link) {
         String newLink = link;
 
-        if (!newLink.startsWith("http")) // if no http protocol has been used
+        if (!(newLink.startsWith("https") || newLink.startsWith("http"))) // if no http protocol has been used
             newLink = "https://" + newLink;
 
         if (!newLink.contains(".")) // if the link has no domain suffix
@@ -221,7 +225,7 @@ public class CompetitionDialog implements TopBarable {
             title = "Edit the Competition";
             this.submitBtn.setText("Update Competition");
         }
-        TopBarPane topBar = new TopBarPane((Stage)root.getScene().getWindow(),title);
+        TopBarPane topBar = new TopBarPane((Stage) trackRoot.getScene().getWindow(),title);
         dialogHeader.getChildren().add(0, topBar);
     }
 }

@@ -1,5 +1,6 @@
 package cards;
 
+import javafx.scene.layout.VBox;
 import models.Competition;
 import pages.CompetitionController;
 import javafx.fxml.FXML;
@@ -14,6 +15,8 @@ public class CompetitionCard {
 
     private Competition currentCompetition;
 
+    @FXML
+    public VBox competitionId;
 
     @FXML
     private Label name;
@@ -38,6 +41,7 @@ public class CompetitionCard {
 
     public void fillContent(Competition competition){
         // populating the card with the content
+        competitionId.setId("comp-" + competition.index);
         String status = competition.isOpen ? "Open" : "Closed";
         String style = competition.isOpen ? "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: #1fff91" : "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: red";
         currentCompetition = competition;
@@ -50,4 +54,15 @@ public class CompetitionCard {
 
     }
 
+    @Override
+    public String toString() {
+        return "CompetitionCard{" +
+                "\nid=" + id +
+                "\n, competitionId=" + competitionId.getId() +
+                "\n, name=" + name.getText() +
+                "\n, status=" + status.getText() +
+                "\n, teamNum=" + teamNum.getText() +
+                "\n, teamSize=" + teamSize.getText() +
+                '}';
+    }
 }

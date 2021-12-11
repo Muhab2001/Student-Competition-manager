@@ -25,7 +25,15 @@ public class Student implements Comparable<Student>{
     // this method will be used to compare teams before and after a competition edit
     @Override
     public int compareTo(Student o) {
-        return index.compareTo(o.index);
+        boolean condition1 = name.equals(o.name);
+        boolean condition2 = major.equals(o.major);
+        boolean condition3 = index.equals(o.index);
+        boolean condition4 = id.equals(o.id);
+
+        if(condition1 && condition2 && condition3 && condition4)
+            return 1;
+        return -1;
+
     }
 
     @Override

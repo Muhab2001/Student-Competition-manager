@@ -26,14 +26,8 @@ import java.net.URLConnection;
 public class WebsiteController implements TopBarable {
 
     Competition competition;
-    private WebEngine webEngine;
 
 
-    @FXML
-    public void initialize() throws IOException {
-        webEngine = websiteViewer.getEngine();
-
-    }
 
     @FXML
     private Button returnBtn;
@@ -57,7 +51,7 @@ public class WebsiteController implements TopBarable {
 
 
     public void showWebsite(Competition competition) throws IOException {
-
+        WebEngine webEngine = websiteViewer.getEngine();
         this.competition = competition;
         try{
             final URL url = new URL(competition.websiteLink);
@@ -67,7 +61,8 @@ public class WebsiteController implements TopBarable {
 
             webEngine.load(competition.websiteLink);
         }catch (Exception e){
-            System.out.println(e.getMessage());
+//            e.printStackTrace();
+           System.out.println(e.getMessage());
             ErrorMessage msg =  Navigator.card("error-msg");
             msg.fillContent("No Internet Connection!");
             websiteLink.setStyle("-fx-text-fill: red; -fx-background-radius: 17px; -fx-background-color:  #f5f5f5");

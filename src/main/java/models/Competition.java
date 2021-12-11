@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Competition implements Comparable<Competition>, Cloneable {
 
@@ -48,7 +49,24 @@ public class Competition implements Comparable<Competition>, Cloneable {
     // this method will be used to compare teams before and after a competition edit
     @Override
     public int compareTo(Competition o) {
-        return name.compareTo(o.name);
+       boolean condition1 = name.compareTo(o.name) == 0;
+       boolean condition2 = dueDate.compareTo(o.dueDate) == 0;
+       boolean condition3 = teamSize == o.teamSize;
+       boolean condition4 = Objects.equals(websiteLink, o.websiteLink);
+       boolean condition5 = index == o.index;
+       boolean condition6 = true;
+       // checking equal teams
+        if(condition3){
+            for (int i = 0; i < teams.size(); i++) {
+                if(!teams.get(i).equals(o.teams.get(i)))
+                    return -1;
+            }
+        }
+        // checking equal info
+       if(condition1 && condition2 && condition3 && condition4 && condition5)
+           return 1;
+
+       return -1;
     }
 
     @Override
@@ -59,8 +77,8 @@ public class Competition implements Comparable<Competition>, Cloneable {
                 "\n, name='" + name + '\'' +
                 "\n, teamSize=" + teamSize +
                 "\n, websiteLink='" + websiteLink + '\'' +
-                "\n, teams=" + teams.toString() +
-                "\n, index=" + index +
+                "\n, teams=\n" + teams.toString() +
+                "\n\n, index=" + index +
                 '}';
     }
 

@@ -15,7 +15,6 @@ import utils.CompetitionsMemory;
 import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

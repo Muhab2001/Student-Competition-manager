@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="467.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
+<DialogPane fx:id="trackRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="467.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="516.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
         <columnConstraints>
@@ -98,7 +98,7 @@
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
                </padding>
             </VBox>
-            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#editCompetition" style="-fx-padding: 10; -fx-background-color: #3DB2FF; -fx-background-radius: 4;" text="Confirm" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#editCompetition" style="-fx-padding: 10; -fx-background-color: #3DB2FF; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI Semibold';" text="Confirm" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>
@@ -109,10 +109,10 @@
                   <Insets right="100.0" top="20.0" />
                </GridPane.margin>
                <font>
-                  <Font name="Quicksand SemiBold" size="12.0" />
+                  <Font name="Segoe UI Semibold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="cancelBtn" layoutX="78.0" layoutY="302.0" mnemonicParsing="false" onAction="#cancel" style="-fx-padding: 10; -fx-background-color: grey; -fx-background-radius: 4;" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="cancelBtn" layoutX="78.0" layoutY="302.0" mnemonicParsing="false" onAction="#cancel" style="-fx-padding: 10; -fx-background-color: grey; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI Semibold';" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>

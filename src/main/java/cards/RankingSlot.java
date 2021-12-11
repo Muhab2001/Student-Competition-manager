@@ -1,5 +1,6 @@
 package cards;
 
+import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -38,5 +39,17 @@ public class RankingSlot {
     public String retreiveRank(){
         return rankingInput.getText();
     }
+    public void flagError(){
+        final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
+        rankingInput.pseudoClassStateChanged(errorClass, true);
+
+    }
+
+    public void clearError(){
+        final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
+        rankingInput.pseudoClassStateChanged(errorClass, false);
+
+    }
+
 
 }

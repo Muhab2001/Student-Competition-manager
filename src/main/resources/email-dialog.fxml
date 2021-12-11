@@ -40,14 +40,6 @@
                   <Insets left="8.0" right="8.0" top="8.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="62.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font-size: 14;" text="Cancel" textFill="WHITE">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="12.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button fx:id="confirmRankings" alignment="CENTER" disable="true" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="123.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Mails" textFill="WHITE">
                      <font>
                         <Font size="10.0" />

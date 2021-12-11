@@ -12,11 +12,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxWidth="-Infinity" minHeight="-Infinity" prefWidth="492.0" style="-fx-background-insets: 0; -fx-border-insets: 0; -fx-background-radius: 6 !important; -fx-border-radius: 6; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.DueDialog">
+<DialogPane maxWidth="-Infinity" minHeight="-Infinity" prefWidth="492.0" style="-fx-background-insets: 0; -fx-border-insets: 0; -fx-background-color: white; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.ErrorDialog">
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="206.0" prefWidth="476.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
          <children>
-            <Label layoutX="33.1" layoutY="27.1" prefHeight="116.0" prefWidth="424.0" text="This Competition can no more accept any participants. Announce The rankings or change the due date" wrapText="true" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="16.0">
+            <Label fx:id="errContent" layoutX="33.1" layoutY="27.1" prefHeight="116.0" prefWidth="424.0" text="This Competition can no more accept any participants. Announce The rankings or change the due date" wrapText="true" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="16.0">
                <padding>
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </padding>
@@ -33,24 +33,17 @@
                </cursor>
             </Button>
          </children>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.7763158082962036" green="0.7763158082962036" blue="0.7763158082962036" />
-               </color>
-            </DropShadow>
-         </effect>
       </AnchorPane>
    </content>
    <header>
-      <Label graphicTextGap="12.0" prefHeight="79.0" prefWidth="492.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 0; -fx-background-radius: 6; -fx-background-color: white; -fx-background-radius: 6 6 0 0;" text="Competition is Due!">
+      <Label fx:id="errHeader" graphicTextGap="12.0" prefHeight="79.0" prefWidth="492.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 0; -fx-background-color: white;" text="Competition is Due!">
          <font>
             <Font name="Segoe UI Bold" size="22.0" />
          </font>
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/icons8-calendar-64.png" />
+                  <Image url="@img/icons8-error-50.png" />
                </image>
             </ImageView>
          </graphic>
@@ -69,7 +62,4 @@
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
-   <padding>
-      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-   </padding>
 </DialogPane>

@@ -7,75 +7,76 @@
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-insets: 8; -fx-border-insets: 8; -fx-background-color: transparent; -fx-border-radius: 6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
+<DialogPane fx:id="trackRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="493.0" prefWidth="516.0" style="-fx-background-insets: 0; -fx-background-color: none !important; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
    <content>
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="516.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.199951171875" minWidth="10.0" prefWidth="242.5999755859375" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.4000244140625" minWidth="10.0" prefWidth="234.4000244140625" />
-        </columnConstraints>
-        <rowConstraints>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="516.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.199951171875" minWidth="10.0" prefWidth="242.5999755859375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.4000244140625" minWidth="10.0" prefWidth="234.4000244140625" />
+         </columnConstraints>
+         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2147483647">
+            <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="110.0" prefWidth="100.0" GridPane.columnSpan="2147483647">
                <children>
                   <Label text="Competition Name">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nameInput" promptText="Enter Competition Name">
+                  <TextField fx:id="nameInput" onKeyPressed="#enterTrack" promptText="Enter Competition Name">
                      <VBox.margin>
-                        <Insets top="8.0" />
+                        <Insets top="16.0" />
                      </VBox.margin>
                   </TextField>
                </children>
                <GridPane.margin>
-                  <Insets />
+                  <Insets bottom="10.0" top="6.0" />
                </GridPane.margin>
                <padding>
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
                </padding>
             </VBox>
-            <VBox layoutX="21.0" layoutY="21.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+            <VBox layoutX="21.0" layoutY="21.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="110.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
                <children>
                   <Label text="Website Link">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="linkInput" promptText="Enter Website Link">
+                  <TextField fx:id="linkInput" onKeyPressed="#enterTrack" promptText="Enter Website Link">
                      <VBox.margin>
-                        <Insets top="8.0" />
+                        <Insets bottom="8.0" top="16.0" />
                      </VBox.margin>
                   </TextField>
                </children>
                <padding>
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets bottom="6.0" top="6.0" />
+               </GridPane.margin>
             </VBox>
-            <VBox layoutX="21.0" layoutY="143.0" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+            <VBox layoutX="21.0" layoutY="143.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="110.0" prefWidth="100.0" GridPane.rowIndex="2">
                <children>
                   <Label text="Team Size">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="sizeInput" promptText="Enter team size">
+                  <TextField fx:id="sizeInput" onKeyPressed="#enterTrack" promptText="Enter team size">
                      <VBox.margin>
-                        <Insets top="8.0" />
+                        <Insets top="16.0" />
                      </VBox.margin>
                   </TextField>
                </children>
@@ -83,16 +84,16 @@
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
                </padding>
             </VBox>
-            <VBox layoutX="21.0" layoutY="264.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <VBox layoutX="21.0" layoutY="264.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="110.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Label text="Due Date">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dateInput" promptText="Enter Due Date" style="-fx-background-color: #f5f5f5;">
+                  <DatePicker fx:id="dateInput" onKeyPressed="#enterTrack" promptText="Enter Due Date" style="-fx-background-color: #f5f5f5;">
                      <VBox.margin>
-                        <Insets top="8.0" />
+                        <Insets top="16.0" />
                      </VBox.margin>
                   </DatePicker>
                </children>
@@ -100,7 +101,7 @@
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
                </padding>
             </VBox>
-            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#trackCompetition" style="-fx-padding: 10; -fx-background-color: #3DB2FF; -fx-background-radius: 4;" styleClass="btn" stylesheets="@styles/main.css" text="Track Competition" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#trackCompetition" style="-fx-padding: 10; -fx-background-color: #3DB2FF; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI Semibold';" text="Confirm" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>
@@ -110,15 +111,11 @@
                <GridPane.margin>
                   <Insets right="100.0" top="20.0" />
                </GridPane.margin>
-               <effect>
-                  <DropShadow offsetY="5.0" radius="8.83" width="16.32">
-                     <color>
-                        <Color red="0.23399999737739563" green="0.30329999327659607" blue="0.36000001430511475" opacity="0.10000000149011612" />
-                     </color>
-                  </DropShadow>
-               </effect>
+               <font>
+                  <Font name="Quicksand SemiBold" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="cancelBtn" layoutX="78.0" layoutY="302.0" mnemonicParsing="false" onAction="#cancel" style="-fx-padding: 10; -fx-background-color: grey; -fx-background-radius: 4;" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="cancelBtn" layoutX="78.0" layoutY="302.0" mnemonicParsing="false" onAction="#cancel" style="-fx-padding: 10; -fx-background-color: grey; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI Semibold';" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>
@@ -128,25 +125,36 @@
                <GridPane.margin>
                   <Insets right="20.0" top="20.0" />
                </GridPane.margin>
-               <effect>
-                  <DropShadow offsetY="5.0" radius="8.83" width="16.32">
-                     <color>
-                        <Color red="0.23399999737739563" green="0.30329999327659607" blue="0.36000001430511475" opacity="0.10000000149011612" />
-                     </color>
-                  </DropShadow>
-               </effect>
+               <font>
+                  <Font name="Quicksand Regular" size="12.0" />
+               </font>
             </Button>
          </children>
-         <effect>
-            <DropShadow height="50.0" offsetY="3.0" radius="24.5" width="50.0">
-               <color>
-                  <Color red="0.23399999737739563" green="0.30329999327659607" blue="0.36000001430511475" opacity="0.5013698935508728" />
-               </color>
-            </DropShadow>
-         </effect>
       </GridPane>
    </content>
    <opaqueInsets>
       <Insets top="16.0" />
    </opaqueInsets>
+   <header>
+      <VBox fx:id="dialogHeader" prefWidth="100.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Label prefHeight="61.0" prefWidth="539.0" style="-fx-text-fill: #3DB2FF; -fx-background-color: white; -fx-background-radius: 6 6 0 0;" styleClass="labels" stylesheets="@styles/comp-dialog.css" text="Track a new Competition">
+               <padding>
+                  <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+               </padding>
+               <font>
+                  <Font name="Quicksand SemiBold" size="29.0" />
+               </font>
+            </Label>
+            <Label prefHeight="45.0" prefWidth="537.0" style="-fx-background-color: white;" text="Enter Needed Information to track a new competition">
+               <padding>
+                  <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </header>
 </DialogPane>

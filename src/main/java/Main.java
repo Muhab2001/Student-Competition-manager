@@ -16,11 +16,11 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         LoginController controller = fxmlLoader.getController();
         controller.addTopBar(stage);
+       stage.getIcons().add(new Image("img/48.png"));
         stage.setTitle("KFUPM Medalist");
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.getIcons().add(new Image("img/48.png"));
-        stage.setScene(scene);
+         stage.setScene(scene);
         stage.show();
         utils.ExcelStorage.getAllCompetitions(); // testing thr excel package
     }

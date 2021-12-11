@@ -23,7 +23,7 @@ public class Team implements Comparable<Team>, Cloneable{
     // this method will be used to compare teams before and after a competition edit
     @Override
     public int compareTo(Team o) {
-        if(o.students.size() != students.size()){
+        if(o.students.size() != students.size() || this.index != o.index || this.teamSize != o.teamSize){
             return -1; // unequal number
         }
         for(int i = 0; i < teamSize; i++){
@@ -39,10 +39,10 @@ public class Team implements Comparable<Team>, Cloneable{
     public String toString() {
         return "Team{" +
                 "index=" + index +
-                ", students=" + students.toString() +
-                ", teamSize=" + teamSize +
+                ", students=\n" + students.toString() +
+                "\n, teamSize=" + teamSize +
                 "rank="+ rank +
-                '}' + "-------------------------------------------\n";
+                '}' + "\n-------------------------------------------\n";
     }
 
     @Override

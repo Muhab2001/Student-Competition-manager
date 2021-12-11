@@ -10,15 +10,21 @@
 
 
 .btn{
+-fx-font:  14px 'Quicksand Bold';
     -fx-background-color:  #3DB2FF;
  -fx-background-radius: 4px;
  -fx-border-radius: 4px;
  -fx-skin: 'utils.skins.PrimaryButtonSkin';
 }
 
+.btn:hover{
+-fx-font:  14px 'Quicksand Bold';
+}
+
 
 
 .btn:pressed{
+-fx-font:  14px 'Quicksand Bold';
 -fx-background-color:  #277bae !important;
 -fx-border-color: #277bae;
 -fx-background-radius: 4px;
@@ -55,7 +61,7 @@
 
 
 .btn2{
--fx-font:  14px 'Segoe UI regular';
+-fx-font:  14px 'Segoe UI';
 -fx-text-fill: black;
 -fx-background-color: white;
 -fx-background-insets: 0;
@@ -69,14 +75,14 @@
 
 
 .btn2:hover{
--fx-font:  14px 'Segoe UI regular';
+-fx-font:  14px 'Segoe UI';
 -fx-background-color:  #ECF0F1 ;
 -fx-background-radius: 8px;
 -fx-border-radius: 8px;
 }
 
 .btn2:pressed{
--fx-font:  14px 'Segoe UI regular';
+-fx-font:  14px 'Segoe UI';
 -fx-background-color:  #ECF0F1 ;
 -fx-background-radius: 8px;
 -fx-border-radius: 8px;

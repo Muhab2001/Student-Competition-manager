@@ -15,7 +15,6 @@ import utils.CompetitionsMemory;
 import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -78,6 +77,7 @@ public class CompetitionController implements TopBarable {
     void announceRanks(ActionEvent event) throws IOException {
         RankingDialog controller = Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
         controller.fillContent(currentCompetition, currentController);
+        controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
     }
 
     @FXML
@@ -99,13 +99,14 @@ public class CompetitionController implements TopBarable {
     void addTeam(ActionEvent event) throws IOException {
         TeamDialog controller = Navigator.<TeamDialog>nextDialog("team", "Add a Team");
         controller.setHeader("Add a Team");
-        controller.fillEmptyContent(currentCompetition.teamSize, currentController, currentCompetition.index);
+        controller.fillEmptyContent(currentCompetition.teamSize, currentController, currentCompetition.index, controller);
+        controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 
     }
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
 
-        WebsiteController controller = Navigator.<WebsiteController>next("website", event);
+        WebsiteController controller = Navigator.next("website", event);
 
         controller.showWebsite(currentCompetition); // visit the link
     }
@@ -122,7 +123,7 @@ public class CompetitionController implements TopBarable {
                 CompetitionsMemory.competitions.get(i).index -= CompetitionsMemory.competitions.get(i).index;
             }
         }
-       MainController controller = Navigator.<MainController>next("../main", event);
+       MainController controller = Navigator.next("../main", event);
        controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email, controller);
 
 
@@ -133,19 +134,24 @@ public class CompetitionController implements TopBarable {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             LocalDate date = LocalDate.parse(competition.dueDate, formatter);
-        System.out.println((LocalDate.now()).compareTo(date));
 
-            if ((LocalDate.now()).compareTo(date) > 0) {
+
+            if (!competition.isOpen) {
                 if(!OPENED) {
-                    Navigator.<DueDialog>nextDialog("due", "This competition is due!");
+                    ErrorDialog dialog = Navigator.<ErrorDialog>nextDialog("error", "This competition is due!");
+                    dialog.fillContent("Competition is Due!",
+                            "This Competition can no more accept any participants. Announce The rankings or change the due date");
                 }
+                addTeamBtn.setDisable(true);
                 statusIndicator.setFill(Color.RED);
                 statusLabel.setText("Closed");
             } else {
                 statusIndicator.setFill(Color.rgb(31, 255, 145));
                 statusLabel.setText("Open");
+                addTeamBtn.setDisable(false);
             }
 
+        currentCompetition = competition;
         currentController = controller;
         competitionName.setText(competition.name);
         dateLabel.setText(competition.dueDate);

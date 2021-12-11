@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import models.Competition;
@@ -79,14 +80,15 @@ public class TeamCard {
     void editTeam(ActionEvent event) throws IOException {
         TeamDialog controller =
                 Navigator.<TeamDialog>nextDialog("team", "Edit a Team");
-        controller.fillContent(currentTeam, currentController, competitionIndex);
+        controller.fillContent(currentTeam, currentController, competitionIndex, controller);
         controller.setHeader("Edit a Team");
+        controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
     }
 
-    // TODO: launch a confirmation dialog that confirms deletion and move this function
+
     @FXML
     void deleteTeam(ActionEvent event) throws IOException {
-        Competition competition = CompetitionsMemory.INSTANCE.getCompetition(competitionIndex);
+        Competition competition = CompetitionsMemory.getCompetition(competitionIndex);
        competition.teams.remove(index);
         if(index != competition.teams.size()){
             for (int i = index; i < competition.teams.size(); i++) {

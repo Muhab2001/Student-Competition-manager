@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER" prefHeight="103.0" prefWidth="446.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
+<HBox alignment="CENTER" prefHeight="103.0" prefWidth="446.0" style="-fx-background-color: white; -fx-background-radius: 8;" stylesheets="@styles/stu-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
     <children>
         <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -19,7 +19,7 @@
         </ImageView>
         <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="384.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 1;">
             <children>
-            <TextField fx:id="nameInput" prefHeight="26.0" promptText="Student name" VBox.vgrow="SOMETIMES">
+            <TextField fx:id="nameInput" onKeyPressed="#enterMutate" prefHeight="26.0" promptText="Student name" VBox.vgrow="SOMETIMES">
                <VBox.margin>
                   <Insets left="22.0" right="22.0" top="8.0" />
                </VBox.margin>
@@ -29,12 +29,12 @@
                         <Insets left="16.0" />
                     </padding>
                <children>
-                  <TextField fx:id="idInput" prefHeight="26.0" prefWidth="147.0" promptText="Student ID">
+                  <TextField fx:id="idInput" onKeyPressed="#enterMutate" prefHeight="26.0" prefWidth="147.0" promptText="Student ID">
                      <HBox.margin>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="majorInput" prefHeight="26.0" prefWidth="140.0" promptText="Major">
+                  <TextField fx:id="majorInput" onKeyPressed="#enterMutate" prefHeight="26.0" prefWidth="140.0" promptText="Major">
                      <HBox.margin>
                         <Insets bottom="8.0" left="14.0" right="8.0" top="8.0" />
                      </HBox.margin>

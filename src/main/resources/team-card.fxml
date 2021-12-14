@@ -4,10 +4,12 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <VBox fx:id="cardContainer" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="430.0" style="-fx-background-color: white; -fx-background-radius: 6;" styleClass="card-container" stylesheets="@styles/team-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamCard">
@@ -41,7 +43,7 @@
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-edit-24%20(1).png" />
+                        <Image url="@img/icons8-edit-24 (1).png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -59,7 +61,7 @@
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-trash-30%20(1).png" />
+                        <Image url="@img/icons8-trash-30 (1).png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -90,4 +92,11 @@
    <opaqueInsets>
       <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
    </opaqueInsets>
+   <effect>
+      <DropShadow height="30.0" offsetY="10.0" radius="14.5" width="30.0">
+         <color>
+            <Color red="0.2303999960422516" green="0.29736000299453735" blue="0.36000001430511475" opacity="0.10000000149011612" />
+         </color>
+      </DropShadow>
+   </effect>
 </VBox>

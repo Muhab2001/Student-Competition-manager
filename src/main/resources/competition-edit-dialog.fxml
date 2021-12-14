@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="trackRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="467.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
+<DialogPane fx:id="trackRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="467.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-color: none !important; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="516.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
         <columnConstraints>

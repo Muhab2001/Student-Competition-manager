@@ -11,10 +11,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import models.Competition;
-import utils.CompetitionsMemory;
-import utils.Navigator;
-import utils.TopBarPane;
-import utils.TopBarable;
+import utils.*;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -160,7 +158,12 @@ public class CompetitionController implements TopBarable {
             teamsContainer.getChildren().clear();
         for (int i = 0; i < competition.teams.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
-            teamsContainer.getChildren().add((Node) fxmlLoader.load());
+            Node teamCard = fxmlLoader.load();
+
+            // make transition for team card
+            Hover.raising(teamCard);
+
+            teamsContainer.getChildren().add(teamCard);
             TeamCard controller2 = fxmlLoader.getController();
             controller2.setContent(competition.teams.get(i), currentController, competition.index);
         }

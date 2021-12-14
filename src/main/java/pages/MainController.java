@@ -2,6 +2,7 @@ package pages;
 
 import cards.CompetitionCard;
 import cards.CompetitionDialog;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,15 +10,15 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import models.Competition;
 import org.apache.xml.security.Init;
-import utils.CompetitionsMemory;
-import utils.Navigator;
-import utils.TopBarPane;
-import utils.TopBarable;
+import utils.*;
+import utils.transitions.ShadowTransition;
 
 import java.io.IOException;
 import java.net.URL;
@@ -69,7 +70,13 @@ public class MainController implements TopBarable, Initializable {
 
 //        System.out.println("Available cards: " + cards); //TODO: remove test log
 
+        // Assigning hover transitions for cards
+        for (CompetitionCard competitionCard : cards) {
 
+            VBox card = competitionCard.competitionId;
+
+            Hover.raising(card);
+        }
 
     }
 

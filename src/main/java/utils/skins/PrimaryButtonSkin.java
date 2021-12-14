@@ -26,7 +26,7 @@ public class PrimaryButtonSkin extends ButtonSkin {
 
         final ShadowTransition shadowIn = new ShadowTransition(Duration.millis(300),control,dropIn);
         shadowIn.setIsIn(true);
-        Transition in = animateBackgroundColor(control, Color.valueOf("#3DB2FF"),Color.valueOf("#369cdc"),300);
+        Transition in = animateBackgroundColor(control, Color.valueOf("#3DB2FF"),Color.valueOf("#369cdc"),500);
 
 
         control.setOnMouseEntered(e -> {
@@ -39,7 +39,7 @@ public class PrimaryButtonSkin extends ButtonSkin {
         final ShadowTransition shadowOut = new ShadowTransition(Duration.millis(300),control,dropOut);
         shadowOut.setIsIn(false);
 
-        Transition out = animateBackgroundColor(control, Color.valueOf("#369cdc"),Color.valueOf("#3DB2FF"),300);
+        Transition out = animateBackgroundColor(control, Color.valueOf("#369cdc"),Color.valueOf("#3DB2FF"),500);
 
 
         control.setOnMouseExited(e -> {

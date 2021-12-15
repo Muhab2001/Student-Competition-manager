@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="544.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" stylesheets="@styles/stu-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingSlot">
+<HBox fx:id="container" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="544.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" stylesheets="@styles/stu-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingSlot">
    <children>
       <VBox fx:id="studentContainer" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="430.0" spacing="8.0" style="-fx-background-radius: 8; -fx-background-color: #ECF0F1;">
          <padding>
@@ -25,7 +25,7 @@
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
-            <TextField fx:id="rankingInput" alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="66.0" promptText="Rank#">
+            <TextField fx:id="rankingInput" alignment="CENTER" maxWidth="-Infinity" onKeyPressed="#enterSubmit" prefHeight="26.0" prefWidth="66.0" promptText="Rank#">
                <VBox.margin>
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </VBox.margin>

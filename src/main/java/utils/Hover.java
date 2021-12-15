@@ -6,8 +6,15 @@ import javafx.scene.effect.DropShadow;
 import javafx.util.Duration;
 import utils.transitions.ShadowTransition;
 
+/**
+ * class to add hover effect on cards
+ */
 public class Hover {
 
+    /**
+     * triggering the raise effect on selected node
+     * @param node target node
+     */
     public static void raising(Node node){
         TranslateTransition trans = new TranslateTransition(Duration.millis(200), node);
 

@@ -57,7 +57,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="deleteBtn" graphicTextGap="8.0" layoutX="316.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#deleteTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-font-size: 12;" styleClass="btn3" textFill="WHITE">
+            <Button fx:id="deleteTeamBtn" graphicTextGap="8.0" layoutX="316.0" layoutY="11.0" minHeight="-Infinity" minWidth="42.0" mnemonicParsing="false" onAction="#deleteTeam" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 4; -fx-font-size: 12;" styleClass="btn3" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>

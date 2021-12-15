@@ -12,7 +12,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-//this pane for custom top bar
+/**
+ * a custom topbar for application window
+ */
 public class TopBarPane extends BorderPane{
 
     private Stage stage;
@@ -37,6 +39,9 @@ public class TopBarPane extends BorderPane{
         buildPane();
     }
 
+    /**
+     * building the pane compartments
+     */
     public void buildPane() {
 
 

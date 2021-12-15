@@ -8,6 +8,11 @@
      -fx-font-size: 10px;
  }
 
+ .text-field:error {
+   -fx-text-box-border: red ;
+   -fx-focus-color: red ;
+ }
+
 
 .btn{
 -fx-font:  14px 'Quicksand Bold';

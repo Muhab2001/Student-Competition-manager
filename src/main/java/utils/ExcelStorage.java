@@ -14,7 +14,7 @@ import java.util.*;
 
 
 /**
- * @description a singleton class that manages the data traffic between the structured
+ * a singleton class that manages the data traffic between the structured
  * excel spreadsheet and KFUPM Medalist application
  */
 public class ExcelStorage {
@@ -24,28 +24,23 @@ public class ExcelStorage {
     private ExcelStorage() throws FileNotFoundException {
 
     }
-
-    public static void main(String[] args) throws IOException {
-        try {
-            FileInputStream file = new FileInputStream(new File("storage.xlsx"));
-
-            //Create Workbook instance holding reference to .xlsx file
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
-
-            saveChanges(getAllCompetitions());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
+    //TODO: delete the testing main method
+//    public static void main(String[] args) throws IOException {
+//        try {
+//            FileInputStream file = new FileInputStream(new File("storage.xlsx"));
+//
+//            //Create Workbook instance holding reference to .xlsx file
+//            XSSFWorkbook workbook = new XSSFWorkbook(file);
+//
+//            saveChanges(getAllCompetitions());
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
 
     /**
-     * @description iterates over every single sheet in a structured excel spreadsheet as the following
+     * iterates over every single sheet in a structured excel spreadsheet as the following
      *
-     * STEP1: Getting descriptors' data of the current competition sheet, which are:
-     *        the name, due date, thr website link, and the team size, to instantiate a competition object
-     *
-     * STEP2: iterating over teams one by one according to the given team size in the excel spreadsheet
-     * @return all the data in the structured excel spreadsheets in the format of Competition objects' list
      */
     public static ArrayList<Competition> getAllCompetitions() {
         ArrayList<Competition> competitions = new ArrayList<>(); // to save competitions for the CompetitionMemory
@@ -139,7 +134,6 @@ public class ExcelStorage {
             }
 
             CompetitionsMemory.competitions = competitions;
-//            System.out.println(CompetitionsMemory.INSTANCE); // TODO: delete the testing log
             file.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -149,12 +143,9 @@ public class ExcelStorage {
     }
 
     /**
-     * @description a function that saves the current CompetitionsMemory into the excel sheet by the following
-     *  STEP1: iterates over the descriptors of each competition, which are:
-     *  the name, due date, thr website link, and the team size
-     *  STEP2: iterates over every team for each competition and maps their values in respective columns
+     *  a function that saves the current CompetitionsMemory into the excel sheet by the following
      *
-     * @param competitions: the list of all competitions stored in CompetitionsMemory
+     * @param competitions: the list of all competitions stored in a `CompetitionsMemory`object
      */
     public static void saveChanges(ArrayList<Competition> competitions) {
 

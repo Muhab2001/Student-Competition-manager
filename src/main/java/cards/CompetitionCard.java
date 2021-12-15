@@ -9,6 +9,9 @@ import javafx.scene.input.MouseEvent;
 import utils.Navigator;
 import java.io.IOException;
 
+/**
+ * controller class for competition cards
+ */
 public class CompetitionCard {
 
     private int id = -1;
@@ -30,18 +33,27 @@ public class CompetitionCard {
     @FXML
     private Label teamSize;
 
-
+    /**
+     * event listener to navigate to competition details page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void openDetails(MouseEvent event) throws IOException {
 
         CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
-        controller.fillContent(currentCompetition, controller);
+        controller.fillContent(currentCompetition, controller, false);
 
     }
 
+    /**
+     * populating the card with competition info
+     * @param competition target competition
+     */
     public void fillContent(Competition competition){
         // populating the card with the content
         competitionId.setId("comp-" + competition.index);
+        name.setId("comp-" + competition.name);
         String status = competition.isOpen ? "Open" : "Closed";
         String style = competition.isOpen ? "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: #1fff91" : "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: red";
         currentCompetition = competition;

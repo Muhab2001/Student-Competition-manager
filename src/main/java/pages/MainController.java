@@ -16,7 +16,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.Competition;
-import org.apache.xml.security.Init;
 import utils.*;
 import utils.transitions.ShadowTransition;
 
@@ -25,7 +24,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MainController implements TopBarable, Initializable {
+/**
+ * controller class to handle the main page
+ */
+public class MainController implements TopBarable {
 
     private MainController mainController;
     public final ArrayList<CompetitionCard> cards = new ArrayList<>();
@@ -34,10 +36,11 @@ public class MainController implements TopBarable, Initializable {
     private VBox mainRoot;
 
 
-    // used to fetch data when the element is displayed
+    /**
+     * loads all competitions from `CompetitionsMemory`
+     */
     @FXML
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
 
         vBox1.setPadding(new Insets(14));
         vBox2.setPadding(new Insets(14));
@@ -68,7 +71,6 @@ public class MainController implements TopBarable, Initializable {
 
         }
 
-//        System.out.println("Available cards: " + cards); //TODO: remove test log
 
         // Assigning hover transitions for cards
         for (CompetitionCard competitionCard : cards) {
@@ -98,6 +100,11 @@ public class MainController implements TopBarable, Initializable {
     @FXML
     private VBox vBox2;
 
+    /**
+     * event listener to open the dialog for tracking new competitions
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
     void trackCompetition(ActionEvent event) throws IOException {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -110,7 +117,13 @@ public class MainController implements TopBarable, Initializable {
     }
 
 
-    // DONE
+    /**
+     * method to populate needed crednetials for website elements
+     * @param name username
+     * @param email user email
+     * @param controller an instance of the main controller for later usage
+     * @return
+     */
     public ArrayList<CompetitionCard> fillContent(String name, String email, MainController controller){
         mainController = controller;
         username.setText(name);

@@ -27,6 +27,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
+/**
+ * controller for competition dialog
+ */
 public class CompetitionDialog implements TopBarable {
 
     // used to fetch data when the element is displayed
@@ -37,7 +40,9 @@ public class CompetitionDialog implements TopBarable {
     private String errMsg;
 
 
-
+    /**
+     * initializing datepicker info and format
+     */
     @FXML
     public void initialize(){
         dateInput.setDayCellFactory(param -> new DateCell() {
@@ -84,23 +89,42 @@ public class CompetitionDialog implements TopBarable {
     @FXML
     private Button submitBtn;
 
+    /**
+     * aborting comeptition creation/editing process
+     * @param event
+     */
     @FXML
     void cancel(@NotNull ActionEvent event) {
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * event listener for enter key to confirm tracking new competitions
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void enterTrack(@NotNull KeyEvent event) throws IOException {
         if (event.getCode().equals(KeyCode.ENTER))
             tracker(event);
     }
 
+    /**
+     * evnet listener for track button to confirm tracking new competitions
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void trackCompetition(ActionEvent event) throws IOException {
         tracker(event);
     }
 
+    /**
+     * submiting dialog input for tracking
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     public void tracker(Event event) throws IOException {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
 
@@ -124,9 +148,35 @@ public class CompetitionDialog implements TopBarable {
         }
     }
 
+
+    /**
+     * event listener for enter key to confirm editing competitions
+     * @param event
+     * @throws IOException fxml file corruption
+     */
+    @FXML
+    void enterEdit(KeyEvent event) throws IOException {
+        if (event.getCode().equals(KeyCode.ENTER))
+            editor(event);
+    }
+
+    /**
+     * event listener for edit competition button
+     * @param actionEvent
+     * @throws IOException fxml file corruption
+     */
     @FXML
     public void editCompetition(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        editor(actionEvent);
+    }
+
+    /**
+     * submiting dialog input for editing
+     * @param event
+     * @throws IOException fxml file corruption
+     */
+    public void editor(Event event) throws IOException {
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         if(invalid()){
             ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
             errorMessage.fillContent(errMsg);
@@ -158,6 +208,10 @@ public class CompetitionDialog implements TopBarable {
         }
     }
 
+    /**
+     * method for calling submission form studentOverflow dialog
+     * @throws IOException
+     */
     public void submitEdited() throws IOException {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         competition.name = nameInput.getText();
@@ -174,6 +228,10 @@ public class CompetitionDialog implements TopBarable {
     }
 
 
+    /**
+     * validating dialog input for both eidting/tracking
+     * @return
+     */
     private boolean invalid(){
         boolean case1 = dateInput.getValue() == (null) || sizeInput.getText().strip().length() == 0 || linkInput.getText().strip().length() == 0 || nameInput.getText().strip().length() == 0;
         String link = validatedLink(linkInput.getText());
@@ -225,7 +283,13 @@ public class CompetitionDialog implements TopBarable {
         return false;
     }
 
-
+    /**
+     * populating the dialog with existing competition info, passing needed controllers
+     * @param competition current competition
+     * @param competitionController running competition controller
+     * @param dialogController running dialog controller
+     * @throws IOException fxml file corruption
+     */
     public void fillEditContent(@NotNull Competition competition, CompetitionController competitionController, CompetitionDialog dialogController) throws IOException {
        compController = competitionController;
        this.dialogController = dialogController;
@@ -237,14 +301,22 @@ public class CompetitionDialog implements TopBarable {
         sizeInput.setText(String.valueOf(competition.teamSize));
     }
 
+    /**
+     * passing needed controllers and stages
+     * @param controller running main controller
+     * @param stage running main page stage
+     */
     public void fillEmptyContent(MainController controller, Stage stage){
         setIsTrack(true);
         mainStage = stage;
     }
 
 
-
-
+    /**
+     * validating http/https links
+     * @param link link to be corrected
+     * @return corrected http links
+     */
     @NotNull
     private String validatedLink(String link) {
         String newLink = link;
@@ -279,12 +351,17 @@ public class CompetitionDialog implements TopBarable {
         dialogHeader.getChildren().add(0, topBar);
     }
 
+    /**
+     * utility method for erroneous fields
+     */
     public void flagError(TextField field){
         final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
         field.pseudoClassStateChanged(errorClass, true);
 
     }
-
+    /**
+     * utility method for erroneous fields
+     */
     public void clearError(TextField field){
         final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
         field.pseudoClassStateChanged(errorClass, false);

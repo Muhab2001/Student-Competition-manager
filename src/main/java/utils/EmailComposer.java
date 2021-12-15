@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * A class to handle email message composing and draft populating in default email app
+ * singleton class to handle email message composing and draft populating in default email app
  */
 public class EmailComposer {
     // TODO: delete testing main method
@@ -28,6 +28,11 @@ public class EmailComposer {
 //        }
 //        sendMail(team1, "test1");
 //    }
+
+    public EmailComposer INSTANCE = new EmailComposer();
+    private EmailComposer(){
+
+    }
 
     /**
      * handles sending an mail to a specific team

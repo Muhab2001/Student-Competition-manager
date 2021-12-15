@@ -16,6 +16,9 @@ import utils.Navigator;
 
 import java.io.IOException;
 
+/**
+ * controller for competition deletion confirmation dialog
+ */
 public class CompDeleteConfirm implements Confirmable {
 
     private Competition competition;
@@ -33,12 +36,21 @@ public class CompDeleteConfirm implements Confirmable {
     @FXML
     private Button proceedBtn;
 
+    /**
+     * event listener to abort competition deletion process
+     * @param event
+     */
     @FXML
     void cancel(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * event listener to proceed in competition deletion
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void proceed(ActionEvent event) throws IOException {
         onConfirm(event);
@@ -48,6 +60,11 @@ public class CompDeleteConfirm implements Confirmable {
         controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email, controller);
     }
 
+    /**
+     * passing needed controllers and info
+     * @param comeptition
+     * @param controller
+     */
     public void fillContent(Competition comeptition, CompetitionController controller){
         proceedBtn.setId("delete-confirm");
         this.competition = comeptition;

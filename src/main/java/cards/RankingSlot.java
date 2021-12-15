@@ -14,6 +14,9 @@ import models.Team;
 
 import java.io.IOException;
 
+/**
+ * controller class for team ranking card slot
+ */
 public class RankingSlot {
 
     public Team cardTeam;
@@ -28,12 +31,23 @@ public class RankingSlot {
     @FXML
     private VBox studentContainer;
 
+    /**
+     * event listener for enter key to confirm ranks
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void enterSubmit(KeyEvent event) throws IOException {
         if (event.getCode().equals(KeyCode.ENTER))
             controller.ranker(event);
     }
 
+    /**
+     * populating the dialog with team data
+     * @param team target team
+     * @param dialogcontroller running dialog controller
+     * @throws IOException fxml file corruption
+     */
     public void fillContent(Team team, RankingDialog dialogcontroller) throws IOException {
         this.controller = dialogcontroller;
         container.setId("rankslot-" + team.index);
@@ -50,16 +64,25 @@ public class RankingSlot {
         }
     }
 
+    /**
+     * method for input rank retreival
+     * @return entered rank
+     */
     public String retrieveRank(){
         return rankingInput.getText();
     }
 
+    /**
+     * utility method for erroneous fields
+     */
     public void flagError(){
         final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
         rankingInput.pseudoClassStateChanged(errorClass, true);
 
     }
-
+    /**
+     * utility method for erroneous fields
+     */
     public void clearError(){
         final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
         rankingInput.pseudoClassStateChanged(errorClass, false);

@@ -11,9 +11,11 @@ import models.Competition;
 import models.Team;
 import pages.CompetitionController;
 import utils.Confirmable;
-
 import java.io.IOException;
 
+/**
+ * contorller for student overflow warning dialog
+ */
 public class StudentOverflowConfirm implements Confirmable {
 
     private Competition competition;
@@ -33,12 +35,21 @@ public class StudentOverflowConfirm implements Confirmable {
     @FXML
     private Button proceedBtn;
 
+    /**
+     * aborting extra student deletion process
+     * @param event
+     */
     @FXML
     void cancel(ActionEvent event) {
        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * proceeding with deleting extra students
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void proceed(ActionEvent event) throws IOException {
         onConfirm(event);
@@ -49,7 +60,13 @@ public class StudentOverflowConfirm implements Confirmable {
 
     }
 
-
+    /**
+     * providing the dialog with number of students to be dleetedm and needed controller to perform deletion
+     * @param stDeleted number of studnets to be deleted
+     * @param competition current competition
+     * @param controller running competition controller
+     * @param dialog instance of competition dialog to close when needed
+     */
     public void fillContent(int stDeleted, Competition competition, CompetitionController controller, CompetitionDialog dialog){
         proceedBtn.setId("overflow-confirm");
     this.competition = competition;

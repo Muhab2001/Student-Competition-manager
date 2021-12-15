@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * class to hold uniform competitions data
+ */
 public class Competition implements Comparable<Competition>, Cloneable {
 
 

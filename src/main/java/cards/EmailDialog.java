@@ -18,6 +18,9 @@ import utils.TopBarable;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * controller for email dialogs
+ */
 public class EmailDialog implements TopBarable {
 
     private int emailCounter = 0;
@@ -35,8 +38,12 @@ public class EmailDialog implements TopBarable {
     @FXML
     private ScrollPane ranksContainer;
 
+    /**
+     * event listener to confirm email sending
+     * @param event
+     */
     @FXML
-    void confirmRanking(ActionEvent event) {
+    void confirmEmailing(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
@@ -44,6 +51,12 @@ public class EmailDialog implements TopBarable {
     @FXML
     private VBox studentContainer;
 
+    /**
+     * populating with teams info, passing in required controllers
+     * @param competition current competition
+     * @param controller instance of email dialog to pass to other controllers
+     * @throws IOException fxml file corruption
+     */
     public void fillContent(Competition competition, EmailDialog controller) throws IOException {
         ArrayList<Team> teams = competition.teams; // Get the teams of the current competition
         currentCompetition = competition;
@@ -58,6 +71,9 @@ public class EmailDialog implements TopBarable {
 
     }
 
+    /**
+     * method to handle sent emails count
+     */
     public void incrementCounter(){
         emailCounter++;
         if(emailCounter == currentCompetition.teams.size())

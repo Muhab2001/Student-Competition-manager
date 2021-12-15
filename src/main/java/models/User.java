@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * a class to identify user credentials throughout the app lifetime
+ */
 public class User {
 
     public String password;
@@ -27,7 +30,7 @@ public class User {
         this.email = email;
     }
 
-    // tester for password encryption
+    // TODO: delete the testing main method
     public static void main(String[] args) throws IOException {
         System.out.println((int) 'A');
         Gson gson = new Gson();

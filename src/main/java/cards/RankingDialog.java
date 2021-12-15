@@ -21,20 +21,18 @@ import utils.TopBarable;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * controller class for competition ranking dialog
+ */
 public class RankingDialog implements TopBarable {
 
-    // used to fetch data when the element is displayed
+
     private Competition currentCompetition;
     private final ArrayList<RankingSlot> controllers = new ArrayList<>();
     private CompetitionController compController;
     private String errMsg;
     private RankingDialog dialog;
 
-
-    @FXML
-    public void initialize(){
-
-    }
 
     @FXML
     private DialogPane rankRoot;
@@ -57,17 +55,31 @@ public class RankingDialog implements TopBarable {
     @FXML
     private VBox studentContainer;
 
+    /**
+     * event listener to abort ranking process
+     * @param event
+     */
     @FXML
     void cancel(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
-    @FXML // TODO: keyboard key listener for slots
+    /**
+     * event listener for confirm ranking input
+     * @param event
+     * @throws IOException fxml file corruption
+     */
+    @FXML
     void confirmRanking(ActionEvent event) throws IOException {
         ranker(event);
     }
 
+    /**
+     * method to perform ranking mutation
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     public void ranker(Event event) throws IOException {
         if(validate()){
             for (RankingSlot slot : controllers) {
@@ -87,6 +99,10 @@ public class RankingDialog implements TopBarable {
         }
     }
 
+    /**
+     * validating ranks' input
+     * @return valdation confirmation
+     */
     private boolean validate(){
         boolean valid = true;
         ArrayList<String> tmpRanks = new ArrayList<>();
@@ -128,8 +144,13 @@ public class RankingDialog implements TopBarable {
     }
 
 
-
-
+    /**
+     * populating with teams data, passing required controllers
+     * @param competition current competition
+     * @param compController running competition controller
+     * @param rankingDialog instance of ranking dialog to pass to other controllers
+     * @throws IOException
+     */
     public void fillContent(Competition competition, CompetitionController compController, RankingDialog rankingDialog) throws IOException {
         dialog = rankingDialog;
         currentCompetition = competition;

@@ -13,6 +13,9 @@ import models.Student;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * controller class for student cards for view/editing
+ */
 public class StudentCard {
 
     // used to fetch data when the element is displayed
@@ -49,7 +52,11 @@ public class StudentCard {
     private TextField nameInput;
 
 
-
+    /**
+     * event listener for enter key to confirm team mutation
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void enterMutate(KeyEvent event) throws IOException {
 
@@ -59,7 +66,11 @@ public class StudentCard {
         }
     }
 
-    // for editing cards
+    /**
+     * populating content for student card (editable fxml card)
+     * @param student target student
+     * @param dialog running team dialog
+     */
     public void fillEditableContent(Student student, TeamDialog dialog){
         stCard.setId("stcard-" + student.index);
 
@@ -70,13 +81,21 @@ public class StudentCard {
         nameInput.setText(student.name);
     }
 
+    /**
+     * providing target index, and dialog controller (editable empty fxml card)
+     * @param dialog running team dialog
+     * @param index target student  index
+     */
     public void fillEditableEmptyContent(TeamDialog dialog, int index){
         stCard.setId("stcard-" + index);
         currentController = dialog;
         this.index = index;
     }
 
-    // for view cards
+    /**
+     * populating student card (view-only fxml file)
+     * @param student
+     */
     public void fillContent(Student student){
 
         stCard.setId("stcard-" + student.index);
@@ -88,6 +107,10 @@ public class StudentCard {
         name.setText(student.name);
     }
 
+    /**
+     * getting information from editable student card
+     * @return student object formed from input data
+     */
     public Student retreive(){
         Student student = new Student(index);
         student.name = nameInput.getText().strip();
@@ -96,13 +119,18 @@ public class StudentCard {
         return student;
     }
 
+    /**
+     * utility method for erroneous fields
+     */
     public void flagError(){
     final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
     majorInput.pseudoClassStateChanged(errorClass, true);
     nameInput.pseudoClassStateChanged(errorClass, true);
     idInput.pseudoClassStateChanged(errorClass, true);
     }
-
+    /**
+     * utility method for erroneous fields
+     */
     public void clearError(){
         final PseudoClass errorClass = PseudoClass.getPseudoClass("error");
         majorInput.pseudoClassStateChanged(errorClass, false);

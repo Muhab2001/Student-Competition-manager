@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 /**
- * a class to store and mutate existing competitions via interfacing with controllers and `ExcelStorage`
+ * singleton class to store and mutate existing competitions via interfacing with controllers and `ExcelStorage`
  */
 public class CompetitionsMemory {
 

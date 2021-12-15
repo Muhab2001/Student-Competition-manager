@@ -12,6 +12,9 @@ import utils.EmailComposer;
 
 import java.io.IOException;
 
+/**
+ * controller for email card slot
+ */
 public class EmailSlot {
 
     private Team currentTeam;
@@ -27,6 +30,11 @@ public class EmailSlot {
     @FXML
     private VBox studentContainer;
 
+    /**
+     * event listener to send mails for all target team members
+     * @param event
+     * @throws Exception `EmailBodyTemplate.txt` file corruption or URI errors
+     */
     @FXML
     void sendEmail(ActionEvent event) throws Exception {
 
@@ -37,7 +45,13 @@ public class EmailSlot {
     }
 
 
-
+    /**
+     * populating with team infom passing required controllers
+     * @param team target team
+     * @param competitionName competition name
+     * @param controller running email dialog controller
+     * @throws IOException fxml file corruption
+     */
     public void fillContent(Team team, String competitionName, EmailDialog controller) throws IOException {
         emailBtn.setId("teammail-" + team.index);
         compName = competitionName;

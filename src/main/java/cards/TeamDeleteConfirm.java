@@ -13,6 +13,9 @@ import utils.Confirmable;
 
 import java.io.IOException;
 
+/**
+ * controller for team dletion confirmation dialog
+ */
 public class TeamDeleteConfirm implements Confirmable {
 
     private Competition competition;
@@ -32,12 +35,21 @@ public class TeamDeleteConfirm implements Confirmable {
     @FXML
     private Button proceedBtn;
 
+    /**
+     * listener to abort team deletion
+     * @param event
+     */
     @FXML
     void cancel(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * listener to proceed with team deletion
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void proceed(ActionEvent event) throws IOException {
         onConfirm(event);
@@ -46,6 +58,12 @@ public class TeamDeleteConfirm implements Confirmable {
         stage.close();
     }
 
+    /**
+     * provide the dialog with target team index, and needed controllers to perform deletion
+     * @param deletedIndex target team index
+     * @param competition current competition
+     * @param controller running competition controller
+     */
     public void fillContent(int deletedIndex, Competition competition, CompetitionController controller){
         proceedBtn.setId("delete-confirm");
         compController = controller;

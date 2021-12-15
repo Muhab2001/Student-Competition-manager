@@ -24,19 +24,12 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * controller class for team addition/editing dialog
+ */
 public class TeamDialog implements TopBarable {
 
-    // used to fetch data when the element is displayed
 
-
-    @FXML
-    public void initialize() throws IOException {
-
-
-    }
-
-    @FXML
-    private VBox headerContainer;
     private boolean isEditing = false;
     private final ArrayList<StudentCard> stdControllers = new ArrayList<>();
     private int currentCompetitionIndex = -1;
@@ -45,6 +38,9 @@ public class TeamDialog implements TopBarable {
     private String errMsg;
     private TeamDialog dialogcontroller;
     private Team currentTeam;
+
+    @FXML
+    private VBox headerContainer;
 
     @FXML
     private Button confirm;
@@ -61,21 +57,40 @@ public class TeamDialog implements TopBarable {
     @FXML
     private VBox studentsContainer;
 
+    /**
+     * event listener from direct click to launch team data mutation
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void mutateTeams(ActionEvent event) throws IOException {
         mutator(event);
     }
 
+    /**
+     * event listener from enter click to launch team data mutation
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     void enterMutateTeams(KeyEvent event) throws IOException{
         mutator(event);
     }
 
+    /**
+     * listener to abort changes on  team data
+     * @param event
+     */
     @FXML
     void cancel(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * method for applying changes on team data
+     * @param event
+     * @throws IOException fxml file courrption
+     */
     private void mutator(Event event) throws IOException {
         Competition competition = CompetitionsMemory.getCompetition(currentCompetitionIndex);
         if(validate(competition)){
@@ -113,6 +128,11 @@ public class TeamDialog implements TopBarable {
         }
     }
 
+    /**
+     * to validate user input before performing changes
+     * @param competition target competition
+     * @return validation confirmation
+     */
     private boolean validate(Competition competition){
         Pattern idPattern = Pattern.compile("^20[0-9]{6}0$");
         Matcher idMatcher;
@@ -207,6 +227,14 @@ public class TeamDialog implements TopBarable {
         headerText.setText(header);
     }
 
+    /**
+     * method to populate the dialog with team data
+     * @param team target team
+     * @param controller running competition controller
+     * @param competitionIndex current competition index
+     * @param dialogController instance of team dialog to pass for other controllers
+     * @throws IOException fxml file corruption
+     */
     public void fillContent(Team team, CompetitionController controller, int competitionIndex, TeamDialog dialogController) throws IOException {
     currentTeam = team;
     this.dialogcontroller = dialogController;
@@ -225,6 +253,14 @@ public class TeamDialog implements TopBarable {
         
     }
 
+    /**
+     * populating the dialog with empty fields for new team creation
+     * @param teamSize target team size
+     * @param controller running compeition controller
+     * @param competitionIndex current competition index
+     * @param dialogController instance of team dialog to pass for other controllers
+     * @throws IOException fxml file corruption
+    */
     public void fillEmptyContent(int teamSize, CompetitionController controller, int competitionIndex, TeamDialog dialogController) throws IOException {
 
        this.dialogcontroller = dialogController;

@@ -18,6 +18,9 @@ import utils.Navigator;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * controller for team cards
+ */
 public class TeamCard {
 
     private int index = -1;
@@ -31,6 +34,9 @@ public class TeamCard {
      FadeTransition editOut ;
      FadeTransition deleteOut;
 
+    /**
+     * attaching mouse hovering to fade transition effect
+     */
     @FXML
     public void initialize(){
        editIn = new FadeTransition(Duration.millis(200), editTeamBtn);//used to fetch data when the element is displayed
@@ -72,7 +78,11 @@ public class TeamCard {
     @FXML
     private VBox studentsContainer;
 
-
+    /**
+     * listener to fire team editing dialog
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void editTeam(ActionEvent event) throws IOException {
         TeamDialog controller =
@@ -82,7 +92,11 @@ public class TeamCard {
         controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
     }
 
-
+    /**
+     * listener to fire team deletion dialog
+     * @param event
+     * @throws IOException fxml file corruption
+     */
     @FXML
     void deleteTeam(ActionEvent event) throws IOException {
         Competition competition = CompetitionsMemory.getCompetition(competitionIndex);
@@ -90,7 +104,14 @@ public class TeamCard {
         controller.fillContent(currentTeam.index, competition, currentController);
 
     }
-    // passing the information for the card
+
+    /**
+     * populating the card with team data
+     * @param team target team
+     * @param controller running competition controller
+     * @param competitionIndex current competition index
+     * @throws IOException fxml file corruption
+     */
     public void fillContent(Team team, CompetitionController controller, int competitionIndex) throws IOException {
         // set content to labels
         rankLabel.setId("teamrank-" + team.index);

@@ -2,6 +2,9 @@ package models;
 
 import java.util.ArrayList;
 
+/**
+ * class to store uniform team data
+ */
 public class Team implements Comparable<Team>, Cloneable{
     public int index;
     public ArrayList<Student> students;

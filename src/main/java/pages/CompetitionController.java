@@ -166,6 +166,13 @@ public class CompetitionController implements TopBarable {
 
     }
 
+    /**
+     * method to populate the competition info after initialization
+     * @param competition target competition
+     * @param controller competition controller to be sotred and passed for other controllers
+     * @param opened to enforce no duplicate pop-ups foe due date dialog
+     * @throws IOException for fxml file corruption
+     */
     public void fillContent(Competition competition, CompetitionController controller, boolean opened) throws IOException {
 
 

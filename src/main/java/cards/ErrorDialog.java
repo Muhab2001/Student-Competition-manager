@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import utils.TopBarable;
 
+/**
+ * controller for error dialogs
+ */
 public class ErrorDialog {
 
     @FXML
@@ -29,6 +32,11 @@ public class ErrorDialog {
         stage.close();
     }
 
+    /**
+     * populating the dialog with error description
+     * @param header header content
+     * @param content body content
+     */
     public void fillContent(String header, String content){
         errHeader.setText(header);
         errContent.setText(content);

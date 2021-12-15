@@ -34,7 +34,7 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter Competition Name">
+                  <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyPressed="#enterEdit" prefHeight="30.0" promptText="Enter Competition Name">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -54,7 +54,7 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="linkInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter Website Link">
+                  <TextField fx:id="linkInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyPressed="#enterEdit" prefHeight="30.0" promptText="Enter Website Link">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -74,7 +74,7 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="sizeInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter team size">
+                  <TextField fx:id="sizeInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyPressed="#enterEdit" prefHeight="30.0" promptText="Enter team size">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -94,7 +94,7 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dateInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter Due Date" style="-fx-background-color: #f5f5f5;">
+                  <DatePicker fx:id="dateInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyPressed="#enterEdit" prefHeight="30.0" promptText="Enter Due Date" style="-fx-background-color: #f5f5f5;">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>

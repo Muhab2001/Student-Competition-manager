@@ -62,6 +62,7 @@ public class TeamCard {
             editIn.play();
             deleteIn.play();
         });
+
     }
     @FXML
     private VBox cardContainer;

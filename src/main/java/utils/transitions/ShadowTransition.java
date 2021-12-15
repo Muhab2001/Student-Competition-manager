@@ -1,6 +1,7 @@
 package utils.transitions;
 
 import javafx.animation.Transition;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
@@ -11,37 +12,52 @@ import javafx.util.Duration;
  */
 public class ShadowTransition extends Transition {
 
-    private Button btn;
+    final private Node node;
     private boolean isIn;
-    private DropShadow shadow;
+    private boolean raised;
+    final private DropShadow shadow;
 
     /**
      * public constructor for animted shadow transition on buttons
      * @param duration transition duration
-     * @param btn target button
+     * @param node target button
      * @param shadow DropShadow object
      */
-    public ShadowTransition(Duration duration,Button btn, DropShadow shadow){
+    public ShadowTransition(Duration duration, Node node, DropShadow shadow){
         setCycleDuration(duration);
-        this.btn = btn;
+        this.node = node;
         this.shadow = shadow;
+        this.raised = false;
     }
     @Override
     protected void interpolate(double v) {
-        if (isIn) {
-            shadow.setOffsetY((10 - (v*10)) + 3);
-            shadow.setHeight((30 - (v*30)) + 8);
-            shadow.setWidth((30 - (v*30)) + 8);
-            shadow.setColor(Color.rgb(62,76,92,0.1 + (0.2*v)));
-        }else{
-            shadow.setOffsetY(7*v + 3);
-            shadow.setHeight(22*v + 8);
-            shadow.setWidth(22*v + 8);
-            shadow.setColor(Color.rgb(62,76,92,0.3 - v*0.2 ));
-        }
+        if (!raised)
+            if (isIn) {
+                shadow.setOffsetY(10 - (v*7));
+                shadow.setHeight(30 - (22*v));
+                shadow.setWidth(30 - (22*v));
+                shadow.setColor(Color.rgb(62,76,92,0.1 + (0.2*v)));
+            }else{
+                shadow.setOffsetY(7*v + 3);
+                shadow.setHeight(22*v + 8);
+                shadow.setWidth(22*v + 8);
+                shadow.setColor(Color.rgb(62,76,92,0.3 - v*0.2 ));
+            }
+        else
+            if (isIn) {
+                shadow.setOffsetY(10 + (v*3));
+                shadow.setHeight(30 + (v*15));
+                shadow.setWidth(30 + (v*15));
+                shadow.setColor(Color.rgb(62,76,92,0.1 - (0.06*v)));
+            }else{
+                shadow.setOffsetY(13 - (3*v));
+                shadow.setHeight(55 - (15*v));
+                shadow.setWidth(55 - (15*v));
+                shadow.setColor(Color.rgb(62,76,92,0.04 + (0.06*v)));
+            }
 
 
-        this.btn.setEffect(shadow);
+        this.node.setEffect(shadow);
     }
 
     /**
@@ -50,5 +66,9 @@ public class ShadowTransition extends Transition {
      */
     public void setIsIn(boolean in){
         this.isIn = in;
+    }
+
+    public void setRaised(boolean raised){
+        this.raised = raised;
     }
 }

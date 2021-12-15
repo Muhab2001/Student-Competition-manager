@@ -15,10 +15,8 @@ import models.Competition;
 import models.Student;
 import models.Team;
 import pages.CompetitionController;
-import utils.CompetitionsMemory;
-import utils.Navigator;
-import utils.TopBarPane;
-import utils.TopBarable;
+import utils.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -101,7 +99,6 @@ public class TeamDialog implements TopBarable {
                 Student std = stdControllers.get(i).retreive();
                 if(std.name.length() != 0 && std.id.length() != 0 && std.major.length() != 0) {
                     std.index = tmpIndex++;
-                    System.out.println(std); // TODO: remove test log
                     newTeam.students.add(std);
                 }
             }
@@ -154,7 +151,6 @@ public class TeamDialog implements TopBarable {
             idMatcher = idPattern.matcher(student.id);
             nameMatcher = namePattern.matcher(student.name);
             majorMatcher = majorPattern.matcher(student.major);
-            System.out.println(student.id); // TODO: delete test log
             if(student.name.length() != 0 && student.major.length() != 0 && student.id.length() != 0) {
                 valid = true;
                 // non-duplicates in the same team
@@ -248,6 +244,7 @@ public class TeamDialog implements TopBarable {
             studentsContainer.getChildren().add((Node) fxmlLoader.load());
             StudentCard card = fxmlLoader.getController();
             card.fillEditableContent(team.students.get(i), this.dialogcontroller);
+            Hover.raising(fxmlLoader.getRoot());
             stdControllers.add(card);
         }
         
@@ -272,6 +269,7 @@ public class TeamDialog implements TopBarable {
             studentsContainer.getChildren().add((Node) fxmlLoader.load());
             StudentCard card = fxmlLoader.getController();
             card.fillEditableEmptyContent(dialogController, i);
+            Hover.raising(fxmlLoader.getRoot());
             stdControllers.add(card);
         }
     }

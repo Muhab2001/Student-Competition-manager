@@ -14,10 +14,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import models.Competition;
-import utils.CompetitionsMemory;
-import utils.Navigator;
-import utils.TopBarPane;
-import utils.TopBarable;
+import utils.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -157,7 +155,6 @@ public class CompetitionController implements TopBarable {
      * @throws IOException when fxml file is corrupted
      */
     @FXML
-    // TODO: confirmation dialog for competition deletion
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
         CompDeleteConfirm controller = Navigator.nextDialog("comp-delete", "Confirmation");
@@ -210,7 +207,12 @@ public class CompetitionController implements TopBarable {
             teamsContainer.getChildren().clear();
         for (int i = 0; i < competition.teams.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
-            teamsContainer.getChildren().add((Node) fxmlLoader.load());
+            Node teamCard = fxmlLoader.load();
+
+            // make transition for team card
+//            Hover.raising(teamCard);
+
+            teamsContainer.getChildren().add(teamCard);
             TeamCard controller2 = fxmlLoader.getController();
             controller2.fillContent(competition.teams.get(i), currentController, competition.index);
         }

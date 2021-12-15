@@ -34,7 +34,7 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyPressed="#enterEdit" prefHeight="30.0" promptText="Enter Competition Name">
+                  <TextField fx:id="nameInput" promptText="Enter Competition Name">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -47,7 +47,7 @@
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
                </padding>
             </VBox>
-            <VBox layoutX="21.0" layoutY="21.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+            <VBox layoutX="21.0" layoutY="21.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
                <children>
                   <Label text="Website Link">
                      <font>

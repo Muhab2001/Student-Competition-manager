@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import models.Competition;
 import models.Team;
 import pages.CompetitionController;
+import utils.Hover;
 import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
@@ -157,10 +158,11 @@ public class RankingDialog implements TopBarable {
         this.compController = compController;
         ArrayList<Team> teams = competition.teams; // Get the teams of the current competition
         for (Team team : teams) {
-            System.out.println(team.toString()); // TODO: delete the test log
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../ranking-slot.fxml"));
             studentContainer.getChildren().add((Node) fxmlLoader.load()); // Add empty ranking cards to the VBox
             RankingSlot slot = fxmlLoader.getController();
+            Hover.raising(fxmlLoader.getRoot());
             controllers.add(slot);
             slot.fillContent(team, dialog);
         }

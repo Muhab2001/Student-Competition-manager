@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import models.Competition;
 import models.Student;
 import models.Team;
+import utils.Hover;
 import utils.TopBarPane;
 import utils.TopBarable;
 
@@ -66,6 +67,7 @@ public class EmailDialog implements TopBarable {
             studentContainer.getChildren().add((Node) fxmlLoader.load()); // Add empty ranking cards to the VBox
             EmailSlot slot = fxmlLoader.getController();
             slot.fillContent(team, competition.name, controller);
+            Hover.raising(fxmlLoader.getRoot());
 
         }
 

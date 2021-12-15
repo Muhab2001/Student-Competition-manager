@@ -100,7 +100,6 @@ public class StudentCard {
 
         stCard.setId("stcard-" + student.index);
         name.setId("stname-" + student.name.replaceAll("\\s+", ""));
-        System.out.println(student.name.replace("\\s+", "")); // TODO: delete test log
         index = student.index;
         major.setText(student.major);
         idNum.setText(student.id);

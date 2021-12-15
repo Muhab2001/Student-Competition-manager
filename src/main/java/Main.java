@@ -48,11 +48,11 @@ public class Main extends Application {
      * the endpoint of the application process
      * @throws Exception when the excel storage file is corrupted
      */
-//    @Override
-//    public void stop() throws Exception {
-//        super.stop();
-//        ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
-//        System.out.println("Data Saved Successfully! "); // TODO: delete test log
-//    }
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        ExcelStorage.saveChanges(CompetitionsMemory.INSTANCE.getCompetitions());
+
+    }
 }
 

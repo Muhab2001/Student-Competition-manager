@@ -115,7 +115,6 @@ class CompetitionControllerTest {
 
 
     }
-    //TODO: testing details editing
     @Test
     @DisplayName("A successful mutation for competition details with no student overflow")
     void validEditDetailsNoOverflow(FxRobot robot) {

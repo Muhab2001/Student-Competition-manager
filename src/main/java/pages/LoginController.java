@@ -75,25 +75,24 @@ public class LoginController implements TopBarable {
      * @param event
      * @throws IOException for credentials file corruption
      */
-    // TODO: uncomment the auth
     private void logger(Event event) throws IOException {
-//        try {
-//            if (authenticate(usernameInput.getText(), passwordInput.getText())) {
+        try {
+            if (authenticate(usernameInput.getText(), passwordInput.getText())) {
 
                 MainController controller = Navigator.next("main", event);
                 controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa", controller);
 
-//
-//            } else {
-//                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
-//                errorMessage.fillContent("Wrong Credentials! Please Enter Correct Credentials to continue");
-//                container.getChildren().remove(1);
-//                container.getChildren().add(1, errorMessage.getLabel());
-//            }
-//
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
+
+            } else {
+                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
+                errorMessage.fillContent("Wrong Credentials! Please Enter Correct Credentials to continue");
+                container.getChildren().remove(1);
+                container.getChildren().add(1, errorMessage.getLabel());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**

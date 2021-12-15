@@ -13,19 +13,28 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * A class to handle email message composing and draft populating in default email app
+ */
 public class EmailComposer {
+    // TODO: delete testing main method
+//    public static void main(String[] args) throws Exception {
+//        String[] names = {"Muhab", "Ahmed", "Basel", "Mubarak", "Abdulaziz", ""};
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+//        Team team1 = new Team(0, 6);
+//        team1.rank = 23;
+//        for(int i = 0; i < team1.teamSize; i++){
+//            team1.students.add(new Student( i, "20194557" + i, names[i], "SWE/CS"));
+//        }
+//        sendMail(team1, "test1");
+//    }
 
-    public static void main(String[] args) throws Exception {
-        String[] names = {"Muhab", "Ahmed", "Basel", "Mubarak", "Abdulaziz", ""};
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-        Team team1 = new Team(0, 6);
-        team1.rank = 23;
-        for(int i = 0; i < team1.teamSize; i++){
-            team1.students.add(new Student( i, "20194557" + i, names[i], "SWE/CS"));
-        }
-        sendMail(team1, "test1");
-    }
-
+    /**
+     * handles sending an mail to a specific team
+     * @param team the target team
+     * @param CompetitionName the competition name
+     * @throws Exception for URI errors
+     */
     public static void sendMail(Team team, String CompetitionName) throws Exception {
         Team cloneTeam = team.clone();
         cloneTeam.students.removeIf(student -> student.name.length() == 0);
@@ -42,6 +51,11 @@ public class EmailComposer {
         sendMail(URIstring);
     }
 
+    /**
+     * handles composing a message according to the format in `EmailBodyTemplate.txt`
+     * @param URIstring the formatted mailto request
+     * @throws Exception for URI errors
+     */
     private static void sendMail(String URIstring) throws Exception {
         Desktop desktop;
         if (Desktop.isDesktopSupported()
@@ -53,6 +67,15 @@ public class EmailComposer {
         }
     }
 
+    /**
+     *
+     * @param emails array of student emails
+     * @param names array of student names
+     * @param CompetitionName competition name
+     * @param rank target team rank
+     * @return the formatted URI request
+     * @throws FileNotFoundException when the template file `EmailBodyTemplate.txt` is corrupted
+     */
     private static String prepareMessage(String[] emails, String[] names, String CompetitionName, int rank) throws FileNotFoundException {
 
         String email = "";

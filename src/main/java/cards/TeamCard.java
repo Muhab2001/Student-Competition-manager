@@ -6,13 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import models.Competition;
-import models.Student;
 import models.Team;
 import pages.CompetitionController;
 import utils.CompetitionsMemory;
@@ -37,9 +34,9 @@ public class TeamCard {
     @FXML
     public void initialize(){
        editIn = new FadeTransition(Duration.millis(200), editTeamBtn);//used to fetch data when the element is displayed
-         deleteIn = new FadeTransition(Duration.millis(200), deleteBtn);//used to fetch data when the element is displayed
+         deleteIn = new FadeTransition(Duration.millis(200), deleteTeamBtn);//used to fetch data when the element is displayed
           editOut = new FadeTransition(Duration.millis(200), editTeamBtn);//used to fetch data when the element is displayed
-          deleteOut = new FadeTransition(Duration.millis(200), deleteBtn);//used to fetch data when the element is displayed
+          deleteOut = new FadeTransition(Duration.millis(200), deleteTeamBtn);//used to fetch data when the element is displayed
         editIn.setFromValue(0);
         editIn.setToValue(1);
         deleteIn.setFromValue(0);
@@ -50,7 +47,7 @@ public class TeamCard {
         deleteOut.setToValue(0);
         editOut.play();
         editTeamBtn.setOpacity(0);
-        deleteBtn.setOpacity(0);
+        deleteTeamBtn.setOpacity(0);
         cardContainer.setOnMouseExited(e-> {
             editOut.play();
             deleteOut.play();
@@ -67,7 +64,7 @@ public class TeamCard {
     private Button editTeamBtn;
 
     @FXML
-    private Button deleteBtn;
+    private Button deleteTeamBtn;
 
     @FXML
     private Label rankLabel;
@@ -89,18 +86,15 @@ public class TeamCard {
     @FXML
     void deleteTeam(ActionEvent event) throws IOException {
         Competition competition = CompetitionsMemory.getCompetition(competitionIndex);
-       competition.teams.remove(index);
-        if(index != competition.teams.size()){
-            for (int i = index; i < competition.teams.size(); i++) {
-                competition.teams.get(i).index -= competition.teams.get(i).index; // maintaining the indexing
-            }
-        }
-        System.out.println(competition); // TODO: delete test logs
-       currentController.fillContent(competition, currentController);
+        TeamDeleteConfirm controller = Navigator.nextDialog("team-delete", "Confirm Team Deletion");
+        controller.fillContent(currentTeam.index, competition, currentController);
+
     }
     // passing the information for the card
-    public void setContent(Team team, CompetitionController controller, int competitionIndex) throws IOException {
+    public void fillContent(Team team, CompetitionController controller, int competitionIndex) throws IOException {
         // set content to labels
+        rankLabel.setId("teamrank-" + team.index);
+        deleteTeamBtn.setId("delete-" + rankLabel.getId());
         if(team.rank == -1)
             rankLabel.setText("TBA");
         else

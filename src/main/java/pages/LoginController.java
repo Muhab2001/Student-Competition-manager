@@ -27,6 +27,9 @@ import org.apache.commons.codec.digest.Crypt; // encryption package
 import utils.TopBarPane;
 import utils.TopBarable;
 
+/**
+ * controller class to handle login page
+ */
 public class LoginController implements TopBarable {
 
 
@@ -46,8 +49,9 @@ public class LoginController implements TopBarable {
 
 
     /**
-     *
+     * listener for Enter key to submit the login form
      * @param event the enter key trigger
+     * @throws IOException for credentials file corruption
      */
     @FXML
     void enterLogin(KeyEvent event) throws IOException {
@@ -56,18 +60,29 @@ public class LoginController implements TopBarable {
 
     }
 
+    /**
+     * listener for direct manipulation button
+     * @param event
+     * @throws IOException for credentials file corruption
+     */
     @FXML
     void login(ActionEvent event) throws IOException {
         logger(event);
     }
 
-
+    /**
+     * login page submission handler
+     * @param event
+     * @throws IOException for credentials file corruption
+     */
+    // TODO: uncomment the auth
     private void logger(Event event) throws IOException {
 //        try {
 //            if (authenticate(usernameInput.getText(), passwordInput.getText())) {
 
                 MainController controller = Navigator.next("main", event);
                 controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa", controller);
+
 //
 //            } else {
 //                ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
@@ -81,6 +96,12 @@ public class LoginController implements TopBarable {
 //        }
     }
 
+    /**
+     * authneticating the entered credentials from the `PasswordContainer.json`
+     * @param username entered username
+     * @param password entered password
+     * @return verification acceptance
+     */
     public boolean authenticate(String username, String password) {
         // we will use a txt file to store credentials for our users
         try {
@@ -109,6 +130,7 @@ public class LoginController implements TopBarable {
         }
     }
 
+    @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Login");
         DropShadow shadow = new DropShadow();

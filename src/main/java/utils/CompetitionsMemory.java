@@ -2,12 +2,15 @@ package utils;
 
 import models.Competition;
 import models.User;
-import org.apache.bcel.generic.RETURN;
+
 import pages.CompetitionController;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
+/**
+ * a class to store and mutate existing competitions via interfacing with controllers and `ExcelStorage`
+ */
 public class CompetitionsMemory {
 
     public static CompetitionsMemory INSTANCE = new CompetitionsMemory();

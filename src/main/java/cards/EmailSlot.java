@@ -39,6 +39,7 @@ public class EmailSlot {
 
 
     public void fillContent(Team team, String competitionName, EmailDialog controller) throws IOException {
+        emailBtn.setId("teammail-" + team.index);
         compName = competitionName;
         currentTeam = team;
         currentController = controller;

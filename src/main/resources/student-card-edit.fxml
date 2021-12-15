@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER" prefHeight="103.0" prefWidth="446.0" style="-fx-background-color: white; -fx-background-radius: 8;" stylesheets="@styles/stu-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
+<HBox fx:id="stCard" alignment="CENTER" prefHeight="103.0" prefWidth="446.0" style="-fx-background-color: white; -fx-background-radius: 8;" stylesheets="@styles/stu-card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentCard">
     <children>
         <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
             <image>

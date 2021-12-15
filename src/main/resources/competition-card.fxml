@@ -119,7 +119,7 @@
    <effect>
       <DropShadow blurType="GAUSSIAN" height="30.0" offsetY="10.0" radius="14.5" width="30.0">
          <color>
-            <Color red="0.24120000004768372" green="0.296640008687973" blue="0.36000001430511475" opacity="0.10000000149011612" />
+            <Color red="0.24313725531101227" green="0.2980392277240753" blue="0.3607843220233917" opacity="0.10000000149011612" />
          </color>
       </DropShadow>
    </effect>

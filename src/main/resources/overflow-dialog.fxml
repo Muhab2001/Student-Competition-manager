@@ -12,11 +12,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxWidth="-Infinity" minHeight="-Infinity" prefWidth="492.0" style="-fx-background-insets: 0; -fx-border-insets: 0; -fx-background-color: white; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.ErrorDialog">
+<DialogPane maxWidth="-Infinity" minHeight="-Infinity" prefWidth="492.0" style="-fx-background-insets: 0; -fx-border-insets: 0; -fx-background-color: white; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.StudentOverflowConfirm">
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="206.0" prefWidth="476.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
          <children>
-            <Label fx:id="errContent" layoutX="33.1" layoutY="27.1" prefHeight="116.0" prefWidth="424.0" text="This Competition can no more accept any participants. Announce The rankings or change the due date" wrapText="true" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="16.0">
+            <Label fx:id="errContent" layoutX="33.1" layoutY="27.1" prefHeight="116.0" prefWidth="424.0" text="The new team size conflicts with existing number of students. Proceeding will delete all extra students based on their team index" wrapText="true" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="16.0">
                <padding>
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </padding>
@@ -32,11 +32,19 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Button fx:id="cancelBtn" layoutX="221.0" layoutY="143.0" mnemonicParsing="false" onAction="#cancel" prefHeight="41.0" prefWidth="103.0" style="-fx-background-color: #7c7c7c; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI bold';" stylesheets="@styles/competitions.css" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
    </content>
    <header>
-      <Label fx:id="errHeader" graphicTextGap="12.0" prefHeight="79.0" prefWidth="492.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 0; -fx-background-color: white;" text="Competition is Due!">
+      <Label fx:id="errHeader" graphicTextGap="12.0" prefHeight="79.0" prefWidth="492.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 0 0; -fx-background-color: white;" text="Student Overflow!">
          <font>
             <Font name="Segoe UI Bold" size="22.0" />
          </font>

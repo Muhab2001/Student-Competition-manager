@@ -5,22 +5,29 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Competition;
 import models.Student;
 import models.Team;
+import utils.TopBarPane;
+import utils.TopBarable;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class EmailDialog {
+public class EmailDialog implements TopBarable {
 
     private int emailCounter = 0;
     private Competition currentCompetition;
 
+    @FXML
+    private VBox dialogHeader;
 
+    @FXML
+    private DialogPane emailRoot;
 
     @FXML
     private Button confirmRankings;
@@ -57,4 +64,11 @@ public class EmailDialog {
             confirmRankings.setDisable(false);
     }
 
+    @Override
+    public void addTopBar(Stage stage) {
+        String title;
+        title = "Send Ranking Emails";
+        TopBarPane topBar = new TopBarPane((Stage) emailRoot.getScene().getWindow(),title);
+        dialogHeader.getChildren().add(0, topBar);
+    }
 }

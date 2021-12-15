@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -16,23 +19,33 @@ import utils.Navigator;
 import utils.TopBarPane;
 import utils.TopBarable;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * a class to handle competition details page
+ */
 public class CompetitionController implements TopBarable {
 
     private CompetitionController currentController;
     private boolean OPENED = false;
 
-    @FXML
-    public void initialize() throws IOException {
-
-    }
 
     private Competition currentCompetition;
 
     @FXML
     private VBox compRoot;
+
+    @FXML
+    private AnchorPane compBody;
+
+    @FXML
+    private ImageView connectionStatus;
+
+    @FXML
+    private Tooltip connectionToolTip;
 
     @FXML
     private Circle statusIndicator;
@@ -73,28 +86,48 @@ public class CompetitionController implements TopBarable {
     @FXML
     private Button announceRanking;
 
+    /**
+     * event listener for fire the ranking dialog
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
     void announceRanks(ActionEvent event) throws IOException {
         RankingDialog controller = Navigator.<RankingDialog>nextDialog("ranking", "Add a New Team");
-        controller.fillContent(currentCompetition, currentController);
+        controller.fillContent(currentCompetition, currentController, controller);
         controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
     }
 
+    /**
+     * event listener to fire the detail editing dialog
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
     void editDetails(ActionEvent event) throws IOException {
         CompetitionDialog dialogController = Navigator.<CompetitionDialog>nextDialog("competition-edit",
                 "Edit a Competition");
 
-        dialogController.fillEditContent(currentCompetition, currentController);
+        dialogController.fillEditContent(currentCompetition, currentController, dialogController);
 
         dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 }
 
+    /**
+     * event listener to navigate back to the main page
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
        Navigator.<MainController>next("main", event);
     }
 
+    /**
+     * event listener to fire the team addition dialog
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
     void addTeam(ActionEvent event) throws IOException {
         TeamDialog controller = Navigator.<TeamDialog>nextDialog("team", "Add a Team");
@@ -103,6 +136,12 @@ public class CompetitionController implements TopBarable {
         controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 
     }
+
+    /**
+     * event listener to navigate the competition website
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
     void visitWebsite(ActionEvent event) throws IOException {
 
@@ -110,35 +149,39 @@ public class CompetitionController implements TopBarable {
 
         controller.showWebsite(currentCompetition); // visit the link
     }
-    // Validates the link for the website of the competition
 
 
-
+    /**
+     * event listener to delete the current competition
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
+    // TODO: confirmation dialog for competition deletion
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
-        CompetitionsMemory.competitions.remove(currentCompetition.index);
-        if(currentCompetition.index != CompetitionsMemory.competitions.size()){
-            for(int i = currentCompetition.index; i < CompetitionsMemory.competitions.size(); i++){
-                CompetitionsMemory.competitions.get(i).index -= CompetitionsMemory.competitions.get(i).index;
-            }
-        }
-       MainController controller = Navigator.next("../main", event);
-       controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email, controller);
+        CompDeleteConfirm controller = Navigator.nextDialog("comp-delete", "Confirmation");
+        controller.fillContent(currentCompetition, currentController);
 
 
     }
 
-    public void fillContent(Competition competition, CompetitionController controller) throws IOException {
+    public void fillContent(Competition competition, CompetitionController controller, boolean opened) throws IOException {
 
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             LocalDate date = LocalDate.parse(competition.dueDate, formatter);
-
-
+            OPENED = opened;
+        try{
+            final URL url = new URL(competition.websiteLink);
+            final URLConnection conn = url.openConnection();
+            conn.connect();
+            connectionToolTip.setText("Connection is ready");
+            connectionStatus.setImage(new Image("img/icons8-check-circle-24.png"));
+        }catch (Exception e){
             if (!competition.isOpen) {
                 if(!OPENED) {
-                    ErrorDialog dialog = Navigator.<ErrorDialog>nextDialog("error", "This competition is due!");
+                    ErrorDialog dialog = Navigator.<ErrorDialog>nextDialog("error", "Warning");
                     dialog.fillContent("Competition is Due!",
                             "This Competition can no more accept any participants. Announce The rankings or change the due date");
                 }
@@ -162,11 +205,10 @@ public class CompetitionController implements TopBarable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../team-card.fxml"));
             teamsContainer.getChildren().add((Node) fxmlLoader.load());
             TeamCard controller2 = fxmlLoader.getController();
-            controller2.setContent(competition.teams.get(i), currentController, competition.index);
+            controller2.fillContent(competition.teams.get(i), currentController, competition.index);
         }
 
-    OPENED = true;
-    }
+    }}
 
     @Override
     public void addTopBar(Stage stage) {

@@ -1,6 +1,7 @@
 package cards;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Competition;
-import models.Student;
 import models.Team;
 import pages.CompetitionController;
 import utils.Navigator;
@@ -28,6 +28,7 @@ public class RankingDialog implements TopBarable {
     private final ArrayList<RankingSlot> controllers = new ArrayList<>();
     private CompetitionController compController;
     private String errMsg;
+    private RankingDialog dialog;
 
 
     @FXML
@@ -36,7 +37,7 @@ public class RankingDialog implements TopBarable {
     }
 
     @FXML
-    private DialogPane root;
+    private DialogPane rankRoot;
 
     @FXML
     private VBox dialogHeader;
@@ -62,18 +63,22 @@ public class RankingDialog implements TopBarable {
         stage.close();
     }
 
-    @FXML
+    @FXML // TODO: keyboard key listener for slots
     void confirmRanking(ActionEvent event) throws IOException {
+        ranker(event);
+    }
+
+    public void ranker(Event event) throws IOException {
         if(validate()){
             for (RankingSlot slot : controllers) {
-                //TODO: validation for ranks input
-                slot.cardTeam.rank = Integer.parseInt(slot.retreiveRank());
+                slot.cardTeam.rank = Integer.parseInt(slot.retrieveRank());
             }
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
             EmailDialog controller = Navigator.<EmailDialog>nextDialog("email", "Email a team");
             controller.fillContent(currentCompetition, controller);
-            compController.fillContent(currentCompetition, compController);
+            controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
+            compController.fillContent(currentCompetition, compController, true);
         }else{
             ErrorMessage errorMessage = Navigator.<ErrorMessage>card("error-msg");
             errorMessage.fillContent(errMsg);
@@ -89,7 +94,7 @@ public class RankingDialog implements TopBarable {
             slot.clearError();
         for(RankingSlot slot: controllers){
 
-            String rank = slot.retreiveRank();
+            String rank = slot.retrieveRank();
             if(rank.length() == 0){
                 errMsg = "Please provide a rank for all teams";
                 valid = false;
@@ -125,7 +130,8 @@ public class RankingDialog implements TopBarable {
 
 
 
-    public void fillContent(Competition competition, CompetitionController compController) throws IOException {
+    public void fillContent(Competition competition, CompetitionController compController, RankingDialog rankingDialog) throws IOException {
+        dialog = rankingDialog;
         currentCompetition = competition;
         this.compController = compController;
         ArrayList<Team> teams = competition.teams; // Get the teams of the current competition
@@ -135,8 +141,7 @@ public class RankingDialog implements TopBarable {
             studentContainer.getChildren().add((Node) fxmlLoader.load()); // Add empty ranking cards to the VBox
             RankingSlot slot = fxmlLoader.getController();
             controllers.add(slot);
-            slot.fillContent(team);
-
+            slot.fillContent(team, dialog);
         }
 
 
@@ -146,7 +151,7 @@ public class RankingDialog implements TopBarable {
     public void addTopBar(Stage stage) {
         String title;
         title = "Announce Rankings";
-        TopBarPane topBar = new TopBarPane((Stage)root.getScene().getWindow(),title);
+        TopBarPane topBar = new TopBarPane((Stage) rankRoot.getScene().getWindow(),title);
         dialogHeader.getChildren().add(0, topBar);
     }
 }

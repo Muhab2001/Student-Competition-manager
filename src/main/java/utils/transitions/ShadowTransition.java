@@ -6,13 +6,21 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-
+/**
+ * a class to handle FXML buttons shadow transition
+ */
 public class ShadowTransition extends Transition {
 
     private Button btn;
     private boolean isIn;
     private DropShadow shadow;
 
+    /**
+     * public constructor for animted shadow transition on buttons
+     * @param duration transition duration
+     * @param btn target button
+     * @param shadow DropShadow object
+     */
     public ShadowTransition(Duration duration,Button btn, DropShadow shadow){
         setCycleDuration(duration);
         this.btn = btn;
@@ -36,6 +44,10 @@ public class ShadowTransition extends Transition {
         this.btn.setEffect(shadow);
     }
 
+    /**
+     * setter for isIn to indicate mouse entrance on the button
+     * @param in
+     */
     public void setIsIn(boolean in){
         this.isIn = in;
     }

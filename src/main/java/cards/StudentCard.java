@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import models.Student;
 
 import java.io.IOException;
@@ -23,6 +24,9 @@ public class StudentCard {
     public void initialize(){
 
     }
+
+    @FXML
+    private HBox stCard;
 
     // VIEW
     @FXML
@@ -44,6 +48,8 @@ public class StudentCard {
     @FXML
     private TextField nameInput;
 
+
+
     @FXML
     void enterMutate(KeyEvent event) throws IOException {
 
@@ -55,6 +61,8 @@ public class StudentCard {
 
     // for editing cards
     public void fillEditableContent(Student student, TeamDialog dialog){
+        stCard.setId("stcard-" + student.index);
+
         currentController = dialog;
         index = student.index;
         majorInput.setText(student.major);
@@ -63,12 +71,17 @@ public class StudentCard {
     }
 
     public void fillEditableEmptyContent(TeamDialog dialog, int index){
+        stCard.setId("stcard-" + index);
         currentController = dialog;
         this.index = index;
     }
 
     // for view cards
     public void fillContent(Student student){
+
+        stCard.setId("stcard-" + student.index);
+        name.setId("stname-" + student.name.replaceAll("\\s+", ""));
+        System.out.println(student.name.replace("\\s+", "")); // TODO: delete test log
         index = student.index;
         major.setText(student.major);
         idNum.setText(student.id);
@@ -77,9 +90,9 @@ public class StudentCard {
 
     public Student retreive(){
         Student student = new Student(index);
-        student.name = nameInput.getText();
-        student.id = idInput.getText();
-        student.major = majorInput.getText();
+        student.name = nameInput.getText().strip();
+        student.id = idInput.getText().strip();
+        student.major = majorInput.getText().strip();
         return student;
     }
 

@@ -23,6 +23,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * controller class to handle competition website page
+ */
 public class WebsiteController implements TopBarable {
 
     Competition competition;
@@ -40,16 +43,25 @@ public class WebsiteController implements TopBarable {
 
     @FXML
     private WebView websiteViewer;
-    //DONE
+
+    /**
+     *
+     * @param event
+     * @throws IOException for fxml file corruption
+     */
     @FXML
     void navigateBack(ActionEvent event) throws IOException {
         CompetitionController controller =
                 Navigator.<CompetitionController>next("competition", event);
-        controller.fillContent(competition, controller);
+        controller.fillContent(competition, controller, true);
 
     }
 
-
+    /**
+     * a method to check connection, validate website link and display the webpage
+     * @param competition the target competition
+     * @throws IOException
+     */
     public void showWebsite(Competition competition) throws IOException {
         WebEngine webEngine = websiteViewer.getEngine();
         this.competition = competition;
@@ -69,12 +81,11 @@ public class WebsiteController implements TopBarable {
             websiteRoot.getChildren().add(2, msg.getLabel());
             websiteRoot.setSpacing(4);
             ErrorDialog dialog =Navigator.<ErrorDialog>nextDialog("error", "No Internet Connection!");
-            dialog.fillContent("No Network Connection!", "Please check your connection to display the competition website");
+            dialog.fillContent("No Internet Connection!", "Please check your internet connection to display the competition website");
         }
 
 
     }
-    // DONE
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Competition Website");

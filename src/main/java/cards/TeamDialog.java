@@ -21,6 +21,8 @@ import utils.TopBarPane;
 import utils.TopBarable;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TeamDialog implements TopBarable {
 
@@ -100,7 +102,7 @@ public class TeamDialog implements TopBarable {
                 newTeam.index = competition.teams.size();
                 competition.teams.add(newTeam);
             }
-            competitionController.fillContent(competition, competitionController);
+            competitionController.fillContent(competition, competitionController, true);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
         }else{
@@ -112,6 +114,12 @@ public class TeamDialog implements TopBarable {
     }
 
     private boolean validate(Competition competition){
+        Pattern idPattern = Pattern.compile("^20[0-9]{6}0$");
+        Matcher idMatcher;
+        Pattern namePattern = Pattern.compile("^[a-zA-Z\\s]+$");
+        Matcher nameMatcher;
+        Pattern majorPattern = Pattern.compile("^[a-zA-Z]{2,4}$");
+        Matcher majorMatcher;
         Competition compClone = competition.clone();
         if(isEditing){
             compClone.teams.remove(index);
@@ -123,6 +131,10 @@ public class TeamDialog implements TopBarable {
         for(StudentCard card: stdControllers){
 
             Student student = card.retreive();
+            idMatcher = idPattern.matcher(student.id);
+            nameMatcher = namePattern.matcher(student.name);
+            majorMatcher = majorPattern.matcher(student.major);
+            System.out.println(student.id); // TODO: delete test log
             if(student.name.length() != 0 && student.major.length() != 0 && student.id.length() != 0) {
                 valid = true;
                 // non-duplicates in the same team
@@ -161,10 +173,32 @@ public class TeamDialog implements TopBarable {
                 errMsg = "To add a student you must provide full details";
                 return false;
             }
+            if(!idMatcher.find() && student.id.length() != 0){
+                card.flagError();
+                errMsg = "Please provide a valid KFUPM id number";
+                return false;
+            }
+
+            if(!nameMatcher.find() && student.name.length() != 0){
+                card.flagError();
+                errMsg = "Please provide alphabetic input only for name";
+                return false;
+            }
+
+            if(!majorMatcher.find() && student.major.length() != 0){
+                card.flagError();
+                errMsg = "Please provide a valid KFUPM major code";
+                return false;
+            }
+
+
         }
         if(!valid){
             errMsg = "Cannot add an empty team";
+            for(StudentCard card: stdControllers)
+                card.flagError();
         }
+
         return valid;
 
     }

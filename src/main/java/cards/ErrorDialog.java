@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import utils.TopBarable;
@@ -12,6 +13,9 @@ public class ErrorDialog {
 
     @FXML
     private Button proceedBtn;
+
+
+
     @FXML
     private Label errContent;
 

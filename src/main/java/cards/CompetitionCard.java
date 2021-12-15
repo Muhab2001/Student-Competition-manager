@@ -35,13 +35,14 @@ public class CompetitionCard {
     void openDetails(MouseEvent event) throws IOException {
 
         CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
-        controller.fillContent(currentCompetition, controller);
+        controller.fillContent(currentCompetition, controller, false);
 
     }
 
     public void fillContent(Competition competition){
         // populating the card with the content
         competitionId.setId("comp-" + competition.index);
+        name.setId("comp-" + competition.name);
         String status = competition.isOpen ? "Open" : "Closed";
         String style = competition.isOpen ? "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: #1fff91" : "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: red";
         currentCompetition = competition;

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="trackRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="467.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-color: none !important;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
+<DialogPane fx:id="editRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="467.0" prefWidth="516.0" style="-fx-background-radius: 6; -fx-background-color: none !important;" stylesheets="@styles/competitions.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionDialog">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="516.0" style="-fx-background-color: white; -fx-background-radius: 0 0 6 6;">
         <columnConstraints>
@@ -34,7 +34,7 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nameInput" promptText="Enter Competition Name">
+                  <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter Competition Name">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -47,58 +47,67 @@
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
                </padding>
             </VBox>
-            <VBox layoutX="21.0" layoutY="21.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+            <VBox layoutX="21.0" layoutY="21.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
                <children>
                   <Label text="Website Link">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="linkInput" promptText="Enter Website Link">
+                  <TextField fx:id="linkInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter Website Link">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </TextField>
                </children>
                <padding>
-                  <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                  <Insets bottom="22.0" left="22.0" right="22.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets top="22.0" />
+               </GridPane.margin>
             </VBox>
-            <VBox layoutX="21.0" layoutY="143.0" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+            <VBox layoutX="21.0" layoutY="143.0" prefWidth="100.0" GridPane.rowIndex="2">
                <children>
                   <Label text="Team Size">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="sizeInput" promptText="Enter team size">
+                  <TextField fx:id="sizeInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter team size">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </TextField>
                </children>
                <padding>
-                  <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                  <Insets bottom="22.0" left="22.0" right="22.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin>
             </VBox>
-            <VBox layoutX="21.0" layoutY="264.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <VBox layoutX="21.0" layoutY="264.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Label text="Due Date">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dateInput" promptText="Enter Due Date" style="-fx-background-color: #f5f5f5;">
+                  <DatePicker fx:id="dateInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" promptText="Enter Due Date" style="-fx-background-color: #f5f5f5;">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </DatePicker>
                </children>
                <padding>
-                  <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                  <Insets bottom="22.0" left="22.0" right="22.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin>
             </VBox>
-            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#editCompetition" style="-fx-padding: 10; -fx-background-color: #3DB2FF; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI Semibold';" text="Confirm" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#editCompetition" style="-fx-padding: 10; -fx-background-color: #3DB2FF; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI Semibold';" styleClass="btn" text="Confirm" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>
@@ -135,15 +144,15 @@
    <header>
       <VBox fx:id="dialogHeader" prefWidth="100.0" style="-fx-border-color: #95A5A6; -fx-border-width: 0 0 1 0;">
          <children>
-            <Label prefHeight="61.0" prefWidth="539.0" style="-fx-text-fill: #3DB2FF; -fx-background-color: white; -fx-background-radius: 6 6 0 0;" styleClass="labels" stylesheets="@styles/comp-dialog.css" text="Edit Competition Details">
+            <Label maxWidth="1.7976931348623157E308" prefWidth="539.0" style="-fx-text-fill: #3DB2FF; -fx-background-color: white; -fx-background-radius: 6 6 0 0;" styleClass="labels" stylesheets="@styles/comp-dialog.css" text="Edit Competition Details">
                <padding>
-                  <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+                  <Insets bottom="18.0" left="18.0" right="18.0" top="14.0" />
                </padding>
                <font>
                   <Font name="Quicksand SemiBold" size="29.0" />
                </font>
             </Label>
-            <Label maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="537.0" style="-fx-background-color: white;" text="Enter the new information for the competition">
+            <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefWidth="537.0" style="-fx-background-color: white;" text="Enter the new information for the competition">
                <padding>
                   <Insets bottom="18.0" left="18.0" right="18.0" />
                </padding>

@@ -55,7 +55,6 @@ public class RankingSlot {
         cardTeam = team;
         for (Student student : cardTeam.students) { // Add each student card to the student container VBox
             if(student.name.length() != 0) {
-                System.out.println(student.toString() + "in ranking slot");
                 FXMLLoader studentNode = new FXMLLoader(getClass().getResource("../student-card-view.fxml"));
                 studentContainer.getChildren().add(studentNode.load()); // Add the student card to the student container
                 StudentCard controller = studentNode.getController();

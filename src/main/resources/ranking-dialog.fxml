@@ -38,7 +38,7 @@
                   <Insets left="8.0" right="8.0" top="8.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="153.60000610351562" layoutY="3.100006103515625" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="62.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font-size: 14;" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="170.0">
+                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="153.60000610351562" layoutY="3.100006103515625" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="62.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font: 14px 'Segoe UI bold';" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="185.0">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -46,9 +46,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="228.0" layoutY="3.100006103515625" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="157.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" styleClass="btn" stylesheets="@styles/competitions.css" text="Confirm Rankings" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="228.0" layoutY="3.100006103515625" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="172.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font: 14px 'Segoe UI bold';" styleClass="btn" stylesheets="@styles/competitions.css" text="Confirm Rankings" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/trophy-white.png" />
                            </image>

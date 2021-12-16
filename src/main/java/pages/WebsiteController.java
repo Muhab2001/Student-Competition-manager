@@ -65,12 +65,11 @@ public class WebsiteController implements TopBarable {
     public void showWebsite(Competition competition) throws IOException {
         WebEngine webEngine = websiteViewer.getEngine();
         this.competition = competition;
+        websiteLink.setText(competition.websiteLink);
         try{
             final URL url = new URL(competition.websiteLink);
             final URLConnection conn = url.openConnection();
             conn.connect();
-            websiteLink.setText(competition.websiteLink);
-
             webEngine.load(competition.websiteLink);
         }catch (Exception e){
 //            e.printStackTrace();

@@ -62,7 +62,7 @@ public class EmailDialog implements TopBarable {
         ArrayList<Team> teams = competition.teams; // Get the teams of the current competition
         currentCompetition = competition;
         for (Team team : teams) {
-            System.out.println(team.toString());
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../email-slott.fxml"));
             studentContainer.getChildren().add((Node) fxmlLoader.load()); // Add empty ranking cards to the VBox
             EmailSlot slot = fxmlLoader.getController();

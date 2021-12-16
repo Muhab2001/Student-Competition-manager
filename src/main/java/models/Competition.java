@@ -19,7 +19,6 @@ public class Competition implements Comparable<Competition>, Cloneable {
     public String websiteLink;
     public ArrayList<Team> teams;
     public int index;
-
     public Competition(String dueDate, String name, int teamSize, String websiteLink, ArrayList<Team> teams, int index) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse(dueDate.strip(), formatter);
@@ -31,7 +30,6 @@ public class Competition implements Comparable<Competition>, Cloneable {
         this.name = name;
         this.index = index;
     }
-
     public Competition(String dueDate, String name, int teamSize, String websiteLink, int index) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         LocalDate date = LocalDate.parse(dueDate.strip(), formatter);
@@ -44,11 +42,9 @@ public class Competition implements Comparable<Competition>, Cloneable {
         this.index = index;
 
     }
-
     public Team getTeam(int index){
         return null;
     }
-
     // this method will be used to compare teams before and after a competition edit
     @Override
     public int compareTo(Competition o) {
@@ -71,7 +67,6 @@ public class Competition implements Comparable<Competition>, Cloneable {
 
        return -1;
     }
-
     @Override
     public String toString() {
         return "Competition{" +
@@ -84,7 +79,6 @@ public class Competition implements Comparable<Competition>, Cloneable {
                 "\n\n, index=" + index +
                 '}';
     }
-
     @Override
     public Competition clone() {
         Competition clone = new Competition(this.dueDate, this.name, this.teamSize, this.websiteLink, this.index);

@@ -1,10 +1,8 @@
 package pages;
 
-import cards.CompetitionCard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,14 +14,10 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.matcher.control.LabeledMatchers;
-import org.testfx.service.query.NodeQuery;
-import org.testfx.util.WaitForAsyncUtils;
 import utils.CompetitionsMemory;
 import utils.ExcelStorage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.concurrent.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,7 +51,7 @@ class MainControllerTest {
 
     @Test
     void fillContent(FxRobot robot) throws TimeoutException {
-      assertAll(() ->  assertEquals(3, mainController.cards.size())
+      assertAll(() ->  assertEquals(3, mainController.competitions.size())
               ,() -> assertEquals("""
                       CompetitionCard{
                       id=0
@@ -65,7 +59,7 @@ class MainControllerTest {
                       , name=testing competition #1
                       , status=Open
                       , teamNum=2
-                      , teamSize=6}""", mainController.cards.get(0).toString()),
+                      , teamSize=6}""", mainController.competitions.get(0).toString()),
               () -> assertEquals("""
                       CompetitionCard{
                       id=1
@@ -73,7 +67,7 @@ class MainControllerTest {
                       , name=testing competition #2
                       , status=Open
                       , teamNum=2
-                      , teamSize=6}""", mainController.cards.get(1).toString()),
+                      , teamSize=6}""", mainController.competitions.get(1).toString()),
               () -> assertEquals("""
                       CompetitionCard{
                       id=2
@@ -81,7 +75,7 @@ class MainControllerTest {
                       , name=testing competition #3
                       , status=Open
                       , teamNum=2
-                      , teamSize=6}""", mainController.cards.get(2).toString()),
+                      , teamSize=6}""", mainController.competitions.get(2).toString()),
               () -> FxAssert.verifyThat("#email", LabeledMatchers.hasText("s201945570@kfpupm.edu.sa")),
               () -> FxAssert.verifyThat("#username", LabeledMatchers.hasText("username")));
 

@@ -40,7 +40,6 @@ public class CompetitionCard {
      */
     @FXML
     void openDetails(MouseEvent event) throws IOException {
-
         CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
         controller.fillContent(currentCompetition, controller, false);
 
@@ -55,7 +54,8 @@ public class CompetitionCard {
         competitionId.setId("comp-" + competition.index);
         name.setId("comp-" + competition.name);
         String status = competition.isOpen ? "Open" : "Closed";
-        String style = competition.isOpen ? "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: #1fff91" : "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: red";
+        String style =
+        competition.isOpen ? "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: #1fff91" : "-fx-font: 14px 'Segoe UI bold'; -fx-text-fill: red";
         currentCompetition = competition;
         id = competition.index;
         this.name.setText(competition.name);

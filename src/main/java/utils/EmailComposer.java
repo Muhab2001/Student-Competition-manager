@@ -28,12 +28,10 @@ public class EmailComposer {
 //        }
 //        sendMail(team1, "test1");
 //    }
-
     public EmailComposer INSTANCE = new EmailComposer();
     private EmailComposer(){
 
     }
-
     /**
      * handles sending an mail to a specific team
      * @param team the target team
@@ -54,9 +52,8 @@ public class EmailComposer {
         String URIstring = prepareMessage(emails,names,  CompetitionName, team.rank);
         sendMail(URIstring);
     }
-
     /**
-     * handles composing a message according to the format in `EmailBodyTemplate.txt`
+     * helper method handles composing a message according to the format in `EmailBodyTemplate.txt`
      * @param URIstring the formatted mailto request
      * @throws Exception for URI errors
      */
@@ -70,7 +67,6 @@ public class EmailComposer {
             throw new RuntimeException("desktop doesn't support mailto; mail is dead anyway ;)");
         }
     }
-
     /**
      *
      * @param emails array of student emails

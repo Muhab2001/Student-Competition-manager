@@ -73,7 +73,7 @@ public class CompDeleteConfirm implements Confirmable {
 
     @Override
     public void onConfirm(Event event) throws IOException {
-        CompetitionsMemory.competitions.remove(competition.index);
+        CompetitionsMemory.deleteCompetition(competition.index);
         if(competition.index != CompetitionsMemory.competitions.size()){
             for(int i = competition.index; i < CompetitionsMemory.competitions.size(); i++){
                 CompetitionsMemory.competitions.get(i).index -= CompetitionsMemory.competitions.get(i).index;

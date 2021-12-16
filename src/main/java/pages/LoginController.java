@@ -80,7 +80,7 @@ public class LoginController implements TopBarable {
             if (authenticate(usernameInput.getText(), passwordInput.getText())) {
 
                 MainController controller = Navigator.next("main", event);
-                controller.fillContent(usernameInput.getText(), "s201945570@kfpupm.edu.sa", controller);
+                controller.fillContent(usernameInput.getText(), CompetitionsMemory.CURRENT_USER.email, controller);
 
 
             } else {
@@ -116,12 +116,12 @@ public class LoginController implements TopBarable {
 
                 if (user.username.equals(username) && user.password.equals(hashedPass)) {
                     CompetitionsMemory.CURRENT_USER = user;
+                    System.out.println(user);
                     return true;
                 }
             }
             reader.endArray();
             reader.close();
-            System.out.println("Incorrect password!");
 
             return false;
         } catch (Exception e) {

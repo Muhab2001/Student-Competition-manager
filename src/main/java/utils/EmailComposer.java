@@ -52,7 +52,6 @@ public class EmailComposer {
         }
 
         String URIstring = prepareMessage(emails,names,  CompetitionName, team.rank);
-        System.out.println(URIstring);
         sendMail(URIstring);
     }
 

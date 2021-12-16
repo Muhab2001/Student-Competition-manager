@@ -144,7 +144,6 @@ public class CompetitionDialog implements TopBarable {
             CompetitionsMemory.competitions.add(competition);
             CompetitionController controller = Navigator.next("competition", event);
             controller.fillContent(competition, controller, true);
-            System.out.println(competition);
         }
     }
 
@@ -195,7 +194,6 @@ public class CompetitionDialog implements TopBarable {
                 if(currentOccupied > maxOccupied)
                     maxOccupied = currentOccupied;
             }
-            System.out.println(maxOccupied + " " + Integer.parseInt(sizeInput.getText()));
             if(maxOccupied <= Integer.parseInt(sizeInput.getText())) {
                 submitEdited();
                 // Closing the stage
@@ -235,7 +233,6 @@ public class CompetitionDialog implements TopBarable {
     private boolean invalid(){
         boolean case1 = dateInput.getValue() == (null) || sizeInput.getText().strip().length() == 0 || linkInput.getText().strip().length() == 0 || nameInput.getText().strip().length() == 0;
         String link = validatedLink(linkInput.getText());
-        System.out.println(dateInput.getValue() + " " + sizeInput.getText().length() + " " + linkInput.getText().length() + " " + nameInput.getText().strip().length() );
         clearError(sizeInput);
         clearError(nameInput);
         clearError(linkInput);

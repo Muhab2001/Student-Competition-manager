@@ -41,7 +41,7 @@
                   <Insets left="8.0" right="8.0" top="8.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="confirmRankings" alignment="CENTER" disable="true" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmEmailing" prefHeight="34.0" prefWidth="123.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" styleClass="btn" stylesheets="@styles/competitions.css" text="Confirm Mails" textFill="WHITE">
+                  <Button fx:id="confirmRankings" alignment="CENTER" disable="true" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmEmailing" prefHeight="34.0" prefWidth="123.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font: 14px 'Segoe UI bold';" styleClass="btn" stylesheets="@styles/competitions.css" text="Confirm Mails" textFill="WHITE">
                      <font>
                         <Font size="10.0" />
                      </font>

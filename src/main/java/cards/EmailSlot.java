@@ -37,8 +37,6 @@ public class EmailSlot {
      */
     @FXML
     void sendEmail(ActionEvent event) throws Exception {
-
-        System.out.println("Firing emails!");
         EmailComposer.sendMail(currentTeam, compName);
         emailBtn.setDisable(true);
         currentController.incrementCounter();
@@ -60,7 +58,6 @@ public class EmailSlot {
         rankValue.setText(String.valueOf(team.rank));
         for (Student student : team.students) { // Add each student card to the student container VBox
             if(student.name.length() != 0) {
-                System.out.println(student.toString() + "in email slot");
                 FXMLLoader studentNode = new FXMLLoader(getClass().getResource("../student-card-view.fxml"));
                 studentContainer.getChildren().add(studentNode.load()); // Add the student card to the student container
                 StudentCard stcontroller = studentNode.getController();

@@ -66,7 +66,6 @@ public class MainController implements TopBarable {
             }
             CompetitionCard controller2=  fxmlLoader.getController();
             controller2.fillContent(competition);
-            System.out.println(controller2);
             cards.add(controller2);
 
         }

@@ -146,7 +146,7 @@
          <children>
             <Label prefHeight="61.0" prefWidth="539.0" style="-fx-text-fill: #3DB2FF; -fx-background-color: white; -fx-background-radius: 6 6 0 0;" styleClass="labels" stylesheets="@styles/comp-dialog.css" text="Track a new Competition">
                <padding>
-                  <Insets bottom="18.0" left="18.0" right="18.0" top="12.0" />
+                  <Insets bottom="10.0" left="18.0" right="18.0" top="12.0" />
                </padding>
                <font>
                   <Font name="Quicksand SemiBold" size="29.0" />
@@ -154,7 +154,7 @@
             </Label>
             <Label maxHeight="-Infinity" minHeight="-Infinity" prefWidth="537.0" style="-fx-background-color: white;" text="Enter Needed Information to track a new competition">
                <padding>
-                  <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+                  <Insets bottom="12.0" left="16.0" right="16.0" />
                </padding>
                <font>
                   <Font name="Segoe UI" size="14.0" />

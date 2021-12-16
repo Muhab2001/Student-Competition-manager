@@ -2,46 +2,34 @@ package pages;
 
 import cards.CompetitionCard;
 import cards.CompetitionDialog;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import models.Competition;
 import utils.*;
-import utils.transitions.ShadowTransition;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 /**
  * controller class to handle the main page
  */
 public class MainController implements TopBarable {
-
     private MainController mainController;
-    public final ArrayList<CompetitionCard> cards = new ArrayList<>();
-
+    // holds competitions within loaded fxml cards
+    public final ArrayList<CompetitionCard> competitions = new ArrayList<>();
     @FXML
     private VBox mainRoot;
-
-
     /**
      * loads all competitions from `CompetitionsMemory`
      */
     @FXML
     public void initialize() {
-
         vBox1.setPadding(new Insets(14));
         vBox2.setPadding(new Insets(14));
         for(int i = 0; i < CompetitionsMemory.competitions.size(); i++){
@@ -50,7 +38,6 @@ public class MainController implements TopBarable {
             if(i % 2 == 0){
                 try {
                     vBox1.getChildren().add(fxmlLoader.load());
-
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }
@@ -61,18 +48,15 @@ public class MainController implements TopBarable {
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }
-
-
             }
             CompetitionCard controller2=  fxmlLoader.getController();
             controller2.fillContent(competition);
-            cards.add(controller2);
-
+            competitions.add(controller2);
         }
 
 
         // Assigning hover transitions for cards
-        for (CompetitionCard competitionCard : cards) {
+        for (CompetitionCard competitionCard : competitions) {
 
             VBox card = competitionCard.competitionId;
 
@@ -80,25 +64,18 @@ public class MainController implements TopBarable {
         }
 
     }
-
     @FXML
     private ScrollPane CompetitionsContainer;
-
     @FXML
     private Label email;
-
     @FXML
     private Button trackBtn;
-
     @FXML
     private Label username;
-
     @FXML
     private VBox vBox1;
-
     @FXML
     private VBox vBox2;
-
     /**
      * event listener to open the dialog for tracking new competitions
      * @param event
@@ -114,8 +91,6 @@ public class MainController implements TopBarable {
         dialogController.fillEmptyContent(mainController, stage);
 
     }
-
-
     /**
      * method to populate needed crednetials for website elements
      * @param name username
@@ -127,10 +102,8 @@ public class MainController implements TopBarable {
         mainController = controller;
         username.setText(name);
         this.email.setText(email);
-    return cards;
+    return competitions;
     }
-
-
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Competitions");

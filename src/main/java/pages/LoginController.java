@@ -37,17 +37,12 @@ public class LoginController implements TopBarable {
     private VBox root;
     @FXML
     private VBox container;
-
     @FXML
     private Button loginBtn;
-
     @FXML
     private PasswordField passwordInput;
-
     @FXML
     private TextField usernameInput;
-
-
     /**
      * listener for Enter key to submit the login form
      * @param event the enter key trigger
@@ -59,7 +54,6 @@ public class LoginController implements TopBarable {
             logger(event);
 
     }
-
     /**
      * listener for direct manipulation button
      * @param event
@@ -69,7 +63,6 @@ public class LoginController implements TopBarable {
     void login(ActionEvent event) throws IOException {
         logger(event);
     }
-
     /**
      * login page submission handler
      * @param event
@@ -94,7 +87,6 @@ public class LoginController implements TopBarable {
             System.out.println(e.getMessage());
         }
     }
-
     /**
      * authneticating the entered credentials from the `PasswordContainer.json`
      * @param username entered username
@@ -128,7 +120,6 @@ public class LoginController implements TopBarable {
             return false;
         }
     }
-
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Login");

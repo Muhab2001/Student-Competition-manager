@@ -141,7 +141,7 @@ public class CompetitionDialog implements TopBarable {
             stage.close();
             mainStage.close();
             // open a new page for the new competition
-            CompetitionsMemory.competitions.add(competition);
+            CompetitionsMemory.addCompetition(competition);
             CompetitionController controller = Navigator.next("competition", event);
             controller.fillContent(competition, controller, true);
         }

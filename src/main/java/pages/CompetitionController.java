@@ -26,64 +26,9 @@ import java.time.format.DateTimeFormatter;
  * a class to handle competition details page
  */
 public class CompetitionController implements TopBarable {
-
-    private CompetitionController currentController;
-    private boolean OPENED = false;
-
-
+    private CompetitionController currentController; // to manipulate the controller by other controller
+    private boolean OPENED = false; // to determine due date dialog firing
     private Competition currentCompetition;
-
-    @FXML
-    private VBox compRoot;
-
-    @FXML
-    private AnchorPane compBody;
-
-    @FXML
-    private ImageView connectionStatus;
-
-    @FXML
-    private Tooltip connectionToolTip;
-
-    @FXML
-    private Circle statusIndicator;
-
-    @FXML
-    private Button addTeamBtn;
-
-    @FXML
-    private Label competitionName;
-
-    @FXML
-    private Label dateLabel;
-
-    @FXML
-    private Button editDetailsBtn;
-
-    @FXML
-    private Button returnBtn;
-
-    @FXML
-    private Label sizeLabel;
-
-    @FXML
-    private Label statusLabel;
-
-    @FXML
-    private Label teamNumLAbel;
-
-    @FXML
-    private Button visitWebsiteBtn;
-
-    @FXML
-    private Button deleteBtn;
-
-    @FXML
-    private VBox teamsContainer;
-
-    @FXML
-    private Button announceRanking;
-
     /**
      * event listener for fire the ranking dialog
      * @param event
@@ -95,7 +40,6 @@ public class CompetitionController implements TopBarable {
         controller.fillContent(currentCompetition, currentController, controller);
         controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
     }
-
     /**
      * event listener to fire the detail editing dialog
      * @param event
@@ -110,7 +54,6 @@ public class CompetitionController implements TopBarable {
 
         dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 }
-
     /**
      * event listener to navigate back to the main page
      * @param event
@@ -120,7 +63,6 @@ public class CompetitionController implements TopBarable {
     void navigateBack(ActionEvent event) throws IOException {
        Navigator.<MainController>next("main", event);
     }
-
     /**
      * event listener to fire the team addition dialog
      * @param event
@@ -134,7 +76,6 @@ public class CompetitionController implements TopBarable {
         controller.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
 
     }
-
     /**
      * event listener to navigate the competition website
      * @param event
@@ -147,8 +88,6 @@ public class CompetitionController implements TopBarable {
 
         controller.showWebsite(currentCompetition); // visit the link
     }
-
-
     /**
      * event listener to delete the current competition
      * @param event
@@ -162,7 +101,6 @@ public class CompetitionController implements TopBarable {
 
 
     }
-
     /**
      * method to populate the competition info after initialization
      * @param competition target competition
@@ -171,8 +109,6 @@ public class CompetitionController implements TopBarable {
      * @throws IOException for fxml file corruption
      */
     public void fillContent(Competition competition, CompetitionController controller, boolean opened) throws IOException {
-
-
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             LocalDate date = LocalDate.parse(competition.dueDate, formatter);
             OPENED = opened;
@@ -218,10 +154,44 @@ public class CompetitionController implements TopBarable {
         }
 
     }}
-
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,competitionName.getText());
         compRoot.getChildren().add(0,topBar);
     }
+
+    @FXML
+    private VBox compRoot;
+    @FXML
+    private AnchorPane compBody;
+    @FXML
+    private ImageView connectionStatus;
+    @FXML
+    private Tooltip connectionToolTip;
+    @FXML
+    private Circle statusIndicator;
+    @FXML
+    private Button addTeamBtn;
+    @FXML
+    private Label competitionName;
+    @FXML
+    private Label dateLabel;
+    @FXML
+    private Button editDetailsBtn;
+    @FXML
+    private Button returnBtn;
+    @FXML
+    private Label sizeLabel;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Label teamNumLAbel;
+    @FXML
+    private Button visitWebsiteBtn;
+    @FXML
+    private Button deleteBtn;
+    @FXML
+    private VBox teamsContainer;
+    @FXML
+    private Button announceRanking;
 }

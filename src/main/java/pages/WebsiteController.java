@@ -27,23 +27,15 @@ import java.net.URLConnection;
  * controller class to handle competition website page
  */
 public class WebsiteController implements TopBarable {
-
-    Competition competition;
-
-
-
+    Competition competition; // stored to handle UI back navigation
     @FXML
     private Button returnBtn;
-
     @FXML
     private VBox websiteRoot;
-
     @FXML
     private Label websiteLink;
-
     @FXML
     private WebView websiteViewer;
-
     /**
      *
      * @param event
@@ -56,7 +48,6 @@ public class WebsiteController implements TopBarable {
         controller.fillContent(competition, controller, true);
 
     }
-
     /**
      * a method to check connection, validate website link and display the webpage
      * @param competition the target competition

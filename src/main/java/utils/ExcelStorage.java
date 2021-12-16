@@ -20,7 +20,6 @@ import java.util.*;
 public class ExcelStorage {
 
     public ExcelStorage INSTANCE = new ExcelStorage();
-
     private ExcelStorage() throws FileNotFoundException {
 
     }
@@ -37,7 +36,6 @@ public class ExcelStorage {
 //            System.out.println(e.getMessage());
 //        }
 //    }
-
     /**
      * iterates over every single sheet in a structured excel spreadsheet as the following
      *
@@ -141,7 +139,6 @@ public class ExcelStorage {
 
         return  competitions; // temporary setup to avoid errors
     }
-
     /**
      *  a function that saves the current CompetitionsMemory into the excel sheet by the following
      *

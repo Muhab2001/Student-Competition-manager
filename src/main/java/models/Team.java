@@ -10,19 +10,16 @@ public class Team implements Comparable<Team>, Cloneable{
     public ArrayList<Student> students;
     public int teamSize;
     public int rank = -1;
-
     public Team(int id, ArrayList<Student> students, int teamSize){
         this.index = id;
         this.students = students;
         this.teamSize = teamSize;
     }
-
     public Team(int id, int teamSize){
         this.index = id;
         this.teamSize = teamSize;
         this.students = new ArrayList<>(teamSize);
     }
-
     // this method will be used to compare teams before and after a competition edit
     @Override
     public int compareTo(Team o) {
@@ -37,7 +34,6 @@ public class Team implements Comparable<Team>, Cloneable{
 
         return 0; // equal information
     }
-
     @Override
     public String toString() {
         return "Team{" +
@@ -47,7 +43,6 @@ public class Team implements Comparable<Team>, Cloneable{
                 "rank="+ rank +
                 '}' + "\n-------------------------------------------\n";
     }
-
     @Override
     public Team clone() {
 

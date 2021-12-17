@@ -114,7 +114,7 @@ public class StudentCard {
         Student student = new Student(index);
         student.name = nameInput.getText().strip();
         student.id = idInput.getText().strip();
-        student.major = majorInput.getText().strip();
+        student.major = majorInput.getText().strip().toUpperCase();
         return student;
     }
 

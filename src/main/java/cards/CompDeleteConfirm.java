@@ -23,6 +23,7 @@ public class CompDeleteConfirm implements Confirmable {
 
     private Competition competition;
     private CompetitionController compController;
+    private Stage stage;
 
     @FXML
     private Button cancelBtn;
@@ -56,7 +57,7 @@ public class CompDeleteConfirm implements Confirmable {
         onConfirm(event);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
-        MainController controller = Navigator.next("main", event);
+        MainController controller = Navigator.back("main", this.stage);
         controller.fillContent(CompetitionsMemory.CURRENT_USER.username, CompetitionsMemory.CURRENT_USER.email, controller);
     }
 
@@ -65,10 +66,11 @@ public class CompDeleteConfirm implements Confirmable {
      * @param comeptition
      * @param controller
      */
-    public void fillContent(Competition comeptition, CompetitionController controller){
+    public void fillContent(Competition comeptition, CompetitionController controller, Stage stage){
         proceedBtn.setId("delete-confirm");
         this.competition = comeptition;
         this.compController = controller;
+        this.stage = stage;
     }
 
     @Override

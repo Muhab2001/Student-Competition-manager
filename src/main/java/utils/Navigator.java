@@ -50,6 +50,18 @@ public class Navigator{
         return controller;
     }
 
+    public static <T extends TopBarable> T back(String dist, Stage stageIn) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Navigator.class.getClassLoader().getResource(dist+".fxml"));
+        Stage stage = stageIn; // get the current stage
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
+        T controller = fxmlLoader.getController();
+        stage.getIcons().add(new Image("img/48.png"));
+        controller.addTopBar(stage);
+        stage.setScene(scene);
+        stage.show();
+        return controller;
+    }
+
     /**
      * method to open dialog pop ups
      * @param dist filename without `-dialog.fxml` suffix

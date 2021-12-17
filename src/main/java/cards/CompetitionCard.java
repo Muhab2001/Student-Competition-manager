@@ -43,6 +43,7 @@ public class CompetitionCard {
         CompetitionController controller = Navigator.<CompetitionController>next("competition", event);
         controller.fillContent(currentCompetition, controller, false);
 
+
     }
 
     /**

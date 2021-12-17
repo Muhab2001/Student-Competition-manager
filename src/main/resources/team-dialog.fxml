@@ -57,7 +57,7 @@
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </opaqueInsets>
             </Label>
-            <Label prefHeight="45.0" prefWidth="577.0" text="Enter Students' Informaiton for this team">
+            <Label prefHeight="45.0" prefWidth="577.0" text="Enter Students' Information for this team">
                <padding>
                   <Insets bottom="18.0" left="18.0" right="18.0" />
                </padding>

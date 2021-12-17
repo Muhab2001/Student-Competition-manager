@@ -195,7 +195,7 @@ public class CompetitionDialog implements TopBarable {
                     maxOccupied = currentOccupied;
             }
             if(maxOccupied <= Integer.parseInt(sizeInput.getText())) {
-                submitEdited();
+                submitEdited(maxOccupied);
                 // Closing the stage
 
             }else{
@@ -210,7 +210,7 @@ public class CompetitionDialog implements TopBarable {
      * method for calling submission form studentOverflow dialog
      * @throws IOException
      */
-    public void submitEdited() throws IOException {
+    public void submitEdited(int max) throws IOException {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         competition.name = nameInput.getText();
         competition.websiteLink = validatedLink(linkInput.getText());
@@ -221,6 +221,8 @@ public class CompetitionDialog implements TopBarable {
         CompetitionsMemory.editCompetition(competition);
         for(Team team: competition.teams){
             team.teamSize = competition.teamSize; // syncing size changes;
+            while (competition.teamSize > team.students.size())
+                team.students.add(new Student(team.students.size()));
         }
         stage.close();
     }

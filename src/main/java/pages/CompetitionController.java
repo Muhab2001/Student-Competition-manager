@@ -97,7 +97,7 @@ public class CompetitionController implements TopBarable {
     void delete(ActionEvent event) throws IOException {
         // implement the deletion process before navigating
         CompDeleteConfirm controller = Navigator.nextDialog("comp-delete", "Confirmation");
-        controller.fillContent(currentCompetition, currentController);
+        controller.fillContent(currentCompetition, currentController, (Stage)((Node) event.getSource()).getScene().getWindow());
 
 
     }

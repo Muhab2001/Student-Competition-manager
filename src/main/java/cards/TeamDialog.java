@@ -131,7 +131,7 @@ public class TeamDialog implements TopBarable {
      * @return validation confirmation
      */
     private boolean validate(Competition competition){
-        Pattern idPattern = Pattern.compile("^20[0-9]{6}0$");
+        Pattern idPattern = Pattern.compile("^20[0-9]{7}$");
         Matcher idMatcher;
         Pattern namePattern = Pattern.compile("^[a-zA-Z\\s]+$");
         Matcher nameMatcher;

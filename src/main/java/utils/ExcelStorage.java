@@ -47,8 +47,6 @@ public class ExcelStorage {
             DateFormat dateFormatter = new SimpleDateFormat("M/d/yyyy"); // an accepted date format by the excel API
             //Create Workbook instance holding reference to .xlsx file
             XSSFWorkbook workbook = new XSSFWorkbook(file);
-            System.out.println(workbook.getNumberOfSheets());
-
             if(workbook.getSheetAt(0).getRow(0) != null){
                 for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
 

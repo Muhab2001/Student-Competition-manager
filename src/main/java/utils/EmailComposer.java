@@ -17,17 +17,7 @@ import java.util.logging.Logger;
  * singleton class to handle email message composing and draft populating in default email app
  */
 public class EmailComposer {
-    // TODO: delete testing main method
-//    public static void main(String[] args) throws Exception {
-//        String[] names = {"Muhab", "Ahmed", "Basel", "Mubarak", "Abdulaziz", ""};
-//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-//        Team team1 = new Team(0, 6);
-//        team1.rank = 23;
-//        for(int i = 0; i < team1.teamSize; i++){
-//            team1.students.add(new Student( i, "20194557" + i, names[i], "SWE/CS"));
-//        }
-//        sendMail(team1, "test1");
-//    }
+
     public EmailComposer INSTANCE = new EmailComposer();
     private EmailComposer(){
 

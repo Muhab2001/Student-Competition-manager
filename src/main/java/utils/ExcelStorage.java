@@ -23,19 +23,7 @@ public class ExcelStorage {
     private ExcelStorage() throws FileNotFoundException {
 
     }
-    //TODO: delete the testing main method
-//    public static void main(String[] args) throws IOException {
-//        try {
-//            FileInputStream file = new FileInputStream(new File("storage.xlsx"));
-//
-//            //Create Workbook instance holding reference to .xlsx file
-//            XSSFWorkbook workbook = new XSSFWorkbook(file);
-//
-//            saveChanges(getAllCompetitions());
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
+
     /**
      * iterates over every single sheet in a structured excel spreadsheet as the following
      *
@@ -47,7 +35,7 @@ public class ExcelStorage {
             DateFormat dateFormatter = new SimpleDateFormat("M/d/yyyy"); // an accepted date format by the excel API
             //Create Workbook instance holding reference to .xlsx file
             XSSFWorkbook workbook = new XSSFWorkbook(file);
-            if(workbook.getSheetAt(0).getRow(0) != null){
+            if(workbook.getSheetAt(0).getRow(0).getCell(1) != null){
                 for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
 
                     // getting description data to format a Competition Object
@@ -159,7 +147,7 @@ public class ExcelStorage {
         CellStyle dateCellStyle = workbook.createCellStyle();
         dateCellStyle.setDataFormat(workbook.createDataFormat().getFormat("M/d/yyyy"));
 
-        if(!getAllCompetitions().isEmpty()){//create a sheet for each competition
+        if(!CompetitionsMemory.competitions.isEmpty()){//create a sheet for each competition
             for (Competition competition : competitions) {
                 XSSFSheet sheet = workbook.createSheet(competition.name);
                 // STEP1: populating descriptors' data first

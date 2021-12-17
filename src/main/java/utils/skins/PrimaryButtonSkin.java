@@ -16,8 +16,15 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import utils.transitions.ShadowTransition;
 
+/**
+ * special skin for FXML buttons with background color transition
+ */
 public class PrimaryButtonSkin extends ButtonSkin {
 
+    /**
+     * public constructor
+     * @param control the skinned button
+     */
     public PrimaryButtonSkin(Button control) {
         super(control);
 
@@ -26,7 +33,7 @@ public class PrimaryButtonSkin extends ButtonSkin {
 
         final ShadowTransition shadowIn = new ShadowTransition(Duration.millis(300),control,dropIn);
         shadowIn.setIsIn(true);
-        Transition in = animateBackgroundColor(control, Color.valueOf("#3DB2FF"),Color.valueOf("#369cdc"),300);
+        Transition in = animateBackgroundColor(control, Color.valueOf("#3DB2FF"),Color.valueOf("#369cdc"),500);
 
 
         control.setOnMouseEntered(e -> {
@@ -39,7 +46,7 @@ public class PrimaryButtonSkin extends ButtonSkin {
         final ShadowTransition shadowOut = new ShadowTransition(Duration.millis(300),control,dropOut);
         shadowOut.setIsIn(false);
 
-        Transition out = animateBackgroundColor(control, Color.valueOf("#369cdc"),Color.valueOf("#3DB2FF"),300);
+        Transition out = animateBackgroundColor(control, Color.valueOf("#369cdc"),Color.valueOf("#3DB2FF"),500);
 
 
         control.setOnMouseExited(e -> {
@@ -51,6 +58,14 @@ public class PrimaryButtonSkin extends ButtonSkin {
 
     }
 
+    /**
+     * method to apply background effects on the skinned button
+     * @param control target button
+     * @param fromColor initial color profile
+     * @param toColor eventual color profile
+     * @param duration transition duration
+     * @return a transition object for background color
+     */
     private Transition animateBackgroundColor(Button control, Color fromColor, Color toColor, double duration){
         Rectangle rect = new Rectangle();
         rect.setFill(fromColor);

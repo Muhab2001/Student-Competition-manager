@@ -1,14 +1,12 @@
 .small-btn{
--fx-background-radius: 20px !important;
--fx-pref-width: 40px !important;
--fx-min-width: 40px !important;
--fx-max-width: 40px !important;
--fx-pref-height: 40px !important;
--fx-min-height: 40px !important;
--fx-max-height: 40px !important;
- -fx-background-radius: 4px;
- -fx-border-radius: 4px;
- -fx-skin: 'utils.skins.PrimaryButtonSkin';
+-fx-background-radius: 16px !important;
+-fx-pref-width: 32px !important;
+-fx-min-width: 32px !important;
+-fx-max-width: 32px !important;
+-fx-pref-height: 32px !important;
+-fx-min-height: 32px !important;
+-fx-max-height: 32px !important;
+ -fx-border-radius: 16px !important;
 }
 
 }
@@ -21,3 +19,13 @@
 .small-btn:pressed{
 -fx-background-color:  #277bae !important;
 }
+
+.scroll-bar:vertical > .thumb {
+    -fx-background-color:  #aeaeae;
+}.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+    -fx-background-insets:0 ;
+ }
+ .scroll-bar {
+     -fx-font-size: 10px;
+ }

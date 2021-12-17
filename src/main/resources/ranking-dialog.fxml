@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="610.0" style="-fx-background-color: white; -fx-background-radius: 8;" stylesheets="@styles/rank-dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
-   <effect>
-      <DropShadow>
-         <color>
-            <Color red="0.46052631735801697" green="0.46052631735801697" blue="0.46052631735801697" />
-         </color>
-      </DropShadow>
-   </effect>
+<DialogPane fx:id="rankRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="610.0" style="-fx-background-color: white; -fx-border-color: grey;" stylesheets="@styles/rank-dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.RankingDialog">
    <opaqueInsets>
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
    </opaqueInsets>
@@ -29,7 +21,7 @@
          <children>
             <ScrollPane fx:id="ranksContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity" minHeight="-Infinity" minViewportHeight="200.0" minViewportWidth="280.0" minWidth="-Infinity" pannable="true" prefHeight="318.0" prefWidth="590.0" style="-fx-border-width: 0;" VBox.vgrow="ALWAYS">
                <content>
-                  <VBox fx:id="studentContainer" alignment="TOP_CENTER" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="597.0" spacing="6.0">
+                  <VBox fx:id="studentContainer" alignment="TOP_CENTER" prefWidth="564.0" spacing="6.0">
                      <padding>
                         <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                      </padding>
@@ -41,22 +33,22 @@
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding></ScrollPane>
-            <HBox alignment="TOP_RIGHT" prefHeight="59.0" prefWidth="385.0">
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0">
                <VBox.margin>
                   <Insets left="8.0" right="8.0" top="8.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="62.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font-size: 14;" text="Cancel" textFill="WHITE">
+                  <Button fx:id="cancelRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="153.60000610351562" layoutY="3.100006103515625" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="62.0" style="-fx-background-radius: 4; -fx-background-color: #7c7c7c; -fx-font: 14px 'Segoe UI bold';" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="185.0">
                      <font>
                         <Font size="10.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets right="12.0" />
-                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="166.0" layoutY="10.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="157.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font-size: 14;" text="Confirm Rankings" textFill="WHITE">
+                  <Button fx:id="confirmRankings" alignment="CENTER" graphicTextGap="8.0" layoutX="228.0" layoutY="3.100006103515625" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirmRanking" prefHeight="34.0" prefWidth="172.0" style="-fx-background-radius: 4; -fx-background-color: #3DB2FF; -fx-font: 14px 'Segoe UI bold';" styleClass="btn" stylesheets="@styles/competitions.css" text="Confirm Rankings" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/trophy-white.png" />
                            </image>
@@ -65,32 +57,32 @@
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
-            </HBox>
+            </AnchorPane>
          </children>
       </VBox>
    </content>
    <header>
-      <VBox prefHeight="86.0" prefWidth="423.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;">
+      <VBox fx:id="dialogHeader" prefWidth="423.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;">
          <children>
-            <Label prefHeight="47.0" prefWidth="423.0" text="Announce Rankings">
+            <Label maxWidth="1.7976931348623157E308" prefWidth="423.0" text="Announce Rankings">
                <padding>
-                  <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                  <Insets bottom="12.0" left="20.0" right="12.0" top="12.0" />
                </padding>
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label prefHeight="34.0" prefWidth="436.0" text="Enter the ranking for each team">
+            <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefWidth="436.0" text="Enter the ranking for each team">
                <padding>
-                  <Insets bottom="16.0" left="12.0" right="12.0" />
+                  <Insets bottom="16.0" left="20.0" right="12.0" />
                </padding>
             </Label>
          </children>
-         <padding>
-            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-         </padding>
       </VBox>
    </header>
 </DialogPane>

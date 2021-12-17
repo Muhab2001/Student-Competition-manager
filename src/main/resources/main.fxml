@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.MainController">
+<VBox fx:id="mainRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.MainController">
    <children>
       <AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f5f5;" stylesheets="@styles/main.css">
          <children>
@@ -46,7 +46,7 @@
                </font>
             </Label>
             <Label fx:id="email" layoutX="710.0" layoutY="38.0" prefHeight="24.0" prefWidth="174.0" text="username@gmail.com" textFill="#737373" />
-            <ImageView fx:id="profilePic" fitHeight="38.0" fitWidth="38.0" layoutX="654.0" layoutY="19.0" onMouseClicked="#profileClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profilePic" fitHeight="38.0" fitWidth="38.0" layoutX="654.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/profile.png" />
                </image>

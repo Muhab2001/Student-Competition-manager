@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="competiitionId" onMouseClicked="#openDetails" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: #e2ece9; -fx-background-radius: 12;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
+<VBox fx:id="competitionId" onMouseClicked="#openDetails" prefHeight="137.0" prefWidth="409.0" style="-fx-background-color: #e2ece9; -fx-background-radius: 12;" styleClass="comp-cards" stylesheets="@styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.CompetitionCard">
    <children>
       <Label fx:id="name" prefHeight="66.0" prefWidth="420.0" style="-fx-border-width: 0 0 0 0; -fx-border-color: #95A5A6;" text="Competition Name">
          <padding>
@@ -46,7 +46,7 @@
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/icons8-queue-30%20(1).png" />
+                              <Image url="@img/icons8-queue-30 (1).png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -119,7 +119,7 @@
    <effect>
       <DropShadow blurType="GAUSSIAN" height="30.0" offsetY="10.0" radius="14.5" width="30.0">
          <color>
-            <Color red="0.24120000004768372" green="0.296640008687973" blue="0.36000001430511475" opacity="0.10000000149011612" />
+            <Color red="0.24313725531101227" green="0.2980392277240753" blue="0.3607843220233917" opacity="0.10000000149011612" />
          </color>
       </DropShadow>
    </effect>

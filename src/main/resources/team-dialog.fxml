@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxWidth="-Infinity" prefHeight="582.0" prefWidth="578.0" stylesheets="@styles/team-dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamDialog">
+<DialogPane fx:id="root" maxWidth="-Infinity" prefHeight="582.0" prefWidth="578.0" style="-fx-border-color: grey;" stylesheets="@styles/team-dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cards.TeamDialog">
    <content>
-      <AnchorPane maxWidth="-Infinity" prefHeight="481.0" prefWidth="554.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="554.0" prefWidth="576.0">
          <children>
-            <Button fx:id="confirm" alignment="CENTER" layoutX="437.0" layoutY="426.0" mnemonicParsing="false" onAction="#mutateTeams" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #3DB2FF; -fx-padding: 10; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI bold';" text="Confirm" textFill="WHITE">
+            <Button fx:id="confirm" alignment="CENTER" layoutX="437.0" layoutY="426.0" mnemonicParsing="false" onAction="#mutateTeams" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #3DB2FF; -fx-padding: 10; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI bold';" styleClass="btn" stylesheets="@styles/competitions.css" text="Confirm" textFill="WHITE" AnchorPane.bottomAnchor="30.0">
                <font>
                   <Font name="Segoe UI Semibold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="22.0" layoutY="22.0" pannable="true" prefHeight="332.0" prefWidth="532.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="77.20000000000005" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.200000000000045" AnchorPane.topAnchor="22.0">
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="66.1" layoutY="43.1" pannable="true" prefHeight="393.0" prefWidth="466.0" style="-fx-border-color: white;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
                <content>
-                  <VBox fx:id="studentsContainer" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="8.0">
+                  <VBox fx:id="studentsContainer" alignment="TOP_CENTER" prefHeight="406.0" prefWidth="476.0" spacing="8.0">
                      <padding>
-                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                        <Insets bottom="16.0" left="12.0" right="12.0" top="12.0" />
                      </padding></VBox>
                </content></ScrollPane>
-            <Button fx:id="cancelBtn" alignment="CENTER" layoutX="327.0" layoutY="426.0" mnemonicParsing="false" onAction="#cancel" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #7c7c7c; -fx-padding: 10; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI bold';" text="Cancel" textFill="WHITE">
+            <Button fx:id="cancelBtn" alignment="CENTER" layoutX="327.0" layoutY="426.0" mnemonicParsing="false" onAction="#cancel" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #7c7c7c; -fx-padding: 10; -fx-background-radius: 4; -fx-font: 14px 'Segoe UI bold';" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="30.0">
                <font>
                   <Font name="Segoe UI Semibold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
@@ -38,20 +43,10 @@
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
-   <effect>
-      <DropShadow>
-         <color>
-            <Color red="0.46052631735801697" green="0.46052631735801697" blue="0.46052631735801697" />
-         </color>
-      </DropShadow>
-   </effect>
-   <padding>
-      <Insets bottom="16.0" top="16.0" />
-   </padding>
    <header>
-      <VBox fx:id="headerContainer" prefHeight="93.0" prefWidth="578.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;">
+      <VBox fx:id="headerContainer" prefWidth="576.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #95A5A6;">
          <children>
-            <Label fx:id="headerText" maxWidth="578.0" prefHeight="100.0" prefWidth="578.0" style="-fx-text-fill: #3DB2FF;" text="(Create/Edit) a Team">
+            <Label fx:id="headerText" maxWidth="578.0" prefHeight="35.0" prefWidth="577.0" style="-fx-text-fill: #3DB2FF;" text="(Create/Edit) a Team">
                <padding>
                   <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
                </padding>
@@ -62,7 +57,7 @@
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </opaqueInsets>
             </Label>
-            <Label text="Enter Students' Informaiton for this team">
+            <Label prefHeight="45.0" prefWidth="577.0" text="Enter Students' Informaiton for this team">
                <padding>
                   <Insets bottom="18.0" left="18.0" right="18.0" />
                </padding>

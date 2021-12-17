@@ -6,108 +6,110 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Competition;
-import utils.CompetitionsMemory;
-import utils.Navigator;
-import utils.TopBarPane;
-import utils.TopBarable;
+import utils.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+/**
+ * controller class to handle the main page
+ */
 public class MainController implements TopBarable {
-
+    private MainController mainController;
+    // holds competitions within loaded fxml cards
+    public final ArrayList<CompetitionCard> competitions = new ArrayList<>();
     @FXML
-    private VBox root;
-    public MainController(){
-
-    }
-
-    // used to fetch data when the element is displayed
+    private VBox mainRoot;
+    /**
+     * loads all competitions from `CompetitionsMemory`
+     */
     @FXML
-    public void initialize() throws IOException {
-
-
+    public void initialize() {
         vBox1.setPadding(new Insets(14));
         vBox2.setPadding(new Insets(14));
-        for(int i = 0; i < CompetitionsMemory.INSTANCE.competitions.size(); i++){
-
-            Competition competition = CompetitionsMemory.INSTANCE.getCompetition(i);
-
+        for(int i = 0; i < CompetitionsMemory.competitions.size(); i++){
+            Competition competition = CompetitionsMemory.getCompetition(i);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("competition-card.fxml"));
             if(i % 2 == 0){
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-                vBox1.getChildren().add((Node) fxmlLoader.load());
-                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition);
+                try {
+                    vBox1.getChildren().add(fxmlLoader.load());
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
             }
             else{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../competition-card.fxml"));
-                vBox2.getChildren().add((Node) fxmlLoader.load());
-                ((CompetitionCard) fxmlLoader.getController()).fillContent(competition);
-
-
+                try {
+                    vBox2.getChildren().add(fxmlLoader.load());
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
             }
+            CompetitionCard controller2=  fxmlLoader.getController();
+            controller2.fillContent(competition);
+            competitions.add(controller2);
+        }
 
 
+        // Assigning hover transitions for cards
+        for (CompetitionCard competitionCard : competitions) {
+
+            VBox card = competitionCard.competitionId;
+
+            Hover.raising(card);
         }
 
     }
-
     @FXML
     private ScrollPane CompetitionsContainer;
-
     @FXML
     private Label email;
-
     @FXML
     private Button trackBtn;
-
     @FXML
     private Label username;
-
     @FXML
     private VBox vBox1;
-
     @FXML
     private VBox vBox2;
-
+    /**
+     * event listener to open the dialog for tracking new competitions
+     * @param event
+     * @throws IOException when fxml file is corrupted
+     */
     @FXML
     void trackCompetition(ActionEvent event) throws IOException {
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         CompetitionDialog dialogController =
-                Navigator.<CompetitionDialog>nextDialog("competition", "Track a New Competition");
+                Navigator.nextDialog("competition", "Track a New Competition");
         dialogController.setIsTrack(true);
-        dialogController.addTopBar((Stage)((Node)event.getSource()).getScene().getWindow());
+        dialogController.addTopBar(stage);
+        dialogController.fillEmptyContent(mainController, stage);
 
     }
-
-    //TODO : remove after testing
-    @FXML
-    void profileClicked(MouseEvent event) {
-        Node node = (Node) event.getSource();
-        String view = (String) node.getId();
-        System.out.println(view);
-    }
-
-    // DONE
-    public void fillContent(String name, String email){
+    /**
+     * method to populate needed crednetials for website elements
+     * @param name username
+     * @param email user email
+     * @param controller an instance of the main controller for later usage
+     * @return
+     */
+    public ArrayList<CompetitionCard> fillContent(String name, String email, MainController controller){
+        mainController = controller;
         username.setText(name);
         this.email.setText(email);
+    return competitions;
     }
-
-
     @Override
     public void addTopBar(Stage stage) {
         TopBarPane topBar = new TopBarPane(stage,"Competitions");
-        root.getChildren().add(0,topBar);
+        mainRoot.getChildren().add(0,topBar);
     }
+
+
 }
 

@@ -41,7 +41,7 @@
                               <Font name="Quicksand Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="competitionName" prefWidth="306.0" style="-fx-font: 22px 'Segoe UI bold';" text="Competition Name" textAlignment="RIGHT" wrapText="true">
+                        <Label fx:id="competitionName" prefWidth="306.0" style="-fx-font: 22px 'Segoe UI bold';" text="Competition Details" textAlignment="RIGHT" wrapText="true">
                            <padding>
                               <Insets bottom="12.0" left="12.0" right="12.0" />
                            </padding>

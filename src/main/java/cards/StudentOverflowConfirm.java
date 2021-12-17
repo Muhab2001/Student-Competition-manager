@@ -53,7 +53,7 @@ public class StudentOverflowConfirm implements Confirmable {
     @FXML
     void proceed(ActionEvent event) throws IOException {
         onConfirm(event);
-        dialogController.submitEdited();
+        dialogController.submitEdited(competition.teamSize);
         compController.fillContent(competition, compController, true);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();

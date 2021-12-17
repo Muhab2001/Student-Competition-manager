@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Added Announce Rankings">
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Added Email Dialog">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_9.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/EmailDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/EmailDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/EmailSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/EmailSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/RankingDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/RankingDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-3.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

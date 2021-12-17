@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Added Email Dialog">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_9.xml" beforeDir="false" />
+    <list default="true" id="d5855eeb-b77f-4c5e-af30-97e10866e628" name="Changes" comment="Merged working code from master branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/storage.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-3.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +37,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="20jSaXFGn7gUeItbewnDVxl6WrZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -61,6 +56,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.21652421" />
     <property name="project.structure.side.proportion" value="0.3026534" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
@@ -98,19 +94,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Navigator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="utils.Navigator" />
-      <module name="swe-project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="User" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="models.User" />
       <module name="swe-project" />
@@ -127,6 +110,21 @@
     <configuration name="tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tester" />
       <module name="swe-project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test-3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pages" />
+      <option name="MAIN_CLASS_NAME" value="pages.LoginControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,18 +187,18 @@
       <item itemvalue="Application.EmailComposer" />
       <item itemvalue="Application.ExcelStorage" />
       <item itemvalue="Application.tester" />
-      <item itemvalue="Application.Navigator" />
       <item itemvalue="Application.User" />
+      <item itemvalue="JUnit.LoginControllerTest" />
       <item itemvalue="Maven.test-3 [javafx:run]" />
       <item itemvalue="Maven.run-fx" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginControllerTest" />
         <item itemvalue="Application.ExcelStorage" />
         <item itemvalue="Application.EmailComposer" />
         <item itemvalue="Application.tester" />
         <item itemvalue="Application.User" />
-        <item itemvalue="Application.Navigator" />
       </list>
     </recent_temporary>
   </component>
@@ -325,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638725620740</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Merged working code from master branch">
+      <created>1639757195223</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1639757195223</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,13 +344,28 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="ahmad-branch" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -369,14 +389,16 @@
     <MESSAGE value="The working pulled version" />
     <MESSAGE value="Finished visitWebsite and editCompetition" />
     <MESSAGE value="Added Announce Rankings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Announce Rankings" />
+    <MESSAGE value="Merged working code" />
+    <MESSAGE value="Merged working code from master branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged working code from master branch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/utils/ExcelStorage.java</url>
-          <line>221</line>
+          <line>215</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">

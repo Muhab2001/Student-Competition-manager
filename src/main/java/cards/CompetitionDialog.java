@@ -249,7 +249,7 @@ public class CompetitionDialog implements TopBarable {
 
         try{
             int size = Integer.parseInt(sizeInput.getText());
-            if (size < 0) throw new Exception();
+            if (size <= 0) throw new Exception();
         }catch (Exception e){
             errMsg = "Please enter positive numeric values in size field";
             sizeInput.requestFocus();

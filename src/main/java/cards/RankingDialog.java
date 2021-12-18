@@ -119,7 +119,7 @@ public class RankingDialog implements TopBarable {
             }
             else{
                 try {
-                    if (Integer.parseInt(rank) < 0) {
+                    if (Integer.parseInt(rank) <= 0) {
                         errMsg = "Please provide positive values";
                         slot.flagError();
                         return false;
